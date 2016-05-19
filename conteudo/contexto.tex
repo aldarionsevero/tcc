@@ -13,12 +13,29 @@ o sistema o mais estável possível, o que significa o mínimo de alteração.
 A lacuna desse processo é agravada pelos diferentes objetivos de cada equipe
 \cite{huttermann:2012}.
 
-A adoção de \textit{DevOps} vem sido feita para amenizar essa lacuna, aplicando
-técnicas, ferramentas ou mesmo modificação da cultura. Em conjunto a esse modelo
-\textit{DevOps}, tem-se o conceito de automação de infraestrutura e infraestrutura
-como código. Ambos estão fortemente ligados, sendo facilitadores para o desenvolvedor
-conhecer as regras de \textit{deployment} de sua aplicação e para o operador
-documentar e configurar um ambiente para um estado específico definido pelo código
-de \textit{deployment} \cite{hummer:2013}.
+A adoção de \textit{DevOps} \textit{(Development and Operation)} vem sido feita
+para amenizar essa lacuna. \textit{DevOps} consiste em uma série de práticas,
+ferramentas ou mesmo cultura organizacional com o objetivo de diminuir o tempo
+de entrega e \textit{deployment} de um software. Em conjunto a
+esse modelo, tem-se o conceito de automação de infraestrutura e infraestrutura
+como código. Ambos estão fortemente ligados, sendo facilitadores para o
+desenvolvedor conhecer as regras de \textit{deployment} de sua aplicação
+e para o operador documentar e configurar um ambiente para um estado específico
+definido pelo código de \textit{deployment} \cite{hummer:2013}.
 
-[Sistema legado]
+Neste contexto, surgiram ferramentas de suporte, como Chef \cite{chef:2016} e
+Puppet \cite{puppet:2016}, que abstraem os passos de execução de configuração
+e \textit{deployment} em forma de código. A chave dessas propóstas está em torno
+da capacidade de \textit{convergence} do ambiente, ou seja, a execução de uma
+sequência de passos pré-definidos sempre leva a um estado previsível do objeto
+\cite{hummer:2013}. Pode-se citar alguns dos principais benefícios
+\cite{vasiliev:2014}:
+
+\begin{itemize}
+  \item \textbf{Escalabilidade}: aumentar a quantidade de serviços em uma infraestrutura
+    utilizando \textit{environments, roles e nodes};
+  \item \textbf{Reuso e Replicação}: configurar a mesma aplicação em um novo \textit{node};
+  \item \textbf{Documetação}: em uma receita Chef contém todas as instruções necessárias
+    para configuração do ambiente;
+\end{itemize}
+
