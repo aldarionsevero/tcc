@@ -1,9 +1,35 @@
 %\section{Especificação da Análise em Cada Camada do Ambiente}
 \section{Camadas de Ambiente}
 
+As camadas apresentam um conjunto de aspectos do sistema dos quais contém as
+informações necessárias que definem o comportamento específico para o
+estado desejado para aquele ambiente. Os atributos de cada camada são variantes
+que são consideradas para o \textit{deployment} de uma aplicação. Sendo assim, as
+camadas são dependentes para o nível de compatibilidade da configuração.
+
+As seguintes camadas foram definidas para representar o estado de configuração do
+sistema:
+\begin{itemize}
+  \item \textit{\textbf{Hardware}}: definições física onde o sistema foi implantado.
+    Arquitetura, memória, espaço em disco, etc;
+  \item \textit{\textbf{Operation System}}: definições do sistema operacional
+    implantado. Distribuição, arquitetura, versão, etc;
+  \item \textit{\textbf{Application}}: definições das aplicações instaladas.
+    Quais as aplicações instaladas, dependências, etc;
+  \item \textit{\textbf{Configuration}}: definições das configurações das
+    aplicações. Especificações de \textit{deployment} de aplicação, arquivos
+    de configuração;
+  \item \textit{\textbf{Service}}: definições dos serviços daemon que estão em
+    funcionamento no sistema.
+  \item \textit{\textbf{Custom}}: definições criadas específicamente para o
+    sistema sem uma forma padrão conhecida.
+\end{itemize}
+
+\subsection{}
+
 %\subsection{Camadas selecionadas para atuação da aplicação}
-\subsection{Seleção de Camadas}
+\section{Seleção de Camadas}
 
-\subsection{Profundade de Análise}
+\section{Profundade de Análise}
 
-\subsection{Relação entre Camadas e \textit{Cookbooks}}
+\section{Relação entre Camadas e \textit{Cookbooks}}
