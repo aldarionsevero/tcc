@@ -1,5 +1,6 @@
 %\section{Especificação da Análise em Cada Camada do Ambiente}
 \section{Camadas de Ambiente}
+\label{sec:cam-amb}
 
 As camadas apresentam um conjunto de aspectos do sistema dos quais contém as
 informações necessárias que definem o comportamento específico para o
@@ -25,11 +26,30 @@ sistema:
     sistema sem uma forma padrão conhecida.
 \end{itemize}
 
-\subsection{}
+\subsection{\textit{Hardware}}
+\label{sec:cam-hard}
+
+A camada de \textit{Hardware} contém as definições física do sistema.
+As informações são referentes as configurações físicas da máquina, como
+cpu, memória, espaço em disco, particionamento, etc. O informe desses atributos
+são utilizados para a definição da base do ambiente, ou seja, o sistema
+operacional e as aplicações podem ter diferentes desempenhos apartir das
+configurações de hardware e/ou apresentar comportamentos inesperados no sistema.
+Além das aplicações terem seus requisitos mínimos, algumas são desenhadas
+para um tipo específico de arquitetura.
+
+#TODO: adicionar as informações que serão coletadas.
+
+\subsection{\textit{Operation System}}
+\label{sec:cam-os}
 
 %\subsection{Camadas selecionadas para atuação da aplicação}
 \section{Seleção de Camadas}
+\label{sec:sel-cam}
 
-\section{Profundade de Análise}
+As camadas foram selecionadas considerando o tempo de implementação [*].
+#TODO: completar
+
+\subsection{Profundade de Análise}
 
 \section{Relação entre Camadas e \textit{Cookbooks}}
