@@ -1,16 +1,24 @@
 \section{Decisões de Tecnologias}
 
-Já que a aplicação proposta por esse trabalho (puppet) tem a intenção de entrar na família de ferramentas relacionadas ao Chef, é interessante que ela seja uma Gem, ou seja, que seja desenvolvida em ruby e seja disponibilizada pelo gerenciador de pacotes RubyGems, estando no padrão das outras ferramentas da família Chef.
+Já que a aplicação proposta por esse trabalho (cupper) tem a intenção de entrar na família de ferramentas relacionadas ao Chef, é interessante que ela seja uma Gem, ou seja, que seja desenvolvida em ruby e seja disponibilizada pelo gerenciador de pacotes RubyGems, estando no padrão das outras ferramentas da família Chef.
 
 A decisão pelo próprio chef vem da experiência que o grupo tem com essa ferramenta. Por já estarem familiarizados com a estrutura, sintaxe e formas de execução do Chef, a escolha do chef para a ferramenta de gerencia e configuração de ambientes foi a mais natural.
 
-Por mais que o Chef esteja relacionado ao desenvolvimento do puppet, ele não é uma dependência para a execução do mesmo, e sim uma ferramenta que usa a saída do puppet para outro fim, como será explicado no capítulo \ref{chap:espec} de Especificação.
+Por mais que o Chef esteja relacionado ao desenvolvimento do cupper, ele não é uma dependência para a execução do mesmo, e sim uma ferramenta que usa a saída do cupper para outro fim, como será explicado no capítulo \ref{chap:espec} de Especificação. Mas uma dependência que foi levantada para o desenvolvimento do puppet é o ohai, outra ferramenta da família chef, que será necessária para fazer o perfil e diagnóstico inicial do sistema.
+
+Para o desenvolvimento, gerência de mudanças, versionamento, testes e integração contínua serão utilizadas as seguintes ferramentas e frameworks respectivamente: vim, git e github, rspec e travis. O vim por ser o editor que o grupo já utiliza para desenvolvimento, possibilitando adição de plugins para aumentar produtividade. O git pelo mesmo motivo, e o github para manter a ferramenta no mesmo serviço de hospedagem git de códigos que as outras ferramentas da família chef. A esclha do rspec também tem o objetivo de seguir o mesmo padrão das outras ferramentas da família chef, que utilizam rspec como framework de testes. O travis foi escolhido por ter a configuração mais simples (em comparação com Jenkins, já que o travis só requere um arquivo de configuração e alguns cliques) e também por ser utilizado pela maioria das ferramentas da família chef.
+
+
+
+gitter
 
 git
 
 github
 
 ruby
+
+rspec
 
 gem
 
