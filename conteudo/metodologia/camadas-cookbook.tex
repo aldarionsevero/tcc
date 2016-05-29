@@ -1,18 +1,53 @@
-%\section{Camadas de Cookbook e do Chef}
 \section{Recursos Chef}
+\label{sec:rec-chef}
+
+A ferramenta \textit{Chef} provê recursos para total automação da infraestrutura.
+Sendo possível preparar, configurar e integrar a infraestrutura com a
+flexibilidade de manutenção de scripts \cite{sharma:2015}. Para isso, o
+\textit{Chef} tem um estrutura complexa envolvendo diversos componentes para
+o completo funcionamento e utilização de todos os recursos.
+
 De modo análogo ao levantamento de camadas de ambiente a serem analisadas,
 os recursos de \textit{cookbooks} e do \textit{Chef} necessários para implementação precisam
 ser levantados e então selecionados para o escopo do projeto.
 
-
-
 \subsection{Levantamento de Recursos}
-O Chef possui extensa documentação, e com base nela será feito
-um levantamento para avaliar quais recursos são necessários para a implementação
-do Cupper.
+\label{sec:levn-rec}
+
+O principal objeto utilizado para a pesquisa do levantamento dos recursos
+é a documentação oficial do \textit{Chef}. A documentação é extensa e completa e
+com base nela será feito um levantamento para avaliar quais recursos
+serão necessários para a implementação deste projeto. Além disso, existem
+referências não oficiais de publicações sobre a ferramenta abordando os
+mesmos recursos, entretanto, em sua maioria, demonstram a utilização do
+\textit{Chef} com outras ferramentas de DevOps.
+
+A organização da documentação oficial é dividida nos principais componentes
+da arquitetura do \textit{Chef} além de outros item para conhecimento gerais sobre a
+ferramenta \cite{chefdoc:2016}. São eles:
+
+\begin{itemize}
+  \item \textit{Getting Started}: visão geral de toda a estrutura do \textit{Chef}
+    como componentes, recursos, ferramentas auxiliares, etc;
+  \item \textit{The Workstation}: todos os recursos envolvidos na máquina de \textit{workstation}
+    como estrutura, linhas de comando, \textit{kit} de desenvolvimento, etc;
+  \item \textit{The Node}: todos os recursos envolvidos nas máquinas \textit{node}
+    como atributos do \textit{node}, componentes, etc;
+  \item \textit{Cookbook}: explicação de toda a estrutura de um \textit{cookbook}
+    como módulos \textit{recipes, templates, files}, etc;
+  \item \textit{The Chef Server}: todos os recursos envolvidos na máquina \textit{server}
+    como gerenciamento de \textit{nodes}, análise de recursos, \textit{logs}, etc;
+  \item \textit{Chef Compliance}: todos os recursos envolvidos na máquina \textit{compliance}
+    como informaçõe sobre a infraestrutura, auditoria de configurações, etc.
+\end{itemize}
+
+Para o projeto Cupper, os foco principal de estudo dos recursos Chef estão
+concentrados em duas seções principais na documentação oficial: \textit{The Node} e
+\textit{Cookbook}. As outras seções são complementares para o entendimento de toda
+a estrutura e, a princípio, não serão consultadas.
 
 \subsection{Definição de Critérios de Seleção de Recursos}
 \label{sec:defcritrecurso}
-{\color{red} definir critérios para selecionar recursos chef}
+
 
 
