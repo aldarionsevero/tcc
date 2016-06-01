@@ -8,7 +8,7 @@ tradicional problema entre a equipe de desenvolvimento e a equipe de operação
 \cite{hummer:2013}.
 
 Enquanto a equipe de desenvolvimento tende a disponibilizar todas novas alterações,
-solicitada pelo cliente ou providas pela empresa, para a validação do cliente o
+solicitadas pelo cliente ou providas pela empresa, para a validação do cliente o
 mais depressa possível, a equipe de operação tende a manter o sistema o estável,
 o que significa minimizar a implantação de grandes mudanças. A lacuna desse
 processo é agravada pelos diferentes objetivos de cada equipe
@@ -17,16 +17,16 @@ processo é agravada pelos diferentes objetivos de cada equipe
 A adoção de \textit{DevOps} \textit{(Development and Operation)} vem sido feita
 para amenizar essa lacuna. \textit{DevOps} consiste em uma série de práticas,
 ferramentas ou mesmo cultura organizacional com o objetivo de diminuir o tempo
-de entrega e \textit{deployment} de um software. Em conjunto a
-esse modelo, tem-se o conceito de automação de infraestrutura e infraestrutura
+de entrega e implantação de um software. Juntamente com esse modelo,
+tem-se os conceitos de automação de infraestrutura e infraestrutura
 como código. Ambos estão fortemente ligados, sendo facilitadores para o
-desenvolvedor conhecer as regras de \textit{deployment} de sua aplicação
+desenvolvedor conhecer as regras de implantação de sua aplicação
 e para o operador documentar e configurar um ambiente para um estado específico
 definido pelo código de \textit{deployment} \cite{hummer:2013}.
 
 Neste contexto, surgiram ferramentas de suporte, como Chef \cite{chef:2016} e
 Puppet \cite{puppet:2016}, que abstraem os passos de execução de configuração
-e \textit{deployment} em forma de código. A chave dessas propóstas está em torno
+e \textit{deployment} em forma de código. A chave dessas propostas está em torno
 da capacidade de \textit{convergence} do ambiente, ou seja, a execução de uma
 sequência de passos pré-definidos sempre leva a um estado previsível do objeto
 \cite{hummer:2013}. Pode-se citar alguns dos principais benefícios
@@ -38,7 +38,7 @@ sequência de passos pré-definidos sempre leva a um estado previsível do objet
     (conjunto de receitas que representa o papel do sistema) e \textit{nodes}
     (máquina física, virtual, container, etc);
   \item \textbf{Reuso e Replicação}: configurar a mesma aplicação em um novo \textit{node};
-  \item \textbf{Documetação}: em uma receita Chef contém todas as instruções necessárias
+  \item \textbf{Documetação}: uma receita Chef contém todas as instruções necessárias
     para configuração do ambiente;
 \end{itemize}
 
