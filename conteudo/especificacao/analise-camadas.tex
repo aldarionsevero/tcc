@@ -2,9 +2,9 @@
 \section{Camadas de Ambiente}
 \label{sec:cam-amb}
 
-As camadas apresentam um conjunto de aspectos do sistema dos quais contém as
+As camadas apresentam um conjunto de aspectos do sistema e contém as
 informações necessárias que definem o comportamento específico para o
-estado desejado para aquele ambiente. Os atributos de cada camada são variantes
+estado desejado daquele ambiente. Os atributos de cada camada são variantes
 que são consideradas para o \textit{deployment} de uma aplicação. Sendo assim, as
 camadas são dependentes para o nível de compatibilidade da configuração.
 
@@ -12,15 +12,15 @@ camadas são dependentes para o nível de compatibilidade da configuração.
 As seguintes camadas foram definidas para representar o estado de configuração do
 sistema:
 \begin{itemize}
-  \item \textit{\textbf{Hardware}}: definições física onde o sistema foi implantado.
-    Arquitetura, memória, espaço em disco, etc;
+  \item \textit{\textbf{Hardware}}: definições físicas onde o sistema foi implantado.
+    (Arquitetura, memória, espaço em disco, etc);
   \item \textit{\textbf{Operation System}}: definições do sistema operacional
     implantado. Distribuição, arquitetura, versão, etc;
   \item \textit{\textbf{Application}}: definições das aplicações instaladas.
-    Quais as aplicações instaladas, dependências, etc;
+    (Aplicações instaladas, dependências, etc);
   \item \textit{\textbf{Configuration}}: definições das configurações das
-    aplicações. Especificações de \textit{deployment} de aplicação, arquivos
-    de configuração;
+    aplicações. (Especificações de implantação de aplicação, arquivos
+    de configuração);
   \item \textit{\textbf{Service}}: definições dos serviços daemon que estão em
     funcionamento no sistema.
   \item \textit{\textbf{Custom}}: definições criadas especificamente para o
@@ -39,8 +39,8 @@ configurações de hardware e/ou apresentar comportamentos inesperados no sistem
 Além das aplicações terem seus requisitos mínimos, algumas são desenhadas
 para um tipo específico de arquitetura.
 
-A tabela~\ref{} mostra diversas informações de hardware que é possível extrair
-do sistema a partir de comandos do sistema operacional e também do Ohai, 
+A tabela~\ref{} mostra diversas informações de hardware possíveis de serem extraídas
+do sistema a partir de comandos do sistema operacional e também da ferramenta Ohai, 
 dependência prevista para a implementação do Cupper (como descrito na 
 seção~\ref{sec:tec}). Nem todas essas informações serão úteis para a 
 implementação, mas nessa seção fazemos um levantamento geral antes de fazer uma
@@ -58,7 +58,7 @@ lsscsi, lsusb, lsblk, df, mount, free, e ohai}
 \subsubsection{\textit{Operation System}}
 \label{sec:cam-os}
 
-A segunda camada de extração de dados é a de Sistema Operacional. 
+A segunda camada de extração de dados é a do Sistema Operacional. 
 Cada sistema tem a sua particularidade com relação aos gerenciamento dos 
 recursos de hardware e administração de processos. Portanto é necessário a 
 construção de uma arquitetura flexível, que contenha os aspectos em comum aos
