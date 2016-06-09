@@ -57,19 +57,19 @@ repetível~\cite{huttermann:2012}. \\
 \noindent\begin{minipage}{.45\textwidth}
   \label{code:shell}
   \lstset{style=shell}
-  \lstinputlisting[language=Bash, caption="Código em Shell"]{conteudo/code/shell_example.sh}
+  \lstinputlisting[language=Bash, label=code:shell, caption="Código em Shell"]{conteudo/code/shell_example.sh}
 \end{minipage}\hfill
 \begin{minipage}{.45\textwidth}
   \label{code:chef}
   \lstset{style=shell}
-  \lstinputlisting[language=Bash, caption="Código em Chef"]{conteudo/code/chef_example.rb}
+  \lstinputlisting[language=Bash, label=code:chef, caption="Código em Chef"]{conteudo/code/chef_example.rb}
 \end{minipage}
 
 
 Neste trabalho será abordado a ferramenta Chef, que consiste em uma ferramenta de
 automação de configuração de infraestrutura da qual utiliza o conceito de infraestrutura
 como código para estabelecer os \textit{scripts} configuração. Na a representação \ref{code:shell}
-é um exemplo de um \textit{script} escrito em \textit{shell} e outro em \textit{Ruby}
+\ref{code:chef} é um exemplo de um \textit{script} escrito em \textit{shell} e outro em \textit{Ruby}
 interpretada pela ferramenta Chef.
 
 \subsection{Chef}
@@ -77,17 +77,37 @@ interpretada pela ferramenta Chef.
 
 Chef é uma ferramenta de gerenciamento e configuração de infraestrutura criada
 pela comunidade Opscode em 2008 oficialmente lançada em 2009. Seu propósito é
-auxiliar na transformação de uma complexa infraestrutura em código, com nível
-de abstração compreensiveis para os desenvolvedores. Sendo assim,
-a gerência de configuração gira em torno da codificação simplificada e amigável
-ao invés de comandos manuais de instalação e configuração de aplicações
-\cite{sharma:2015}.
+tranformar uma infraestrutura complexa em código~\cite{chef:2016}. Sendo assim, a gerência de
+configuração gira em torno da codificação simplificada e amigável
+ao invés de comandos manuais de instalação e configuração de aplicações ~\cite{sharma:2015}.
 
-\begin{figure}[h]
-  \label{fig:arch_chef}
-  \centering
-  \includegraphics[width=\textwidth]{figuras/arch_chef.eps}
-  \caption{Chef - Arquitetura de Componentes}
-\end{figure}
+A estrutura completa da ferramenta Chef contém vários componentes interagindo entre si para
+prover ao cliente (chef-client) as informações e instruções necessárias para que ele
+possa executar sua função. Os principais componentes são~\cite{chef:2016}:
 
+\begin{itemize}
+  \item \textit{Workstation}: qualquer máquina que possa servir como estação
+    responsável por permitir usuários criar, testar e manter \textit{cookbooks};
+  \item \textit{Cookbook}: contém as configurações desejadas para o ambiente.
+    Pode ser customizados para um ambiente específico da empresa ou utilizar
+    \textit{cookbooks} disponíveis pela comunidade Chef;
+  \item \textit{Ruby}: linguagem oficial utilizada para a escrita dos \textit{scripts}
+    é o Ruby;
+  \item \textit{Node}: qualquer máquina física, virtual, em núvem, dispositivo
+    de rede, etc, que deva ser gerenciada pelo Chef;
+  \item \textit{Chef Client}: ferramenta instalada em todos os \textit{nodes}. O
+    \textit{Chef Client} é responsável por executar todas as tarefas especificadas
+    em uma \textit{run-list} (conjunto de \textit{cookbooks});
+  \item \textit{Chef Server}: funciona como um \textit{hub} de informações. Todos os
+    \textit{cookbooks} e as políticas são atualizadas no Chef Server pelos usuários
+    dos \textit{workstations}. O Chef Client acessa o Chef Server para verificar
+    as informações necessárias para sua tarefas e retorna dados para o servidor
+    que serão usados para gerar relatórios;
+  \item \textit{Chef Analytics}: visibilidade em tempo real de dados informativos
+    sobre o servidor como mudanças realizadas, os autores das mudanças e quando
+    ocorreram. Além de detalhes das tarefas executadas nas máquinas \textit{nodes};
+  \item \textit{Chef Supermarket}: local central onde a comunidade Chef cria e
+    mantém os \textit{cookbooks}. Podem ser customizados de acordo com as necessidades
+    da organização.
+\end{itemize}
 
