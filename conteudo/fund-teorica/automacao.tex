@@ -52,7 +52,25 @@ A infraestrutura como código é focada em manipular a configuração da infraes
 da mesma maneira que os desenvolvedores manipulam os seus códigos: escolhendo a melhor
 linguagem e ferramenta para o desenvolvimentos da solução, transformando um especificação
 em algo executável que possa ser aplicada em um sistema de forma eficiente e
-repetível~\cite{huttermann:2012}.
+repetível~\cite{huttermann:2012}. \\
+
+\noindent\begin{minipage}{.45\textwidth}
+  \label{code:shell}
+  \lstset{style=shell}
+  \lstinputlisting[language=Bash, caption="Código em Shell"]{conteudo/code/shell_example.sh}
+\end{minipage}\hfill
+\begin{minipage}{.45\textwidth}
+  \label{code:chef}
+  \lstset{style=shell}
+  \lstinputlisting[language=Bash, caption="Código em Chef"]{conteudo/code/chef_example.rb}
+\end{minipage}
+
+
+Neste trabalho será abordado a ferramenta Chef, que consiste em uma ferramenta de
+automação de configuração de infraestrutura da qual utiliza o conceito de infraestrutura
+como código para estabelecer os \textit{scripts} configuração. Na a representação \ref{code:shell}
+é um exemplo de um \textit{script} escrito em \textit{shell} e outro em \textit{Ruby}
+interpretada pela ferramenta Chef.
 
 \subsection{Chef}
 \label{sec:chef}
