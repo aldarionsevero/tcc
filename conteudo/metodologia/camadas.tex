@@ -15,9 +15,38 @@ para o escopo do trabalho.
 \subsection{Definição de Critérios para a Seleção}
 \label{sec:defcritcamada}
 Após levantar as camadas de configuração do ambiente, é necessário definir em
-quais delas o Cupper realmente vai atuar. Os critérios vão estar relacionados a dois
-aspectos importantes: a relevância para o projeto e a quantidade de esforço e tempo
-para a implementação (durante o Trabalho de Conclusão de Curso).
+quais camadas e em quais dos seus atributos o Cupper realmente vai atuar. 
+Os critérios vão estar relacionados a dois aspectos importantes: a relevância 
+para o projeto e a quantidade de esforço e tempo para a implementação 
+(durante o Trabalho de Conclusão de Curso).
+
+Para classificar um atributo como relevante para análise, ele deve seguir os
+seguintes critérios:
+
+\begin{enumerate}
+\item Fazer diferença para o processo de gerar a receita.
+
+Um exemplo básico disso é a arquitetura da CPU, que pode alterar a instalação
+e qual a versão de pacotes a serem instalados.
+\item Ser informação útil para \textit{logs} e \textit{debugs}, tanto para uso
+da ferramenta durante o processo de gerar \textit{cookbooks} quanto para algum
+retorno para o usuário, para ajudar a entender possíveis erros ao executar
+o \textit{Cupper}.
+\item {\color{red} algum mais?}
+\end{enumerate}
+
+Com relação a dificuldade de implementação e de integração ao \textit{Cupper} o
+atributo deve seguir os seguinte critérios:
+
+\begin{enumerate}
+\item É possível implementar a análise do atributo até a segunda parte do
+Trabalho de Conclusão de Curso.
+\item A implementação da análise do atributo tem complexidade que os
+desenvolvedores julgam razoável.
+\item O atributo é fornecido como uma das saídas do \textit{Ohai}, facilitando
+a sua extração.
+\end{enumerate}
+
 
 {\color{red} se a informação estiver no meio da saída JSON do Ohai, implementação fica mais
 simples, então grande influência}

@@ -38,12 +38,30 @@ configurações de hardware e/ou apresentar comportamentos inesperados no sistem
 Além das aplicações terem seus requisitos mínimos, algumas são desenhadas
 para um tipo específico de arquitetura.
 
-A tabela~\ref{} mostra diversas informações de hardware possíveis de serem extraídas
+A tabela~\ref{tab:atrhard} mostra diversas informações de hardware possíveis de serem extraídas
 do sistema a partir de comandos do sistema operacional e também da ferramenta Ohai, 
 dependência prevista para a implementação do Cupper (como descrito na 
 seção~\ref{sec:tec}). Nem todas essas informações serão úteis para a 
 implementação, mas nessa seção fazemos um levantamento geral antes de fazer uma
 seleção.
+
+\begin{table}[H]
+\centering
+\caption{Levantamento dos atributos de Hardware}
+\label{tab:atrhard}
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+Atributo & Origem & Relevancia & Dificuldade de integrar & Será utilizado? \\ \hline
+         &        &            &                         &                 \\ \hline
+         &        &            &                         &                 \\ \hline
+         &        &            &                         &                 \\ \hline
+         &        &            &                         &                 \\ \hline
+         &        &            &                         &                 \\ \hline
+\end{tabular}
+\end{table}
+
+A camada de hardware será uma das camadas a serem analisadas, e a seleção de 
+seus atributos irão seguir os critérios descritos na seção~\ref{sec:defcritcamada}.
 
 {\color{red} colocar uma tabela com saida dos comandos lscpu, lshw, hwinfo, lspci
 lsscsi, lsusb, lsblk, df, mount, free, e ohai}
