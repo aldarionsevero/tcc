@@ -1,1 +1,74 @@
-\section{Execução}
+\section{Desenvolvimento}
+
+Esta seção descreve o método de desenvolvimento da ferramenta Cupper.
+Os itens estão diretamente relacionados com as metodologias, técnicas e
+práticas utilizadas na Engenharia de Software, tais como ciclo de
+desenvolvimento, testes, integração contínua, qualidade de código, etc.
+Todos os itens utilizados fazem parte do conhecimento adquirido durante
+o curso e poderão sofrer adaptações de acordo com as necessidades do projeto.
+
+Como será observado nas subseções, as práticas e técnicas são utilizadas
+nas Metodologias Ágeis. A motivação para a utilização da abordagem
+ágil é a familiaridade e experiência dos desenvolvedores deste trabalho.
+
+\subsection{Métodos Base}
+
+Segundo~\citeonline{gutierrez:2009} o método \textit{Scrum} representa um trabalho
+em equipe no qual todos os integrantes e envolvidos trabalham para alcançar
+o mesmo objetivo, alinhando as mudanças e compartilhando os problemas para que
+todos caminhem para a mesma direção. O mesmo autor descreve o método
+\textit{Extreme Programming (XP)} como eficiente, flexível e de baixo risco para equipes
+pequenas e médias que convivem com constante mudanças.
+
+Ambos os métodos definem pepeis, práticas e modelos de ciclo de vida para
+projetos de desenvolvimentos ágeis.
+%TODO: adicionar a descrição de todos os itens e quais a serem utilizados
+
+\subsection{Práticas e Técnicas}
+
+São definidas algumas práticas no método \textit{Scrum}~\cite{gutierrez:2009}. A lista a seguir
+mostra as que serão utilizadas, bem como a descrição das adaptações para o trabalho:
+
+\begin{itemize}
+  \item \textit{\textbf{Sprint}}: ciclos onde são desenvolvidos os itens propóstos. Geralmente
+    são intervalos de 2-4 semanas. Ao final de cada \textit{Sprint} é entregue uma porção 
+    executável do \textit{software}. Neste trabalho será utilizado \textit{Sprints} com período
+    de 2 semanas;
+  \item \textbf{Planejamento da Sprint}: a cada início de \textit{Sprint} é feito uma reunião
+    na qual são priorizados os itens a serem desenvolvidos durante a \textit{Sprint}.
+    Com o auxílio da ferramenta Git, os itens priorizados para a \textit{Sprint} serão
+    postos como \textit{issues} identificadas com a \textit{label} "priority";
+  \item \textbf{\textit{Sprint e Product Backlog}}: o \textit{Product Backlog} contém dos os itens a serem
+    desenvolvidos no projeto, sendo uma visão macro de tudo a ser feito.
+    O \textit{Sprint Backlog} contém os itens a serem desenvolvidos na \textit{Sprint} corrente.
+  Com o auxilio da ferramenta Git, ambos os itens dos \textit{backlogs} serão dispostos
+  como \textit{issues};
+\end{itemize}
+
+O XP traz doze práticas essenciais~\cite{gutierrez:2009}. A lista a seguir
+mostra as que serão utilizadas, bem como a descrição das adaptações para o trabalho:
+
+\begin{itemize}
+  \item \textbf{Entregas Frequentes}: ao final de cada interação deve haver uma entrega
+    dos itens priorizados. Neste trabalho, as integrações serão as (\textit{Sprints})
+    e os itens priorizados serão aqueles dispostos no \textit{Sprint Backlog}.
+  \item \textbf{Teste}: são divididas em duas partes: teste de aceitação, elaboradas pelo cliente,
+    e testes de unidade, elaboradas pelo programador. Será utilizado apenas os testes
+    de unidade com a ferramenta RSpec.
+  \item \textit{\textbf{Refactoring}}: consiste em simplificar a estrutura, mudar a organização do código,
+    sem que altere o comportamento~\cite{beck:2000}. Neste trabalho será utilizado
+    conforme a necessidade sendo levado em consideração a importancia, impactos na
+    arquitetura da ferramenta e se é prioritário em relação aos outros itens da \textit{Sprint};
+  \item \textbf{Integração Contínua}: o código deve ser integrado e testado constantemente
+    após o desenvolvimento de novas características. Com o auxílio do serviço Travis CI,
+    os \textit{Pull Requests} e \textit{Branchs} serão monitorados quanto a integridade dos testes. Apenas
+    será integrado os códigos com teste e que não tenham falhado durante a
+    inspeção do serviço de integração contínua;
+  \item \textbf{Padrões de Código}: padronização de todo o código para que se apresente
+    de forma familiar a toda a equipe, assim facilitando o entendimento. A ferramenta
+    Rubocop realiza a análise do código com os padrões da comunidade Ruby, este será
+    o padrão adotado neste trabalho.
+\end{itemize}
+
+
+%TODO: adicionar uma exemplificação de todos os itens apresentados como dev
