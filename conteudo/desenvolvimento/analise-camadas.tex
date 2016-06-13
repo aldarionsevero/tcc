@@ -53,35 +53,35 @@ seus atributos irão seguir os critérios descritos na seção~\ref{sec:defcritc
 \centering
 \caption{Atributos Relacionados a CPU, Memória e \textit{Motherboard}}
 \label{tab:atrhard}
-\begin{tabular}{|c|c|c|c|c|}
+\begin{tabular}{|c|c|c|c|l|c|}
 \hline
 \rowcolor[HTML]{C0C0C0} 
-Atributo                                                        & Origem                                                  & Relevante? & Difícil integração? & Será selecionado? \\ \hline
-Modelo CPU                                                      & lscpu/ohai                                              & não        & não                 & não               \\ \hline
-\begin{tabular}[c]{@{}c@{}}Modo de \\ Operação CPU\end{tabular} & lscpu/ohai                                              & sim        & não                 & sim               \\ \hline
-Arquitetura CPU                                                 & lscpu/ohai                                              & sim        & não                 & sim               \\ \hline
-Cores                                                           & lscpu/ohai                                              & sim        & não                 & sim               \\ \hline
-Stepping CPU                                                    & lscpu/ohai                                              &            & não                 &                   \\ \hline
-Frequência CPU                                                  & lscpu/ohai                                              &            & não                 &                   \\ \hline
-Cache CPU                                                       & lscpu/ohai                                              &            & não                 &                   \\ \hline
-Flags CPU                                                       & lscpu/ohai                                              & sim        & não                 & sim               \\ \hline
-\begin{tabular}[c]{@{}c@{}}Modelo \\ Motherboard\end{tabular}   & demicode                                                & não        & sim                 & não               \\ \hline
-Versão BIOS                                                     & demicode                                                & não        & sim                 & não               \\ \hline
-Flags BIOS                                                      & demicode                                                & não        & sim                 & não               \\ \hline
-Slots Memória                                                   & ohai                                                    & não        & não                 & não               \\ \hline
-Marca Memória                                                   & \begin{tabular}[c]{@{}c@{}}ohai\\ demicode\end{tabular} & não        & não                 & não               \\ \hline
-Tamanho Memória                                                 & ohai/free                                               & sim        & não                 & sim               \\ \hline
-Clock Memória                                                   & ohai                                                    & sim        & não                 & sim               \\ \hline
-Total Swap                                                      & ohai                                                    & sim        & não                 & sim               \\ \hline
-Livre Swap                                                      & ohai                                                    & sim        & não                 & sim               \\ \hline
-Total Memória                                                   & ohai                                                    & sim        & não                 & sim               \\ \hline
-Livre Memória                                                   & ohai                                                    & sim        & não                 & sim               \\ \hline
-Buffers Memóra                                                  & ohai                                                    & não        & não                 & não               \\ \hline
-Cached Memória                                                  & ohai                                                    &            & não                 &                   \\ \hline
-Ativo Memória                                                   &                                                         &            & não                 &                   \\ \hline
-Inativo Memória                                                 &                                                         &            & não                 &                   \\ \hline
-Sujo Memória                                                    &                                                         &            & não                 &                   \\ \hline
-\begin{tabular}[c]{@{}c@{}}Pag. Anon\\ Memória\end{tabular}     &                                                         &            & não                 &                   \\ \hline
+Atributo                                                        & Origem   & Relevante? & Viável? & Ohai & Selecionado? \\ \hline
+Modelo CPU                                                      & lscpu    & não        & sim     &      & não          \\ \hline
+\begin{tabular}[c]{@{}c@{}}Modo de \\ Operação CPU\end{tabular} & lscpu    & sim        & sim     &      & sim          \\ \hline
+Arquitetura CPU                                                 & lscpu    & sim        & sim     &      & sim          \\ \hline
+Cores                                                           & lscpu    & sim        & sim     &      & sim          \\ \hline
+Stepping CPU                                                    & lscpu    &            & sim     &      &              \\ \hline
+Frequência CPU                                                  & lscpu    &            & sim     &      &              \\ \hline
+Cache CPU                                                       & lscpu    &            & sim     &      &              \\ \hline
+Flags CPU                                                       & lscpu    & sim        & sim     &      & sim          \\ \hline
+\begin{tabular}[c]{@{}c@{}}Modelo \\ Motherboard\end{tabular}   & demicode & não        & não     &      & não          \\ \hline
+Versão BIOS                                                     & demicode & não        & não     &      & não          \\ \hline
+Flags BIOS                                                      & demicode & não        & não     &      & não          \\ \hline
+Slots Memória                                                   &          & não        & sim     &      & não          \\ \hline
+Marca Memória                                                   & demicode & não        & sim     &      & não          \\ \hline
+Tamanho Memória                                                 & free     & sim        & sim     &      & sim          \\ \hline
+Clock Memória                                                   &          & sim        & sim     &      & sim          \\ \hline
+Total Swap                                                      &          & sim        & sim     &      & sim          \\ \hline
+Livre Swap                                                      &          & sim        & sim     &      & sim          \\ \hline
+Total Memória                                                   &          & sim        & sim     &      & sim          \\ \hline
+Livre Memória                                                   &          & sim        & sim     &      & sim          \\ \hline
+Buffers Memóra                                                  &          & não        & sim     &      & não          \\ \hline
+Cached Memória                                                  &          &            & sim     &      &              \\ \hline
+Ativo Memória                                                   &          &            & sim     &      &              \\ \hline
+Inativo Memória                                                 &          &            & sim     &      &              \\ \hline
+Sujo Memória                                                    &          &            & sim     &      &              \\ \hline
+\begin{tabular}[c]{@{}c@{}}Pag. Anon\\ Memória\end{tabular}     &          &            & sim     &      &              \\ \hline
 \end{tabular}
 \end{table}
 
@@ -89,22 +89,22 @@ Sujo Memória                                                    &              
 \centering
 \caption{Atributos relacionados a Partições, Armazenamento, USB, PCI, e Rede}
 \label{tab:hdmount}
-\begin{tabular}{|c|c|c|c|c|}
+\begin{tabular}{|c|c|c|c|c|l|}
 \hline
 \rowcolor[HTML]{C0C0C0} 
-Atributo                                                                 & Origem                                                                & Relevante? & Difícil integração? & Será selecionado? \\ \hline
-\begin{tabular}[c]{@{}c@{}}Nome\\ dos\\ Dispositivos\end{tabular}        & \begin{tabular}[c]{@{}c@{}}lsblk/\\ ohai\end{tabular}                 &            &                     &                   \\ \hline
-\begin{tabular}[c]{@{}c@{}}Major/Minor\\ Dispositivos\end{tabular}       & \begin{tabular}[c]{@{}c@{}}lsblk/\\ ohai\end{tabular}                 &            &                     &                   \\ \hline
-Removíveis                                                               & \begin{tabular}[c]{@{}c@{}}lsblk/\\ ohai\end{tabular}                 &            &                     &                   \\ \hline
-\begin{tabular}[c]{@{}c@{}}Somente\\ Leitura\end{tabular}                & \begin{tabular}[c]{@{}c@{}}lsblk/\\ ohai\end{tabular}                 &            &                     &                   \\ \hline
-Partições                                                                & \begin{tabular}[c]{@{}c@{}}lsblk/\\ ohai\end{tabular}                 &            &                     &                   \\ \hline
-\begin{tabular}[c]{@{}c@{}}Tamanho\\ Partições/\\ Discos\end{tabular}    & \begin{tabular}[c]{@{}c@{}}lsblk/\\ ohai/\\ df\end{tabular}           &            &                     &                   \\ \hline
-\begin{tabular}[c]{@{}c@{}}Tipo\\ Filesystem\\ Dispositivos\end{tabular} & \begin{tabular}[c]{@{}c@{}}lsblk/\\ ohai\end{tabular}                 &            &                     &                   \\ \hline
-\begin{tabular}[c]{@{}c@{}}UUID\\ Dispositivos\end{tabular}              & \begin{tabular}[c]{@{}c@{}}lsblk/\\ ohai\end{tabular}                 &            &                     &                   \\ \hline
-Mountpoints                                                              & \begin{tabular}[c]{@{}c@{}}mount/\\ ohai\end{tabular}                 &            &                     &                   \\ \hline
-\begin{tabular}[c]{@{}c@{}}USB\\ Dsipositivos\end{tabular}               & lsusb                                                                 &            &                     &                   \\ \hline
-\begin{tabular}[c]{@{}c@{}}PCI\\ Dsipositivos\end{tabular}               & lspci                                                                 &            &                     &                   \\ \hline
-\begin{tabular}[c]{@{}c@{}}Rede\\ Dispositivos\end{tabular}              & \begin{tabular}[c]{@{}c@{}}lspci/\\ ifconfig/\\ demicode\end{tabular} &            &                     &                   \\ \hline
+Atributo                                                                 & Origem                                                                & Relevante? & Viável? & Ohai & Selecionado? \\ \hline
+\begin{tabular}[c]{@{}c@{}}Nome\\ dos\\ Dispositivos\end{tabular}        & lsblk                                                                 &            &         &      &              \\ \hline
+\begin{tabular}[c]{@{}c@{}}Major/Minor\\ Dispositivos\end{tabular}       & lsblk                                                                 &            &         &      &              \\ \hline
+Removíveis                                                               & lsblk                                                                 &            &         &      &              \\ \hline
+\begin{tabular}[c]{@{}c@{}}Somente\\ Leitura\end{tabular}                & lsblk                                                                 &            &         &      &              \\ \hline
+Partições                                                                & lsblk                                                                 &            &         &      &              \\ \hline
+\begin{tabular}[c]{@{}c@{}}Tamanho\\ Partições/\\ Discos\end{tabular}    & \begin{tabular}[c]{@{}c@{}}lsblk/\\ df\end{tabular}                   &            &         &      &              \\ \hline
+\begin{tabular}[c]{@{}c@{}}Tipo\\ Filesystem\\ Dispositivos\end{tabular} & lsblk                                                                 &            &         &      &              \\ \hline
+\begin{tabular}[c]{@{}c@{}}UUID\\ Dispositivos\end{tabular}              & lsblk                                                                 &            &         &      &              \\ \hline
+Mountpoints                                                              & mount                                                                 &            &         &      &              \\ \hline
+\begin{tabular}[c]{@{}c@{}}USB\\ Dsipositivos\end{tabular}               & lsusb                                                                 &            &         &      &              \\ \hline
+\begin{tabular}[c]{@{}c@{}}PCI\\ Dsipositivos\end{tabular}               & lspci                                                                 &            &         &      &              \\ \hline
+\begin{tabular}[c]{@{}c@{}}Rede\\ Dispositivos\end{tabular}              & \begin{tabular}[c]{@{}c@{}}lspci/\\ ifconfig/\\ demicode\end{tabular} &            &         &      &              \\ \hline
 \end{tabular}
 \end{table}
 
