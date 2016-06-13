@@ -45,23 +45,68 @@ seção~\ref{sec:tec}). Nem todas essas informações serão úteis para a
 implementação, mas nessa seção fazemos um levantamento geral antes de fazer uma
 seleção.
 
+A camada de hardware será uma das camadas a serem analisadas, e a seleção de 
+seus atributos irão seguir os critérios descritos na seção~\ref{sec:defcritcamada}.
+
+
 \begin{table}[H]
 \centering
-\caption{Levantamento dos atributos de Hardware}
+\caption{Atributos Relacionados a CPU, Memória e \textit{Motherboard}}
 \label{tab:atrhard}
-\begin{tabular}{|l|l|l|l|l|}
+\begin{tabular}{|c|c|c|c|c|}
 \hline
-Atributo & Origem & Relevancia & Dificuldade de integrar & Será utilizado? \\ \hline
-         &        &            &                         &                 \\ \hline
-         &        &            &                         &                 \\ \hline
-         &        &            &                         &                 \\ \hline
-         &        &            &                         &                 \\ \hline
-         &        &            &                         &                 \\ \hline
+\rowcolor[HTML]{C0C0C0} 
+Atributo                                                        & Origem                                                  & Relevante? & Difícil integração? & Será selecionado? \\ \hline
+Modelo CPU                                                      & lscpu/ohai                                              & não        & não                 & não               \\ \hline
+\begin{tabular}[c]{@{}c@{}}Modo de \\ Operação CPU\end{tabular} & lscpu/ohai                                              & sim        & não                 & sim               \\ \hline
+Arquitetura CPU                                                 & lscpu/ohai                                              & sim        & não                 & sim               \\ \hline
+Cores                                                           & lscpu/ohai                                              & sim        & não                 & sim               \\ \hline
+Stepping CPU                                                    & lscpu/ohai                                              &            & não                 &                   \\ \hline
+Frequência CPU                                                  & lscpu/ohai                                              &            & não                 &                   \\ \hline
+Cache CPU                                                       & lscpu/ohai                                              &            & não                 &                   \\ \hline
+Flags CPU                                                       & lscpu/ohai                                              & sim        & não                 & sim               \\ \hline
+\begin{tabular}[c]{@{}c@{}}Modelo \\ Motherboard\end{tabular}   & demicode                                                & não        & sim                 & não               \\ \hline
+Versão BIOS                                                     & demicode                                                & não        & sim                 & não               \\ \hline
+Flags BIOS                                                      & demicode                                                & não        & sim                 & não               \\ \hline
+Slots Memória                                                   & ohai                                                    & não        & não                 & não               \\ \hline
+Marca Memória                                                   & \begin{tabular}[c]{@{}c@{}}ohai\\ demicode\end{tabular} & não        & não                 & não               \\ \hline
+Tamanho Memória                                                 & ohai/free                                               & sim        & não                 & sim               \\ \hline
+Clock Memória                                                   & ohai                                                    & sim        & não                 & sim               \\ \hline
+Total Swap                                                      & ohai                                                    & sim        & não                 & sim               \\ \hline
+Livre Swap                                                      & ohai                                                    & sim        & não                 & sim               \\ \hline
+Total Memória                                                   & ohai                                                    & sim        & não                 & sim               \\ \hline
+Livre Memória                                                   & ohai                                                    & sim        & não                 & sim               \\ \hline
+Buffers Memóra                                                  & ohai                                                    & não        & não                 & não               \\ \hline
+Cached Memória                                                  & ohai                                                    &            & não                 &                   \\ \hline
+Ativo Memória                                                   &                                                         &            & não                 &                   \\ \hline
+Inativo Memória                                                 &                                                         &            & não                 &                   \\ \hline
+Sujo Memória                                                    &                                                         &            & não                 &                   \\ \hline
+\begin{tabular}[c]{@{}c@{}}Pag. Anon\\ Memória\end{tabular}     &                                                         &            & não                 &                   \\ \hline
 \end{tabular}
 \end{table}
 
-A camada de hardware será uma das camadas a serem analisadas, e a seleção de 
-seus atributos irão seguir os critérios descritos na seção~\ref{sec:defcritcamada}.
+\begin{table}[H]
+\centering
+\caption{Atributos relacionados a Partições, Armazenamento, USB, PCI, e Rede}
+\label{tab:hdmount}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\rowcolor[HTML]{C0C0C0} 
+Atributo                                                                 & Origem                                                                & Relevante? & Difícil integração? & Será selecionado? \\ \hline
+\begin{tabular}[c]{@{}c@{}}Nome\\ dos\\ Dispositivos\end{tabular}        & \begin{tabular}[c]{@{}c@{}}lsblk/\\ ohai\end{tabular}                 &            &                     &                   \\ \hline
+\begin{tabular}[c]{@{}c@{}}Major/Minor\\ Dispositivos\end{tabular}       & \begin{tabular}[c]{@{}c@{}}lsblk/\\ ohai\end{tabular}                 &            &                     &                   \\ \hline
+Removíveis                                                               & \begin{tabular}[c]{@{}c@{}}lsblk/\\ ohai\end{tabular}                 &            &                     &                   \\ \hline
+\begin{tabular}[c]{@{}c@{}}Somente\\ Leitura\end{tabular}                & \begin{tabular}[c]{@{}c@{}}lsblk/\\ ohai\end{tabular}                 &            &                     &                   \\ \hline
+Partições                                                                & \begin{tabular}[c]{@{}c@{}}lsblk/\\ ohai\end{tabular}                 &            &                     &                   \\ \hline
+\begin{tabular}[c]{@{}c@{}}Tamanho\\ Partições/\\ Discos\end{tabular}    & \begin{tabular}[c]{@{}c@{}}lsblk/\\ ohai/\\ df\end{tabular}           &            &                     &                   \\ \hline
+\begin{tabular}[c]{@{}c@{}}Tipo\\ Filesystem\\ Dispositivos\end{tabular} & \begin{tabular}[c]{@{}c@{}}lsblk/\\ ohai\end{tabular}                 &            &                     &                   \\ \hline
+\begin{tabular}[c]{@{}c@{}}UUID\\ Dispositivos\end{tabular}              & \begin{tabular}[c]{@{}c@{}}lsblk/\\ ohai\end{tabular}                 &            &                     &                   \\ \hline
+Mountpoints                                                              & \begin{tabular}[c]{@{}c@{}}mount/\\ ohai\end{tabular}                 &            &                     &                   \\ \hline
+\begin{tabular}[c]{@{}c@{}}USB\\ Dsipositivos\end{tabular}               & lsusb                                                                 &            &                     &                   \\ \hline
+\begin{tabular}[c]{@{}c@{}}PCI\\ Dsipositivos\end{tabular}               & lspci                                                                 &            &                     &                   \\ \hline
+\begin{tabular}[c]{@{}c@{}}Rede\\ Dispositivos\end{tabular}              & \begin{tabular}[c]{@{}c@{}}lspci/\\ ifconfig/\\ demicode\end{tabular} &            &                     &                   \\ \hline
+\end{tabular}
+\end{table}
 
 {\color{red} colocar uma tabela com saida dos comandos lscpu, lshw, hwinfo, lspci
 lsscsi, lsusb, lsblk, df, mount, free, e ohai}
