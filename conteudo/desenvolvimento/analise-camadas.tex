@@ -48,6 +48,16 @@ seleção.
 A camada de hardware será uma das camadas a serem analisadas, e a seleção de 
 seus atributos irão seguir os critérios descritos na seção~\ref{sec:defcritcamada}.
 
+A tabela~\ref{tab:atrhard} mostra atributos relacionados a CPU, Memória e 
+\textit{Moterboard}, e a tabela~\ref{tab:hdmount} mostra atributos relacionados
+a partições, armazenamento, dispositivos PCI, USB e dispositivos de rede.
+
+A primeira coluna das tabelas mostra o atributo em questão; a segunda mostra
+a origem do atributo, podendo ser um comando do sistema, ou caminho de um arquivo;
+a terceira coluna mostra se o atributo é relevante para a aplicação; a quarta
+coluna diz se é viável implementar o acesso a esse atributo; a quinta mostra se
+esse atributo pode ser conseguido por meio do \textit{Ohai} e a ultima coluna
+diz se o atributo foi selecionado para ser usado pelo \textit{Cupper}.
 
 \begin{table}[H]
 \centering
@@ -102,9 +112,9 @@ Partições                                                                & lsb
 \begin{tabular}[c]{@{}c@{}}Tipo\\ Filesystem\\ Dispositivos\end{tabular} & lsblk                                                                 &            &         &      &              \\ \hline
 \begin{tabular}[c]{@{}c@{}}UUID\\ Dispositivos\end{tabular}              & lsblk                                                                 &            &         &      &              \\ \hline
 Mountpoints                                                              & mount                                                                 &            &         &      &              \\ \hline
-\begin{tabular}[c]{@{}c@{}}USB\\ Dsipositivos\end{tabular}               & lsusb                                                                 &            &         &      &              \\ \hline
-\begin{tabular}[c]{@{}c@{}}PCI\\ Dsipositivos\end{tabular}               & lspci                                                                 &            &         &      &              \\ \hline
-\begin{tabular}[c]{@{}c@{}}Rede\\ Dispositivos\end{tabular}              & \begin{tabular}[c]{@{}c@{}}lspci/\\ ifconfig/\\ demicode\end{tabular} &            &         &      &              \\ \hline
+\begin{tabular}[c]{@{}c@{}}Dsipositivos\\ USB\end{tabular}               & lsusb                                                                 &            &         &      &              \\ \hline
+\begin{tabular}[c]{@{}c@{}}Dsipositivos\\ PCI\end{tabular}               & lspci                                                                 &            &         &      &              \\ \hline
+\begin{tabular}[c]{@{}c@{}}Dispositivos \\ de Rede\end{tabular}          & \begin{tabular}[c]{@{}c@{}}lspci/\\ ifconfig/\\ demicode\end{tabular} &            &         &      &              \\ \hline
 \end{tabular}
 \end{table}
 
