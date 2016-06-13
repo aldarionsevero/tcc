@@ -1,4 +1,5 @@
 \section{Desenvolvimento}
+\label{sec:desenvolvimento}
 
 Esta seção descreve o método de desenvolvimento da ferramenta Cupper.
 Os itens estão diretamente relacionados com as metodologias, técnicas e
@@ -12,6 +13,7 @@ nas Metodologias Ágeis. A motivação para a utilização da abordagem
 ágil é a familiaridade e experiência dos desenvolvedores deste trabalho.
 
 \subsection{Métodos Base}
+\label{sec:metodo_base}
 
 Segundo~\citeonline{gutierrez:2009} o método \textit{Scrum} representa um trabalho
 em equipe no qual todos os integrantes e envolvidos trabalham para alcançar
@@ -21,10 +23,13 @@ todos caminhem para a mesma direção. O mesmo autor descreve o método
 pequenas e médias que convivem com constante mudanças.
 
 Ambos os métodos definem pepeis, práticas e modelos de ciclo de vida para
-projetos de desenvolvimentos ágeis.
-%TODO: adicionar a descrição de todos os itens e quais a serem utilizados
+projetos de desenvolvimentos ágeis e serão utilizados como base para a definição
+do método de desenvolvimento deste trabalho.
+
+%TODO: adicionar uma descrição mais detalhada das metodologias
 
 \subsection{Práticas e Técnicas}
+\label{sec:praticas_tecnicas}
 
 São definidas algumas práticas no método \textit{Scrum}~\cite{gutierrez:2009}. A lista a seguir
 mostra as que serão utilizadas, bem como a descrição das adaptações para o trabalho:
@@ -67,8 +72,82 @@ mostra as que serão utilizadas, bem como a descrição das adaptações para o 
   \item \textbf{Padrões de Código}: padronização de todo o código para que se apresente
     de forma familiar a toda a equipe, assim facilitando o entendimento. A ferramenta
     Rubocop realiza a análise do código com os padrões da comunidade Ruby, este será
-    o padrão adotado neste trabalho.
+    o padrão adotado neste trabalho. Além disso, todo o repositório e itens desenvolvidos
+    serão feitos em inglês.
 \end{itemize}
 
-
 %TODO: adicionar uma exemplificação de todos os itens apresentados como dev
+
+\subsection{Controle de Versão}
+\label{sec:ctrl_versao}
+
+Segundo~\citeonline{pressman:2009}, a área da engenharia de software responsável por
+gerenciar e controlar mudanças em um software é a gerência de configuração de software.
+Nela são definidas as principais atividades que lidam com a identificação de alterações
+dos itens de trabalho, estabelecedo uma relação entre eles, definir o gerenciamento das
+versões de trabalho, controlar e auditar as mudanças impostas.
+
+As principais preocupações da gerência de configuração é~\cite{pressman:2009}:
+\begin{enumerate}
+  \item Estabelecer as versões estáveis do sistema ou componente conhecido
+    como \textit{baseline};
+  \item Possibilitar desfazer modificações no sistema, por conta de erros,
+    rejeição do usuário, etc;
+  \item Recuperar informações sobre quem e o que foi alterado no sistema e como
+    essa alteração está ligada com as necessidades do projeto;
+\end{enumerate}
+
+Quanto as ferramentas de suporte a gerência de configuração, exitem várias alternativas.
+Dentre elas, como mapeado na seção \ref{sec:tec}, tem-se o Git que é responsável pelo
+controle de versão do sistema. Nela é possível contornar as principais preocupações
+descritas acima.
+
+\citeonline{driessen:2010} apresenta um modelo de fluxo de desenvolvimento utilizando a
+ferramenta Git. Nele são abordados as estratégias de controle de \textit{branchs} e
+gerenciamento de \textit{release}. Com base nesse modelo, a figura \ref{fig:ctrl_versao}
+mostra o fluxo básico de desenvolvimento do Cupper.
+
+\begin{figure}[h]
+  \label{fig:ctrl_versao}
+  \centering
+  %\includegraphics[width=0.8\textwidth]{}
+  \caption{Fluxo de desenvolvimento Cupper}
+\end{figure}
+
+Neste modelo, as principais \textit{branchs} tem o tempo de vida infinito, ou seja,
+em nenhum momento são removidas do repositório remoto. São elas:
+
+\begin{itemize}
+  \item \textit{master}: reflete o estado de "pronto para produção",
+    ou seja, estabelece uma versão estável do sistema. Todo
+    o trabalho realizado, em algum ponto do desenvolvimento
+    deve ser integrado a esta \textit{branch};
+  \item \textit{dev}: onde ocorre a integração de todos os componentes,
+    funcionalidades e correções. Contém todos os itens mais
+    recentes desenvolvidos e é considerado a versão instável
+    do sistema, ou seja, pode conter comportamentos indesejados
+    e \textit{bugs} desconhecidos.
+\end{itemize}
+
+Há também as \textit{branchs} de suporte que tem o tempo de vida curto, ou seja,
+assim que concluidas, devem ser removidas do repositório remoto. São
+elas:
+
+\begin{itemize}
+  \item \textit{feature}: deve ser ramificada da \textit{branch dev} e
+    integrada a \textit{branch dev} quando finalizada. Contém todos os
+    novos itens desenvolvidos para a nova funcionalidade;
+  \item \textit{release}: deve ser ramificada da \textit{branch dev} e
+    integrada a \textit{branch dev} e \textit{master}. É preparada para realizar
+    a versão estável do sistema que será posto em produção. O momento de
+    criação da \textit{branch release} é feitos quando a \textit{branch dev} estiver
+    com todas, ou quase todas, as funcionalidades para a nova \textit{release}.
+    Sempre após a integração da \textit{branch release} com a master é criado
+    uma \textit{tag} da versão estável do sistema;
+  \item \textit{hotfix}: deve ser ramificada da \textit{branch master} e
+    integrada a \textit{branch dev} e \textit{master} quando finalizada. São
+    as correções que são realizadas na versão estável do sistema, e geralmente
+    são pontos críticos que devem ser corrigidos imediatamente. Quando finalizadas
+    deve-se criar uma \textit{tag} da versão estável do sistema;
+\end{itemize}
+
