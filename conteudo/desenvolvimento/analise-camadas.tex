@@ -140,9 +140,40 @@ da ferramenta para mais Sistemas Operacionais.
 Inicialmente a ferramenta Cupper irá abordar dois sistemas operacionais, 
 ambos baseados em GNU/Linux: Archlinux e Debian.
 
-A tabela~\ref{} mostra informações a respeito do Kernel e da distribuição
-analisada extraídas a partir de comandos do próprio sistema ou do Ohai.
+A tabela~\ref{tab:so} mostra informações a respeito do Kernel e da distribuição
+analisada. Também mostra algumas configurações gerais do sistema, como
+configurações de rede.
 
+A primeira coluna das tabelas mostra o atributo em questão; a segunda mostra
+a origem do atributo, podendo ser um comando do sistema, ou caminho de um arquivo;
+a terceira coluna mostra se o atributo é relevante para a aplicação; a quarta
+coluna diz se é viável implementar o acesso a esse atributo; a quinta mostra se
+esse atributo pode ser conseguido por meio do \textit{Ohai} e a ultima coluna
+diz se o atributo foi selecionado para ser usado pelo \textit{Cupper}.
+
+
+\begin{table}[H]
+\centering
+\caption{Atributos relacionados ao Sistema Operacional, Kernel e configs gerais do sistema}
+\label{tab:so}
+\begin{tabular}{|c|c|c|c|l|c|}
+\hline
+\rowcolor[HTML]{C0C0C0} 
+Atributo                                                       & Origem & Relevante? & Viável? & Ohai & Selecionado? \\ \hline
+OS                                                             &        &            &         &      &              \\ \hline
+Kernel                                                         &        &            &         &      &              \\ \hline
+\begin{tabular}[c]{@{}c@{}}Versão\\ Kernel\end{tabular}        &        &            &         &      &              \\ \hline
+\begin{tabular}[c]{@{}c@{}}Machine\\ Kernel\end{tabular}       &        &            &         &      &              \\ \hline
+\begin{tabular}[c]{@{}c@{}}Módulos\\ Kernel\end{tabular}       &        &            &         &      &              \\ \hline
+Distribuição                                                   &        &            &         &      &              \\ \hline
+\begin{tabular}[c]{@{}c@{}}Release\\ Distribuição\end{tabular} &        &            &         &      &              \\ \hline
+\begin{tabular}[c]{@{}c@{}}Família\\ Distribuição\end{tabular} &        &            &         &      &              \\ \hline
+Hostname                                                       &        &            &         &      &              \\ \hline
+\begin{tabular}[c]{@{}c@{}}Interfaces\\ de Rede\end{tabular}   &        &            &         &      &              \\ \hline
+\begin{tabular}[c]{@{}c@{}}Endereços\\ de Rede\end{tabular}    &        &            &         &      &              \\ \hline
+\begin{tabular}[c]{@{}c@{}}Endereços\\ MAC\end{tabular}        &        &            &         &      &              \\ \hline
+\end{tabular}
+\end{table}
 
 {\color{red} tabela com infos de distro, versões, pkg manager tool, e kernel do ohai}
 
