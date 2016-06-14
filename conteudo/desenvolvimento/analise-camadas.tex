@@ -75,11 +75,11 @@ Stepping CPU                                                    & lscpu    &    
 Frequência CPU                                                  & lscpu    &            & sim     &      &              \\ \hline
 Cache CPU                                                       & lscpu    &            & sim     &      &              \\ \hline
 Flags CPU                                                       & lscpu    & sim        & sim     &      & sim          \\ \hline
-\begin{tabular}[c]{@{}c@{}}Modelo \\ Motherboard\end{tabular}   & demicode & não        & não     &      & não          \\ \hline
-Versão BIOS                                                     & demicode & não        & não     &      & não          \\ \hline
-Flags BIOS                                                      & demicode & não        & não     &      & não          \\ \hline
+\begin{tabular}[c]{@{}c@{}}Modelo \\ Motherboard\end{tabular}   & dmidecode & não        & não     &      & não          \\ \hline
+Versão BIOS                                                     & dmidecode & não        & não     &      & não          \\ \hline
+Flags BIOS                                                      & dmidecode & não        & não     &      & não          \\ \hline
 Slots Memória                                                   &          & não        & sim     &      & não          \\ \hline
-Marca Memória                                                   & demicode & não        & sim     &      & não          \\ \hline
+Marca Memória                                                   & dmidecode & não        & sim     &      & não          \\ \hline
 Tamanho Memória                                                 & free     & sim        & sim     &      & sim          \\ \hline
 Clock Memória                                                   &          & sim        & sim     &      & sim          \\ \hline
 Total Swap                                                      &          & sim        & sim     &      & sim          \\ \hline
@@ -114,7 +114,7 @@ Partições                                                                & lsb
 Mountpoints                                                              & mount                                                                 &            &         &      &              \\ \hline
 \begin{tabular}[c]{@{}c@{}}Dsipositivos\\ USB\end{tabular}               & lsusb                                                                 &            &         &      &              \\ \hline
 \begin{tabular}[c]{@{}c@{}}Dsipositivos\\ PCI\end{tabular}               & lspci                                                                 &            &         &      &              \\ \hline
-\begin{tabular}[c]{@{}c@{}}Dispositivos \\ de Rede\end{tabular}          & \begin{tabular}[c]{@{}c@{}}lspci/\\ ifconfig/\\ demicode\end{tabular} &            &         &      &              \\ \hline
+\begin{tabular}[c]{@{}c@{}}Dispositivos \\ de Rede\end{tabular}          & \begin{tabular}[c]{@{}c@{}}lspci/\\ ifconfig/\\ dmidecode\end{tabular} &            &         &      &              \\ \hline
 \end{tabular}
 \end{table}
 
