@@ -26,6 +26,15 @@ Ambos os métodos definem pepeis, práticas e modelos de ciclo de vida para
 projetos de desenvolvimentos ágeis e serão utilizados como base para a definição
 do método de desenvolvimento deste trabalho.
 
+O \textit{Scrum} não é um método voltado para o desenvolvimento de software. Inicialmente
+foi construído para gerenciar projetos de uma fábrica de automóveis.
+Contudo, a sua ideia central é o desenvolvimento de sistemas que tem grandes
+chances de mudanças durante a sua produção~\cite{fadel:2010}.
+
+O \textit{XP} foi formalizado com a seus princípios e as doze práticas chaves. A princípio
+as práticas não surgiram com o \textit{XP}, mas reunidas de forma a serem independêntes uma
+das outras~\cite{fadel:2010}.
+
 %TODO: adicionar uma descrição mais detalhada das metodologias
 
 \subsection{Práticas e Técnicas}
@@ -74,6 +83,9 @@ mostra as que serão utilizadas, bem como a descrição das adaptações para o 
     Rubocop realiza a análise do código com os padrões da comunidade Ruby, este será
     o padrão adotado neste trabalho. Além disso, todo o repositório e itens desenvolvidos
     serão feitos em inglês.
+  \item \textbf{Programação em Pares}: dois programadores utilizam o mesmo equipamento para
+    o desenvolvimento, sendo assim o código está sempre sendo supervisionado por
+    outro programador.
 \end{itemize}
 
 %TODO: adicionar uma exemplificação de todos os itens apresentados como dev
@@ -108,10 +120,10 @@ gerenciamento de \textit{release}. Com base nesse modelo, a figura \ref{fig:ctrl
 mostra o fluxo básico de desenvolvimento do Cupper.
 
 \begin{figure}[h]
-  \label{fig:ctrl_versao}
   \centering
-  %\includegraphics[width=0.8\textwidth]{}
+  \includegraphics[width=0.8\textwidth]{figuras/controle_versao}
   \caption{Fluxo de desenvolvimento Cupper}
+  \label{fig:ctrl_versao}
 \end{figure}
 
 Neste modelo, as principais \textit{branchs} tem o tempo de vida infinito, ou seja,
@@ -137,13 +149,6 @@ elas:
   \item \textit{feature}: deve ser ramificada da \textit{branch dev} e
     integrada a \textit{branch dev} quando finalizada. Contém todos os
     novos itens desenvolvidos para a nova funcionalidade;
-  \item \textit{release}: deve ser ramificada da \textit{branch dev} e
-    integrada a \textit{branch dev} e \textit{master}. É preparada para realizar
-    a versão estável do sistema que será posto em produção. O momento de
-    criação da \textit{branch release} é feitos quando a \textit{branch dev} estiver
-    com todas, ou quase todas, as funcionalidades para a nova \textit{release}.
-    Sempre após a integração da \textit{branch release} com a master é criado
-    uma \textit{tag} da versão estável do sistema;
   \item \textit{hotfix}: deve ser ramificada da \textit{branch master} e
     integrada a \textit{branch dev} e \textit{master} quando finalizada. São
     as correções que são realizadas na versão estável do sistema, e geralmente
