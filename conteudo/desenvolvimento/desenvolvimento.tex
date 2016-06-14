@@ -1,6 +1,33 @@
 \chapter{Desenvolvimento}
 \label{chap:desenv}
 
+No contexto de DevOps, automação e infraestrutura como código, a ferramenta
+proposta por este trabalho, Cupper, propõe auxiliar na extração de configuração
+de um ambiente incluso em uma infraestrutura. As configurações extraídas são
+transformadas em código em padrões da receita Chef~\ref{fig:cupper_geral}. A
+receita gerada é utilizada para qualquer infraestrutura que suporta a
+utilização do Chef, como descrito na seção \ref{sec:chef}.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.8\textwidth]{figuras/cupper_geral.eps}
+  \caption{Cupper - Visão geral}
+  \label{fig:cupper_geral}
+\end{figure}
+
+As subções seguintes, são mostrados o levantamento dos itens necessários para
+a implementação do Cupper, sendo dividido em:
+
+\begin{itemize}
+  \item \textbf{Camadas de Ambiente}: levantamento e seleção das camadas de ambiente
+    e seus atributos necessários a serem coletados;
+  \item \textbf{Recursos Chef}: levantamento dos recursos providos pelo Chef e quais os
+    itens necessários para a criação de uma receita mínima;
+  \item \textbf{Escopo de Implementação}: especificação dos itens a serem implementados
+    da ferramenta, abordando até qual ponto a ferramenta Cupper pretende alcançar
+    no TCC 2.
+\end{itemize}
+
 \input{conteudo/desenvolvimento/analise-camadas}
 \input{conteudo/desenvolvimento/analise-camadas-cookbooks}
 \input{conteudo/desenvolvimento/escopo}
