@@ -1,0 +1,39 @@
+\section{Chef}
+\label{sec:chef}
+
+Chef é uma ferramenta de gerenciamento e configuração de infraestrutura criada
+pela comunidade Opscode em 2008 oficialmente lançada em 2009. Seu propósito é
+tranformar uma infraestrutura complexa em código~\cite{chef:2016}. Sendo assim, a gerência de
+configuração gira em torno da codificação simplificada e amigável
+ao invés de comandos manuais de instalação e configuração de aplicações ~\cite{sharma:2015}.
+
+A estrutura completa da ferramenta Chef contém vários componentes interagindo entre si para
+prover ao cliente (chef-client) as informações e instruções necessárias para que ele
+possa executar sua função. Os principais componentes são~\cite{chefdoc:2016}:
+
+\begin{itemize}
+  \item \textit{Workstation}: qualquer máquina que possa servir como estação
+    responsável por permitir usuários criar, testar e manter \textit{cookbooks};
+  \item \textit{Cookbook}: contém as configurações desejadas para o ambiente.
+    Pode ser customizados para um ambiente específico da empresa ou utilizar
+    \textit{cookbooks} disponíveis pela comunidade Chef;
+  \item \textit{Ruby}: linguagem oficial utilizada para a escrita dos \textit{scripts}
+    é o Ruby;
+  \item \textit{Node}: qualquer máquina física, virtual, em núvem, dispositivo
+    de rede, etc, que deva ser gerenciada pelo Chef;
+  \item \textit{Chef Client}: ferramenta instalada em todos os \textit{nodes}. O
+    \textit{Chef Client} é responsável por executar todas as tarefas especificadas
+    em uma \textit{run-list} (conjunto de \textit{cookbooks});
+  \item \textit{Chef Server}: funciona como um \textit{hub} de informações. Todos os
+    \textit{cookbooks} e as políticas são atualizadas no Chef Server pelos usuários
+    dos \textit{workstations}. O Chef Client acessa o Chef Server para verificar
+    as informações necessárias para sua tarefas e retorna dados para o servidor
+    que serão usados para gerar relatórios;
+  \item \textit{Chef Analytics}: visibilidade em tempo real de dados informativos
+    sobre o servidor como mudanças realizadas, os autores das mudanças e quando
+    ocorreram. Além de detalhes das tarefas executadas nas máquinas \textit{nodes};
+  \item \textit{Chef Supermarket}: local central onde a comunidade Chef cria e
+    mantém os \textit{cookbooks}. Podem ser customizados de acordo com as necessidades
+    da organização.
+\end{itemize}
+
