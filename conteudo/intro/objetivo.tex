@@ -7,7 +7,8 @@
 O objetivo deste trabalho é desenvolver uma ferramenta que extrai,
 de maneira automatizada, informações de uma máquina para realizar
 a construção de \textit{scrips} de automação de infraestrutura. Os \textit{scripts}
-serão feitos nos padrões da ferramenta Chef.
+serão feitos nos padrões da ferramenta Chef e contém os comandos
+necessários para configurar e replicar um ambiente.
 
 \subsection{Objetivos Específicos}
 \label{sec:obj-esp}
@@ -16,13 +17,14 @@ Os seguintes passos foram levantados para serem seguindos neste trabalho
 em conformidade ao proposto no objetivo geral \ref{sec:obj-grl}.
 
 \begin{enumerate}
-  \item Identificar as principais e mais relevantes configurações do sistema
-  alvo;
+  \item Identificar as principais e mais relevantes configurações de um sistema
+    alvo;
   \item Identificar os componentes estruturais de configuração no padrão da
-    ferramenta \textit{Chef};
+    ferramenta Chef;
+  \item Identificar e definir uma estrutura mínima de configurações Chef;
   \item Mapear quais e onde serão armazenados nos \textit{scripts} os
-  diferentes tipos de configurações do sistema alvo;
+    diferentes tipos de configurações de um sistema alvo;
   \item Utilizar boas práticas da Engenharia de Software (ex.: testes
-  automatizados, modularização e outras) para tornar a ferramenta mais
-  manutenível, extensível e reutilizável;
+    automatizados, modularização e outras) para tornar a ferramenta mais
+    manutenível, extensível e reutilizável;
 \end{enumerate}
