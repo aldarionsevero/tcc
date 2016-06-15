@@ -24,32 +24,38 @@ Para classificar um atributo como relevante para análise, ele deve seguir os
 seguintes critérios:
 
 \begin{enumerate}
-\item Fazer diferença para o processo de gerar a receita.
+\item Um atributo é relevante quando ele é necessário para a geração de uma
+receita \textit{Chef} que atenda aos nossos requisitos. 
+
+Na seção~\ref{sec:lev-rec} e~\ref{sec:escopo} definimos os recursos \textit{Chef}
+que iremos utilizar nas criações de \textit{Cookbooks} e até que ponto 
+avançaremos nas funcionalidades do \textit{Cupper}, e dessa forma, os atributos
+são relevantes se eles se enquadram nesse patamar, para alcançar esses objetivos.
 
 Um exemplo básico disso é a arquitetura da CPU, que pode alterar a instalação
 e qual a versão de pacotes a serem instalados.
-\item Ser informação útil para \textit{logs} e \textit{debugs}, tanto para uso
-da ferramenta durante o processo de gerar \textit{cookbooks} quanto para algum
-retorno para o usuário, para ajudar a entender possíveis erros ao executar
+
+\item Um atributo também é relevante se é necessário para criação de \textit{logs} 
+e \textit{debugs}, tanto para uso da ferramenta durante o processo de gerar 
+\textit{Cookbooks} quanto para algum retorno para o usuário, para ajudar 
+a entender possíveis erros ao executar
 o \textit{Cupper}.
-\item {\color{red} algum mais?}
 \end{enumerate}
 
 Com relação a dificuldade de implementação e de integração ao \textit{Cupper} o
-atributo deve seguir os seguinte critérios:
+atributo deve seguir os seguinte critérios em ordem de prioridade:
 
 \begin{enumerate}
-\item É possível implementar a análise do atributo até a segunda parte do
-Trabalho de Conclusão de Curso.
-\item A implementação da análise do atributo tem complexidade que os
-desenvolvedores julgam razoável.
-\item O atributo é fornecido como uma das saídas do \textit{Ohai}, facilitando
-a sua extração.
+\item O atributo tem maior prioridade de ser selecionado se é um dos dados 
+que o \textit{Ohai} lança por padrão e sem extensões.
+\item O atributo tem média prioridade se, não é um dos dados que o \textit{Ohai}
+lança por padrão e sem extensões, mas existe um comando do sistema que facilita 
+sua extração, e dessa forma facilitando a criação de \textit{plugins} pro 
+\textit{Ohai}.
+\item O atributo tem menor prioridade se não é lançado pelo Ohai e nem tem 
+comandos do sistema para recuperá-lo.
 \end{enumerate}
 
-
-{\color{red} se a informação estiver no meio da saída JSON do Ohai, implementação fica mais
-simples, então grande influência}
 
 %\subsection{Profundidade de Análise}
 
