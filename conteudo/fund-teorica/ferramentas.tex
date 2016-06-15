@@ -1,0 +1,45 @@
+\section{Ferramentas de Automação}
+\label{sec:ferramenta_automacao}
+
+\cite{sharma:2015} lista as ferramentas de automação que são alternativas ao
+Chef. Cada qual trata a automação de uma forma diferente apresentando \textit{features}
+específica que provê desde da automação de configuração da rede até a configuração
+de ambientes. Dentre elas, destaca-se as mais populares: Chef, Puppet,
+SaltStack e Ansible. A tabela~\ref{tab:chef-rival} mostra a comparação entre
+as ferramentas~\cite{sharma:2015}.
+
+\begin{table}[h]
+  \centering
+  \label{tab:chef-rival}
+  \begin{tabular}{|l|l|l|l|l|}
+    \hline
+                                                                       & Chef                                                                                                                                  & Puppet                                                                                                                        & SaltStack    & Ansible                                                                                               \\ \hline
+    Licença                                                            & Apache                                                                                                                                & Apache                                                                                                                        & Apache       & GPL                                                                                                   \\ \hline
+  \begin{tabular}[c]{@{}l@{}}Linguagem de\\ Programação\end{tabular} & \begin{tabular}[c]{@{}l@{}}Ruby (cliente) e\\ Ruby/Erlang (servidor)\end{tabular}                                                     & Ruby                                                                                                                          & Python       & Python                                                                                                \\ \hline
+    Arquitetura                                                        & Master/Agent                                                                                                                          & Master/Agent                                                                                                                  & Master/Agent & Master/Agent                                                                                          \\ \hline
+  \begin{tabular}[c]{@{}l@{}}Mecanismo\\ de Push/Pull\end{tabular}   & Pull                                                                                                                                  & Pull                                                                                                                          & Push         & Push                                                                                                  \\ \hline
+  Exemplo Industrial                                                 & \begin{tabular}[c]{@{}l@{}}Facebook, Linkedin, Youtube,\\ Splunk, Rackspace, GE\\ Capital, Digital Science e\\ Bloomberg\end{tabular} & \begin{tabular}[c]{@{}l@{}}Twitter, Verizon,\\ VMware, Sony, Symantec,\\ Redhat, Salesforce, Motorola\\ e Paypal\end{tabular} & Lyft         & \begin{tabular}[c]{@{}l@{}}Apple, Juniper, Grainger,\\ WeightWatchers, SaveMart\\ e NASA\end{tabular} \\ \hline
+  \end{tabular}
+  \caption{Comparativo das ferramentas de automação (Adaptado)}
+\end{table}
+
+Outras vantagens e pontos chaves que o Chef tem em relação ao seus
+concorrentes~\cite{sharma:2015}:
+\begin{itemize}
+  \item O Chef é puramente uma \textit{Domain Specific Language (DSL)}.~\citeonline{van:2000}
+    propões a definição de DSL como uma linguagem de programação executável que
+    contém notações e abstrações específicas para um domínio de problemas. O Chef
+    extende a sua DSL da linguagem Ruby;
+  \item O Chef contém uma consistente documentação, materias de treinamento e
+    atualizações constantes.
+  \item O suporte da comunidade do Chef é grande e responde rapidamente a duvidas
+    e problemas de instalação, configuração e utilização da ferramenta Chef.
+    Além disso, constantemente publicam conferências \textit{online} e materiais multimídia
+    gratuitamente.
+\end{itemize}
+
+\section{Ferramentas de Extração de Configuração}
+
+\subsection{Blueprint}
+
+
