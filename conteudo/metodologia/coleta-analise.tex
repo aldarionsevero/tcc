@@ -1,1 +1,35 @@
 \section{Coleta e Análise de Resultados}
+
+Nesta seção será apresentado o método de coleta e análise dos resultados deste
+trabalho para validação da proposta. Como disposto nos objetivos (\ref{sec:obj}),
+o resultado da execução do Cupper é um \textit{script} em formato de receita Chef.
+Tal receita poderá ser utilizada pelo Chef para replicar o ambiente. Sendo assim
+O foco da coleta e análise de dados está na capacidade de replicar um ambiente
+utilizando o Cupper e Chef de maneira automatizada.
+
+Divide-se a coleta e análise de dados em quatro etapas:
+
+\textbf{Etapa 1} %TODO: dar nome a etapa?
+Nesta etapa será coletado os dados sobre quais informações o Cupper consegue
+extrair. A coleta será feita por um \textit{checklist} (Anexo \ref{}) que contenha %TODO: colocar em anexo um checklist
+todos os itens propóstos para implementação da ferramenta. O \textit{checklist} será
+utilizado para delimitar os dados base que serão coletados do ambiente para
+a validação. Também é um informativo sobre até qual ponto o projeto conseguiu
+alcançar.
+
+\textbf{Etapa 2} %TODO: dar nome a etapa?
+Nesta etapa será construído um ambiente que seja possível extraír as configurações
+sem a utilização do Cupper. Essas informações estarão alinhadas ao \textit{cehcklist} da etapa
+anterior e serão a base para o comparativo com o ambiente replicado.
+
+\textbf{Etapa 3} %TODO: dar nome a etapa?
+Nesta etapa a ferramenta Cupper irá ser executada no ambiente construído na etapa
+anterior. As receitas geradas serão usadas pelo Chef em um ambiente limpo que contenha
+apenas as configurações mínimas para o seu funcionamento, ou seja, um sistema
+operacional (Debian ou Arch), acesso por interface de rede e o Chef (a seção
+~\ref{sec:chef} define o ambiente mínimo para o funcionamento do Chef).
+
+\textbf{Etapa 4} %TODO: dar nome a etapa?
+Nesta etapa é feito a extração sem utilização do Cupper, assim como foi realizado
+na etapa 2, no ambiente replicado. Então será feito uma comparação das configurações
+dos dois ambientes. %TODO: explicar melhor a parte da extração sem o Cupper
