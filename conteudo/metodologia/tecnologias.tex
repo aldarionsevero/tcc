@@ -24,7 +24,7 @@ inicial do sistema. %TODO: melhorar
 \section{Ferramentas e Serviços de Suporte ao Desenvolvimento}
 
 Para o desenvolvimento do trabalho, foram escolhidas as ferramentas e serviços de suporte que serão
-utilizadas para gerência e controle das atividades do projeto e automação e coleta de dados
+utilizadas para gerência e controle das atividades do projeto e automação e coleta de dados e teste
 de desenvolvimento do Cupper. A escolha foi feita considerando a experiência do
 grupo em relação a utilização da ferramenta no decorrer do curso e a identificação dos
 padrões utilizados pelas ferramentas providas pelo Chef.
@@ -51,7 +51,6 @@ realizar a \textit{build} automatica da ferramenta Cupper, determinando se a fun
 será integrada ao código.
 
 \subsection{RubyGems}
-%TODO: isso se enquadra em ferramentas de suporte?
 
 O RubyGems é um \textit{framework} de empacotamento e instalação de bibliotecas e aplicações
 construidas com Ruby. As vantagens de se utilizar RubyGem~\cite{thomas:2001}:
@@ -65,7 +64,7 @@ construidas com Ruby. As vantagens de se utilizar RubyGem~\cite{thomas:2001}:
 A ferramenta Cupper, por ser construída em Ruby, seguirá os padrões adotados
 pelo RubyGems.
 
-\subsubsection{RSpec}
+\subsection{RSpec}
 
 O RSpec é um \textit{framework} de \textit{Behaviour-Driven Development} (BDD)
 criado por Steven Baker em 2005~\cite{chelimsky:2010}. Com o RSpec
@@ -73,6 +72,21 @@ são criados testes que descrevem um comportamento esperado do sistema
 em contexto controlados. O RSpec facilita a escrita de testes simplificando
 a sintaxe para descrever os cenários e comportamentos.
 
-\subsubsection{Ohai} %TODO: ohai entra como ferramenta de suporte? acredito que seja so a dependencia
-\subsubsection{Chef} %TODO: o mesmo vale para o chef?
+\section{Ferramentas Dependentes}
+
+Foram identificadas as ferramentas dependentes para a construção do Cupper.
+São ferramentas que estão dentro da família de ferramentas do Chef e são
+de código aberto disponíveis no repositório oficial do Chef.
+
+\subsection{Ohai}
+
+O Ohai é uma ferramenta para detecção de atributos de um \textit{node}. Os atributos são
+informações que podem ser: detalhe de plataforma, dados de CPU, dados de redes, etc.
+O Ohai é uma dependência do \textit{chef-client} e é extensível através de \textit{plugins}
+para incluir mais tipos de dados a serem coletados~\cite{ohaidoc:2016}.
+
+Para o desenvolvimento do Cupper, a ferramenta Ohai será utilizada para realizar a
+interface de coleta de dados. Como será apresentado na seção~\ref{sec:cam-amb}, o
+Ohai, sem extensões, pode coletar uma certa quantidade de atributos do ambiente, sendo
+necessário a criação de \textit{plugins} de acordo com a necessidade de implementação do Cupper.
 
