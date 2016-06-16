@@ -8,7 +8,7 @@
 O Blueprint é uma ferramenta de gerência de configuração que realiza a
 engenharia reversa do sistema para extrair, em conjunto a outras ferramentas,
 as informações de pacotes, serviços e fontes de instalação de aplicativos
-~\cite{blueprint:2016}.
+~\cite{blueprint:2016}. O Blueprint foi descontinuado em 2014.
 
 A aplicação é utilizada para criar \textit{scripts} que realizam
 a instalação dos pacotes e configurações dos serviços que foram extraidos. Há
@@ -19,7 +19,7 @@ pois a sua funcionalidade é semelhante.
 
 A tablela~\ref{tab:cupper-blueprint} mostra uma comparação entre o Cupper e Blueprint.
 
-\begin{table}[]
+\begin{table}[H]
   \centering
   \begin{tabular}{|l|l|l|}
     \hline
@@ -27,8 +27,16 @@ A tablela~\ref{tab:cupper-blueprint} mostra uma comparação entre o Cupper e Bl
   \begin{tabular}[c]{@{}l@{}}Informações\\ Extraídas\end{tabular}    & \begin{tabular}[c]{@{}l@{}}Pacotes, serviços,\\ configurações, rede,\\ plataforma, hardware\end{tabular} & \begin{tabular}[c]{@{}l@{}}Pacotes, serviços,\\ configurações\end{tabular}                    \\ \hline
   Saídas                                                             & \textit{Cookbook Chef}                                                                                   & \textit{\begin{tabular}[c]{@{}l@{}}Script Shell, Cookbook\\ Chef, Module Puppet\end{tabular}} \\ \hline
   \begin{tabular}[c]{@{}l@{}}Linguagem de\\ Programação\end{tabular} & \textit{Ruby}                                                                                            & \textit{Python}                                                                               \\ \hline
-  \begin{tabular}[c]{@{}l@{}}Gerenciador de\\ Pacotes\end{tabular}   & apt/dpkg e yum/rpm                                                                                       & \begin{tabular}[c]{@{}l@{}}apt, yum, rubygems, easy\_install,\\ pip, pecl e npm.\end{tabular} \\ \hline
+  \begin{tabular}[c]{@{}l@{}}Gerenciador de\\ Pacotes\end{tabular}   & \begin{tabular}[c]{@{}l@{}}APT/dpkg, Pacman,\\ RubyGem e PIP\end{tabular}                                & \begin{tabular}[c]{@{}l@{}}APT, Yum, RubyGems, easy\_install,\\ PIP, PECL e NPM.\end{tabular} \\ \hline
   \end{tabular}
   \caption{Comparativo entre as ferramentas Cupper e Blueprint}
   \label{tab:cupper-blueprint}
 \end{table}
+
+É considerado como vantagem do Cupper em relação ao seu concorrente:
+
+\begin{itemize}
+  \item O Cupper é focado na ferramenta Chef;
+  \item O Cupper segue os padrões adotados pelas outras ferramentas do
+    Chef;
+\end{itemize}
