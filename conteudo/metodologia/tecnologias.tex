@@ -1,35 +1,78 @@
 \section{Escolha de Tecnologias}
 \label{sec:tec}
 
+%TODO: a seção explica o motívo e critérios utilizados para escolher as tecnologias.
+
 Já que a aplicação proposta por este trabalho (Cupper) tem a intenção de entrar
 na família de ferramentas relacionadas ao Chef, é interessante que ela seja uma
-Gem, ou seja, que seja desenvolvida na linguagem Ruby e seja disponibilizada pelo
+Gem, ou seja, que seja desenvolvida na linguagem Ruby e seja disponibilizada pelo %TODO: frase estranha
 gerenciador de pacotes RubyGems, estando no padrão das outras ferramentas da
 família Chef.
 
 A decisão pelo próprio Chef vem da experiência que o grupo tem com essa ferramenta.
 Por já estarem familiarizados com a estrutura, sintaxe e formas de execução do Chef,
 a escolha do Chef para a ferramenta de gerência e configuração de ambientes foi a
-mais natural.
+mais natural. %TODO: essa afirmação é válida?
 
 Por mais que o Chef esteja relacionado ao desenvolvimento do Cupper, ele não é uma
 dependência para a execução do mesmo, e sim uma ferramenta que usa a saída do Cupper
 para outro fim, como será explicado no capítulo \ref{chap:desenv}, de Desenvolvimento.
 Uma dependência que foi levantada para o desenvolvimento do Cupper é o Ohai,
 outra ferramenta da família Chef, que será necessária para fazer o perfil e diagnóstico
-inicial do sistema.
+inicial do sistema. %TODO: melhorar
 
-Para o desenvolvimento, gerência de mudanças, versionamento, testes e integração
-contínua serão utilizadas as seguintes ferramentas e \textit{frameworks} respectivamente:
-Vim, Git e Github, Rspec e Travis.
+\section{Ferramentas e Serviços de Suporte ao Desenvolvimento}
 
-{\color{red} Descrição das ferramentas Gitter,Git,Github,Ruby,Rspec
-,Gem,Chef,Ohai,Puppet,Travis}
+Para o desenvolvimento do trabalho, foram escolhidas as ferramentas e serviços de suporte que serão
+utilizadas para gerência e controle das atividades do projeto e automação e coleta de dados
+de desenvolvimento do Cupper. A escolha foi feita considerando a experiência do
+grupo em relação a utilização da ferramenta no decorrer do curso e a identificação dos
+padrões utilizados pelas ferramentas providas pelo Chef.
 
-O Git pelo mesmo motivo, e o Github para manter a ferramenta no mesmo serviço de hospedagem
-Git de códigos que as outras ferramentas da família Chef. A escolha do Rspec também
-tem o objetivo de seguir o mesmo padrão das outras ferramentas da família Chef, que
-utilizam Rspec como \textit{framework} de testes. O Travis foi escolhido por ter a
-configuração mais simples (em comparação com Jenkins, já que o Travis só requere
-um arquivo de configuração e alguns cliques) e também por ser utilizado pela
-maioria das ferramentas da família Chef.
+\subsection{Git}
+
+Git é uma ferramenta de controle de versão gratuita e de código aberto criada
+em 2005 por Linus Torvalds~\cite{chacon:2014}. O Git foi utilizado para o controle das versões
+dos códigos para a produção deste documento e para a produção da ferramenta proposta Cupper.
+
+\subsection{Github}
+
+O Github é um serviço que provê a utilização dos comando Git em um \textit{browser}, além de
+disponibilizar um repositório remoto para colaboração de projetos e registro e rastreamento de
+\textit{issues}~\cite{github:2016}.  O Github foi utilizado para armazenamento remoto do repositório
+deste documento e da ferramenta proposta Cupper, e para o registro e controle de \textit{issues} que são
+considerados os itens do \textit{Backlog}, como descrito na seção~\ref{sec:praticas_tecnicas}.
+
+\subsection{Travis}
+
+O Travis é um serviço de integração contínua integrada com o serviço Github que automatiza
+a \textit{build} do código e verifica os testes~\cite{travis:2016}. O Travis será utilizado para
+realizar a \textit{build} automatica da ferramenta Cupper, determinando se a funcionalidade ou \textit{bugfix}
+será integrada ao código.
+
+\subsection{RubyGems}
+%TODO: isso se enquadra em ferramentas de suporte?
+
+O RubyGems é um \textit{framework} de empacotamento e instalação de bibliotecas e aplicações
+construidas com Ruby. As vantagens de se utilizar RubyGem~\cite{thomas:2001}:
+
+\begin{itemize}
+ \item Padronizar formatos de pacotes;
+ \item Centralizar o repositório para distribuição dos pacotes Gem;
+ \item Facilitar a instalação, gerenciamento e manipulação dos pacotes Gem.
+\end{itemize}
+
+A ferramenta Cupper, por ser construída em Ruby, seguirá os padrões adotados
+pelo RubyGems.
+
+\subsubsection{RSpec}
+
+O RSpec é um \textit{framework} de \textit{Behaviour-Driven Development} (BDD)
+criado por Steven Baker em 2005~\cite{chelimsky:2010}. Com o RSpec
+são criados testes que descrevem um comportamento esperado do sistema
+em contexto controlados. O RSpec facilita a escrita de testes simplificando
+a sintaxe para descrever os cenários e comportamentos.
+
+\subsubsection{Ohai} %TODO: ohai entra como ferramenta de suporte? acredito que seja so a dependencia
+\subsubsection{Chef} %TODO: o mesmo vale para o chef?
+
