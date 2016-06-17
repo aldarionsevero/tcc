@@ -6,7 +6,7 @@ proposta por este trabalho, Cupper, propõe auxiliar na extração de configura�
 de um ambiente incluso em uma infraestrutura. As configurações extraídas são
 transformadas em código em padrões da receita Chef~\ref{fig:cupper_geral}. A
 receita gerada é utilizada para qualquer infraestrutura que suporta a
-utilização do Chef, como descrito na seção \ref{sec:chef}.
+utilização do Chef, como descrito na seção~\ref{sec:chef}.
 
 \begin{figure}[h]
   \centering
@@ -15,8 +15,15 @@ utilização do Chef, como descrito na seção \ref{sec:chef}.
   \label{fig:cupper_geral}
 \end{figure}
 
+Além das dependências de desenvolvimento e de \textit{runtime} por ser uma gem
+(\textit{Ruby}, \textit{RubyGems}), o Cupper tem uma dependência muito
+importante que é o \textit{Ohai} que é levantado na seção de 
+ferramentas~\ref{sec:fer-ohai}. É requisito desse projeto também implementar
+\textit{plugins} para que o \textit{Ohai} lance informações que por padrão 
+não lança.
+
 As subções seguintes, são mostrados o levantamento dos itens necessários para
-a implementação do Cupper, sendo dividido em:
+a implementação do Cupper, estando organizados em camadas e seus atributos:
 
 \begin{itemize}
   \item \textbf{Camadas de Ambiente}: levantamento e seleção das camadas de ambiente
