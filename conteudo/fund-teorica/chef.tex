@@ -37,4 +37,23 @@ possa executar sua função. Os principais componentes são~\cite{chefdoc:2016}:
     da organização.
 \end{itemize}
 
-%TODO: adicionar onde é possível utilizar o Chef e o seu funcionamento alto nível
+Desse componentes, tem-se os três principais: \textbf{Chef Server, Node} e \textbf{Workstation}.
+A figura \ref{fig:chef-comp} mostra a relação entre esses três componente. Existem os requisitos
+mínimos para a implementação do Chef~\cite{chefdoc:2016}:
+
+\begin{itemize}
+  \item As máquinas \textit{node} devem ter uma plataforma instalada (RedHat,
+    Debian, OpenSUSE, etc);
+  \item A maquina que contenha o Chef Server deve ter os requisitos
+    mínimos de hardware especificada no site oficial do Chef;
+  \item Todas as regras de rede e de \textit{firewall} devem estar configuradas
+    corretamente.
+\end{itemize}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{figuras/chef-comp.eps}
+  \caption{Relação entre os componente do Chef}
+  \label{fig:chef-comp}
+\end{figure}
+
