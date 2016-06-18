@@ -193,15 +193,25 @@ maneiras.
 \caption{Atributos relacionados às Aplicações}
 \label{tab:app}
 \begin{tabular}{|c|c|c|c|c|c|}
-\hline
-\rowcolor[HTML]{C0C0C0} 
-Atributo                                                             & Origem & Relevante? & Ohai & Viável & Selecionado? \\ \hline
-Pacotes                                                              &        &            &      &        &              \\ \hline
-\begin{tabular}[c]{@{}c@{}}Versões\\ Pacotes\end{tabular}            &        &            &      &        &              \\ \hline
-Dependências                                                         &        &            &      &        &              \\ \hline
-\begin{tabular}[c]{@{}c@{}}Arquitetura\\ Alvo\\ Pacotes\end{tabular} &        &            &      &        &              \\ \hline
+    \hline
+    \rowcolor[HTML]{C0C0C0} 
+    Atributo                                                         & Origem                                                 & Relevante? & Ohai & Viável & Selecionado? \\ \hline
+Pacotes                                                          & \begin{tabular}[c]{@{}c@{}}pacman/\\ dpkg\end{tabular} & sim        & não  & sim    & sim          \\ \hline
+\begin{tabular}[c]{@{}c@{}}Versões\\ Pacotes\end{tabular}        & \begin{tabular}[c]{@{}c@{}}pacman/\\ dpkg\end{tabular} & sim        & não  & sim    & sim          \\ \hline
+Dependências                                                     & \begin{tabular}[c]{@{}c@{}}pacman/\\ dpkg\end{tabular} & sim        & não  & sim    & sim          \\ \hline
+\begin{tabular}[c]{@{}c@{}}Arquiteturas\\ Alvo\end{tabular}      & \begin{tabular}[c]{@{}c@{}}pacman/\\ dpkg\end{tabular} & sim        & não  & sim    & sim          \\ \hline
+    Pacotes Pip                                                      & pip                                                    & sim        & não  & sim    & sim          \\ \hline
+\begin{tabular}[c]{@{}c@{}}Versões\\ Pacotes Pip\end{tabular}    & pip                                                    & sim        & não  & sim    & sim          \\ \hline
+    Pacotes Ruby                                                     & gem                                                    & sim        & não  & sim    & sim          \\ \hline
+\begin{tabular}[c]{@{}c@{}}Versões\\ Pacotes Ruby\end{tabular}   & gem                                                    & sim        & não  & sim    & sim          \\ \hline
+\begin{tabular}[c]{@{}c@{}}Pacotes por\\ outro Ger.\end{tabular} & N/A                                                    & não        & não  & não    & não          \\ \hline
+\begin{tabular}[c]{@{}c@{}}Instalação\\ Manual\end{tabular}      & N/A                                                    & não        & não  & não    & não          \\ \hline
 \end{tabular}
 \end{table}
+
+Nenhum dos atributos dessa camada pode ser extraído pelo \textit{Ohai} por
+padrão. Dessa maneira toda a extração desses atributos deverá ser implementada
+num plugin para o \textit{Ohai}.
 
 \subsubsection{\textit{Configuration}}
 
