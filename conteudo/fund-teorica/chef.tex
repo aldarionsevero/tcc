@@ -57,3 +57,21 @@ mínimos para a implementação do Chef~\cite{chefdoc:2016}:
   \label{fig:chef-comp}
 \end{figure}
 
+\subsection{\textit{Cookbooks}}
+
+O \textit{cookbook} é um componente fundamental para a utilização do Chef.
+Neles são dispostos as configurações e políticas que definem o ambiente
+através dos componentes como \textit{attributes, recipes, metadatas, files}, etc
+~\cite{chefdoc:2016}.
+
+%TODO: adicionar a composição de uma receita mínima
+
+\citeonline{sharma:2015} Classifica os \textit{cookbooks} em três categorias:
+\begin{itemize}
+  \item \textbf{Aplicação}: contém as configurações de acordo com a instalação de
+    uma aplicação. Exemplo PostgreSQL, Apache, Nginx;
+  \item \textbf{Biblioteca}: define recursos a serem utilizados por outros \textit{cookbooks}.
+    Não é recomendado utilizado diretamente em um node;
+  \item \textbf{\textit{Wrapper}}: são \textit{cookbooks} prontos construidos pela comunidade que podem
+    ser alterados para que se adequem ao ambiente que será implantado.
+\end{itemize}
