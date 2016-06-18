@@ -54,44 +54,44 @@ a partições, armazenamento, dispositivos PCI, USB e dispositivos de rede.
 
 A primeira coluna das tabelas mostra o atributo em questão; a segunda mostra
 a origem do atributo, podendo ser um comando do sistema, ou caminho de um arquivo;
-a terceira coluna mostra se o atributo é relevante para a aplicação; a quarta
-coluna diz se é viável implementar o acesso a esse atributo; a quinta mostra se
-esse atributo pode ser conseguido por meio do \textit{Ohai} e a ultima coluna
+a terceira coluna mostra se o atributo é relevante para a aplicação; a quarta mostra se
+esse atributo pode ser conseguido por meio do \textit{Ohai}; a quinta coluna 
+diz se é viável implementar o acesso a esse atributo e a ultima coluna
 diz se o atributo foi selecionado para ser usado pelo \textit{Cupper}.
 
 \begin{table}[H]
 \centering
 \caption{Atributos Relacionados a CPU, Memória e \textit{Motherboard}}
 \label{tab:atrhard}
-\begin{tabular}{|c|c|c|c|l|c|}
+\begin{tabular}{|c|c|c|c|c|c|}
 \hline
 \rowcolor[HTML]{C0C0C0} 
-Atributo                                                        & Origem   & Relevante? & Viável? & Ohai & Selecionado? \\ \hline
-Modelo CPU                                                      & lscpu    & não        & sim     &      & não          \\ \hline
-\begin{tabular}[c]{@{}c@{}}Modo de \\ Operação CPU\end{tabular} & lscpu    & sim        & sim     &      & sim          \\ \hline
-Arquitetura CPU                                                 & lscpu    & sim        & sim     &      & sim          \\ \hline
-Cores                                                           & lscpu    & sim        & sim     &      & sim          \\ \hline
-Stepping CPU                                                    & lscpu    &            & sim     &      &              \\ \hline
-Frequência CPU                                                  & lscpu    &            & sim     &      &              \\ \hline
-Cache CPU                                                       & lscpu    &            & sim     &      &              \\ \hline
-Flags CPU                                                       & lscpu    & sim        & sim     &      & sim          \\ \hline
-\begin{tabular}[c]{@{}c@{}}Modelo \\ Motherboard\end{tabular}   & dmidecode & não        & não     &      & não          \\ \hline
-Versão BIOS                                                     & dmidecode & não        & não     &      & não          \\ \hline
-Flags BIOS                                                      & dmidecode & não        & não     &      & não          \\ \hline
-Slots Memória                                                   &          & não        & sim     &      & não          \\ \hline
-Marca Memória                                                   & dmidecode & não        & sim     &      & não          \\ \hline
-Tamanho Memória                                                 & free     & sim        & sim     &      & sim          \\ \hline
-Clock Memória                                                   &          & sim        & sim     &      & sim          \\ \hline
-Total Swap                                                      &          & sim        & sim     &      & sim          \\ \hline
-Livre Swap                                                      &          & sim        & sim     &      & sim          \\ \hline
-Total Memória                                                   &          & sim        & sim     &      & sim          \\ \hline
-Livre Memória                                                   &          & sim        & sim     &      & sim          \\ \hline
-Buffers Memóra                                                  &          & não        & sim     &      & não          \\ \hline
-Cached Memória                                                  &          &            & sim     &      &              \\ \hline
-Ativo Memória                                                   &          &            & sim     &      &              \\ \hline
-Inativo Memória                                                 &          &            & sim     &      &              \\ \hline
-Sujo Memória                                                    &          &            & sim     &      &              \\ \hline
-\begin{tabular}[c]{@{}c@{}}Pag. Anon\\ Memória\end{tabular}     &          &            & sim     &      &              \\ \hline
+Atributo                                                        & Origem    & Relevante? & Ohai & Viável? & Selecionado? \\ \hline
+Modelo CPU                                                      & lscpu     & não        & sim  & sim     & não          \\ \hline
+\begin{tabular}[c]{@{}c@{}}Modo de \\ Operação CPU\end{tabular} & lscpu     & sim        & sim  & sim     & sim          \\ \hline
+Arquitetura CPU                                                 & lscpu     & sim        & sim  & sim     & sim          \\ \hline
+Cores                                                           & lscpu     & sim        & sim  & sim     & sim          \\ \hline
+Stepping CPU                                                    & lscpu     & não        & sim  & sim     & não          \\ \hline
+Frequência CPU                                                  & lscpu     & sim        & sim  & sim     & sim          \\ \hline
+Cache CPU                                                       & lscpu     & sim        & sim  & sim     & sim          \\ \hline
+Flags CPU                                                       & lscpu     & sim        & sim  & sim     & sim          \\ \hline
+\begin{tabular}[c]{@{}c@{}}Modelo \\ Motherboard\end{tabular}   & dmidecode & não        & não  & não     & não          \\ \hline
+Versão BIOS                                                     & dmidecode & não        & não  & não     & não          \\ \hline
+Flags BIOS                                                      & dmidecode & não        & não  & não     & não          \\ \hline
+Slots Memória                                                   & dmidecode & não        & sim  & sim     & não          \\ \hline
+Marca Memória                                                   & dmidecode & não        & não  & não     & não          \\ \hline
+Tamanho Memória                                                 & free      & sim        & sim  & sim     & sim          \\ \hline
+Clock Memória                                                   & dmidecode & não        & não  & não     & não          \\ \hline
+Total Swap                                                      & free      & sim        & sim  & sim     & sim          \\ \hline
+Livre Swap                                                      & free      & sim        & sim  & sim     & sim          \\ \hline
+Total Memória                                                   & free      & sim        & sim  & sim     & sim          \\ \hline
+Livre Memória                                                   & free      & sim        & sim  & sim     & sim          \\ \hline
+Buffers Memóra                                                  & free      & sim        & sim  & sim     & sim          \\ \hline
+Cached Memória                                                  & free      & não        & sim  & sim     & não          \\ \hline
+Ativo Memória                                                   & free      & sim        & sim  & sim     & sim          \\ \hline
+Inativo Memória                                                 & free      & sim        & sim  & sim     & sim          \\ \hline
+Sujo Memória                                                    & pmap      & sim        & sim  & sim     & sim          \\ \hline
+\begin{tabular}[c]{@{}c@{}}Pag. Anon\\ Memória\end{tabular}     & pmap      & não        & sim  & sim     & não          \\ \hline
 \end{tabular}
 \end{table}
 
@@ -102,19 +102,19 @@ Sujo Memória                                                    &          &   
 \begin{tabular}{|c|c|c|c|c|l|}
 \hline
 \rowcolor[HTML]{C0C0C0} 
-Atributo                                                                 & Origem                                                                & Relevante? & Viável? & Ohai & Selecionado? \\ \hline
-\begin{tabular}[c]{@{}c@{}}Nome\\ dos\\ Dispositivos\end{tabular}        & lsblk                                                                 &            &         &      &              \\ \hline
-\begin{tabular}[c]{@{}c@{}}Major/Minor\\ Dispositivos\end{tabular}       & lsblk                                                                 &            &         &      &              \\ \hline
-Removíveis                                                               & lsblk                                                                 &            &         &      &              \\ \hline
-\begin{tabular}[c]{@{}c@{}}Somente\\ Leitura\end{tabular}                & lsblk                                                                 &            &         &      &              \\ \hline
-Partições                                                                & lsblk                                                                 &            &         &      &              \\ \hline
-\begin{tabular}[c]{@{}c@{}}Tamanho\\ Partições/\\ Discos\end{tabular}    & \begin{tabular}[c]{@{}c@{}}lsblk/\\ df\end{tabular}                   &            &         &      &              \\ \hline
-\begin{tabular}[c]{@{}c@{}}Tipo\\ Filesystem\\ Dispositivos\end{tabular} & lsblk                                                                 &            &         &      &              \\ \hline
-\begin{tabular}[c]{@{}c@{}}UUID\\ Dispositivos\end{tabular}              & lsblk                                                                 &            &         &      &              \\ \hline
-Mountpoints                                                              & mount                                                                 &            &         &      &              \\ \hline
-\begin{tabular}[c]{@{}c@{}}Dsipositivos\\ USB\end{tabular}               & lsusb                                                                 &            &         &      &              \\ \hline
-\begin{tabular}[c]{@{}c@{}}Dsipositivos\\ PCI\end{tabular}               & lspci                                                                 &            &         &      &              \\ \hline
-\begin{tabular}[c]{@{}c@{}}Dispositivos \\ de Rede\end{tabular}          & \begin{tabular}[c]{@{}c@{}}lspci/\\ ifconfig/\\ dmidecode\end{tabular} &            &         &      &              \\ \hline
+Atributo                                                                 & Origem                                                                & Relevante? & Ohai    & Viável & Selecionado? \\ \hline
+\begin{tabular}[c]{@{}c@{}}Nome\\ dos\\ Dispositivos\end{tabular}        & lsblk                                                                 & sim        & sim     & sim    & sim         \\ \hline
+\begin{tabular}[c]{@{}c@{}}Major/Minor\\ Dispositivos\end{tabular}       & lsblk                                                                 & sim        & não     & sim    & sim         \\ \hline
+Removíveis                                                               & lsblk                                                                 & não        & não     & não    & não         \\ \hline
+\begin{tabular}[c]{@{}c@{}}Somente\\ Leitura\end{tabular}                & lsblk                                                                 & não        & não     & não    & não         \\ \hline
+Partições                                                                & lsblk                                                                 & sim        & sim     & sim    & sim         \\ \hline
+\begin{tabular}[c]{@{}c@{}}Tamanho\\ Partições/\\ Discos\end{tabular}    & \begin{tabular}[c]{@{}c@{}}lsblk/\\ df\end{tabular}                   & sim        & sim     & sim    & sim         \\ \hline
+\begin{tabular}[c]{@{}c@{}}Tipo\\ Filesystem\\ Dispositivos\end{tabular} & lsblk                                                                 & sim        & sim     & sim    & sim         \\ \hline
+\begin{tabular}[c]{@{}c@{}}UUID\\ Dispositivos\end{tabular}              & lsblk                                                                 & sim        & sim     & sim    & sim         \\ \hline
+Mountpoints                                                              & mount                                                                 & sim        & sim     & sim    & sim         \\ \hline
+\begin{tabular}[c]{@{}c@{}}Dsipositivos\\ USB\end{tabular}               & lsusb                                                                 & não        & não     & não    & não         \\ \hline
+\begin{tabular}[c]{@{}c@{}}Dsipositivos\\ PCI\end{tabular}               & lspci                                                                 & sim        & não     & sim    & sim         \\ \hline
+\begin{tabular}[c]{@{}c@{}}Dispositivos \\ de Rede\end{tabular}          & \begin{tabular}[c]{@{}c@{}}lspci/\\ ifconfig/\\ dmidecode\end{tabular} & sim        & sim     & sim    & não         \\ \hline
 \end{tabular}
 \end{table}
 
@@ -146,9 +146,9 @@ configurações de rede.
 
 A primeira coluna das tabelas mostra o atributo em questão; a segunda mostra
 a origem do atributo, podendo ser um comando do sistema, ou caminho de um arquivo;
-a terceira coluna mostra se o atributo é relevante para a aplicação; a quarta
-coluna diz se é viável implementar o acesso a esse atributo; a quinta mostra se
-esse atributo pode ser conseguido por meio do \textit{Ohai} e a ultima coluna
+a terceira coluna mostra se o atributo é relevante para a aplicação; a quarta mostra se
+esse atributo pode ser conseguido por meio do \textit{Ohai}; a quinta coluna 
+diz se é viável implementar o acesso a esse atributo e a ultima coluna
 diz se o atributo foi selecionado para ser usado pelo \textit{Cupper}.
 
 
@@ -159,19 +159,19 @@ diz se o atributo foi selecionado para ser usado pelo \textit{Cupper}.
 \begin{tabular}{|c|c|c|c|l|c|}
 \hline
 \rowcolor[HTML]{C0C0C0} 
-Atributo                                                       & Origem & Relevante? & Viável? & Ohai & Selecionado? \\ \hline
-OS                                                             &        &            &         &      &              \\ \hline
-Kernel                                                         &        &            &         &      &              \\ \hline
-\begin{tabular}[c]{@{}c@{}}Versão\\ Kernel\end{tabular}        &        &            &         &      &              \\ \hline
-\begin{tabular}[c]{@{}c@{}}Machine\\ Kernel\end{tabular}       &        &            &         &      &              \\ \hline
-\begin{tabular}[c]{@{}c@{}}Módulos\\ Kernel\end{tabular}       &        &            &         &      &              \\ \hline
-Distribuição                                                   &        &            &         &      &              \\ \hline
-\begin{tabular}[c]{@{}c@{}}Release\\ Distribuição\end{tabular} &        &            &         &      &              \\ \hline
-\begin{tabular}[c]{@{}c@{}}Família\\ Distribuição\end{tabular} &        &            &         &      &              \\ \hline
-Hostname                                                       &        &            &         &      &              \\ \hline
-\begin{tabular}[c]{@{}c@{}}Interfaces\\ de Rede\end{tabular}   &        &            &         &      &              \\ \hline
-\begin{tabular}[c]{@{}c@{}}Endereços\\ de Rede\end{tabular}    &        &            &         &      &              \\ \hline
-\begin{tabular}[c]{@{}c@{}}Endereços\\ MAC\end{tabular}        &        &            &         &      &              \\ \hline
+Atributo                                                       & Origem               & Relevante? & Ohai & Viável? & Selecionado? \\ \hline
+OS                                                             & /etc/distro-release  & sim        & sim  & sim     & sim         \\ \hline
+Kernel                                                         & uname                & sim        & sim  & sim     & sim         \\ \hline
+\begin{tabular}[c]{@{}c@{}}Versão\\ Kernel\end{tabular}        & uname                & sim        & sim  & sim     & sim         \\ \hline
+\begin{tabular}[c]{@{}c@{}}Machine\\ Kernel\end{tabular}       & uname                & sim        & sim  & sim     & sim         \\ \hline
+\begin{tabular}[c]{@{}c@{}}Módulos\\ Kernel\end{tabular}       & lsmod                & sim        & sim  & sim     & sim         \\ \hline
+Distribuição                                                   & lsb\_release          & sim        & sim  & sim     & sim         \\ \hline
+\begin{tabular}[c]{@{}c@{}}Release\\ Distribuição\end{tabular} & lsb\_release          & sim        & sim  & sim     & sim         \\ \hline
+\begin{tabular}[c]{@{}c@{}}Família\\ Distribuição\end{tabular} & lsb\_release          & sim        & sim  & sim     & sim         \\ \hline
+Hostname                                                       & hostname             & sim        & sim  & sim     & sim         \\ \hline
+\begin{tabular}[c]{@{}c@{}}Interfaces\\ de Rede\end{tabular}   & ip                   & sim        & sim  & sim     & sim         \\ \hline
+\begin{tabular}[c]{@{}c@{}}Endereços\\ de Rede\end{tabular}    & ip                   & sim        & sim  & sim     & sim         \\ \hline
+\begin{tabular}[c]{@{}c@{}}Endereços\\ MAC\end{tabular}        & ip                   & sim        & sim  & sim     & sim         \\ \hline
 \end{tabular}
 \end{table}
 
