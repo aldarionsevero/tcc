@@ -302,10 +302,45 @@ implementação somente para \textit{Archlinux} e \textit{Debian}.
 \end{tabular}
 \end{table}
 
+Na tabela~\ref{tab:service} são listados os atributos relacionados a camada 
+\textit{Service}. A primeira coluna das tabelas mostra o atributo em questão; a segunda mostra
+a origem do atributo, podendo ser um comando do sistema, ou caminho de um arquivo;
+a terceira coluna mostra se o atributo é relevante para a aplicação; a quarta mostra se
+esse atributo pode ser conseguido por meio do \textit{Ohai}; a quinta coluna 
+diz se é viável implementar o acesso a esse atributo e a ultima coluna
+diz se o atributo foi selecionado para ser usado pelo \textit{Cupper}.
 
 
+\begin{table}[H]
+\centering
+\caption{Atributos relacionados a Serviços e daemon}
+\label{tab:service}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\rowcolor[HTML]{C0C0C0} 
+Atributo                                                           & Origem                                                       & Relevante? & Ohai & Viável & Selecionado? \\ \hline
+Status                                                             & \begin{tabular}[c]{@{}c@{}}systemctl/\\ service\end{tabular} & sim        & sim  & sim    & sim          \\ \hline
+\begin{tabular}[c]{@{}c@{}}Unidades\\ Rodando\end{tabular}         & \begin{tabular}[c]{@{}c@{}}systemctl/\\ service\end{tabular} & sim        & sim  & sim    & sim          \\ \hline
+Falhas                                                             & \begin{tabular}[c]{@{}c@{}}systemctl/\\ service\end{tabular} & sim        & sim  & sim    & sim          \\ \hline
+\begin{tabular}[c]{@{}c@{}}Unidades\\ Instaladas\end{tabular}      & \begin{tabular}[c]{@{}c@{}}systemctl/\\ service\end{tabular} & sim        & sim  & sim    & sim          \\ \hline
+\begin{tabular}[c]{@{}c@{}}Unidades\\ Status\end{tabular}          & \begin{tabular}[c]{@{}c@{}}systemctl/\\ service\end{tabular} & sim        & sim  & sim    & sim          \\ \hline
+\begin{tabular}[c]{@{}c@{}}Relação\\ Unidade\\ Pacote\end{tabular} & \begin{tabular}[c]{@{}c@{}}pacman/\\ dpkg/\\ apt-file/\\ pkgfile\end{tabular} & sim        & não  & sim    & sim          \\ \hline
+\end{tabular}
+\end{table}
 
 \subsubsection{\textit{Custom}}
+
+O trabalho referente a essa camada permeia algumas das camadas anteriores, mas
+nos pontos em que podem ter procedimentos que não estejam no padrão estabelecido.
+Com relação à camada de \textit{Application}, pacotes podem ser instalados por
+meio de Makefiles ou scripts customizados que não atualizam o histórico de
+pacotes do gerenciador de pacotes. Da mesma maneira, as configurações desses
+pacotes podem ser geradas por esses scripts, e colocadas em lugares fora do padrão.
+Mesmo considerando aplicações instaladas por gerenciadores de pacotes, vários
+arquivos de configuração podem ser instalados em diretórios fora  do padrão HFS.
+Dessa maneira, além de \textit{plugins} para o \textit{Ohai}, \textit{plugins}
+para o \textit{Cupper} também devem ser feitos para tratar esses casos especiais.
+
 
 %TODO: a seleção de camadas e profundidade de análise serão postas dentro das
 %   especificações de cada camada.
