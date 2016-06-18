@@ -151,7 +151,6 @@ esse atributo pode ser conseguido por meio do \textit{Ohai}; a quinta coluna
 diz se é viável implementar o acesso a esse atributo e a ultima coluna
 diz se o atributo foi selecionado para ser usado pelo \textit{Cupper}.
 
-
 \begin{table}[H]
 \centering
 \caption{Atributos relacionados ao Sistema Operacional, Kernel e configs gerais do sistema}
@@ -165,9 +164,12 @@ Kernel                                                         & uname          
 \begin{tabular}[c]{@{}c@{}}Versão\\ Kernel\end{tabular}        & uname                & sim        & sim  & sim     & sim         \\ \hline
 \begin{tabular}[c]{@{}c@{}}Machine\\ Kernel\end{tabular}       & uname                & sim        & sim  & sim     & sim         \\ \hline
 \begin{tabular}[c]{@{}c@{}}Módulos\\ Kernel\end{tabular}       & lsmod                & sim        & sim  & sim     & sim         \\ \hline
-Distribuição                                                   & lsb\_release          & sim        & sim  & sim     & sim         \\ \hline
-\begin{tabular}[c]{@{}c@{}}Release\\ Distribuição\end{tabular} & lsb\_release          & sim        & sim  & sim     & sim         \\ \hline
-\begin{tabular}[c]{@{}c@{}}Família\\ Distribuição\end{tabular} & lsb\_release          & sim        & sim  & sim     & sim         \\ \hline
+Distribuição                                                   & lsb\_release         & sim        & sim  & sim     & sim         \\ \hline
+\begin{tabular}[c]{@{}c@{}}Release\\ Distribuição\end{tabular} & lsb\_release         & sim        & sim  & sim     & sim         \\ \hline
+\begin{tabular}[c]{@{}c@{}}Família\\ Distribuição\end{tabular} & lsb\_release         & sim        & sim  & sim     & sim         \\ \hline
+\begin{tabular}[c]{@{}c@{}}Geren.\\ de Pacotes\end{tabular}    & N/A                  & sim        & não  & sim     & sim         \\ \hline
+\begin{tabular}[c]{@{}c@{}}Init \\ System\end{tabular}         & N/A                  & sim        & não  & sim     & sim         \\ \hline
+\begin{tabular}[c]{@{}c@{}}Módulo \\ de Segurança\end{tabular} & N/A                  & sim        & não  & sim     & sim         \\ \hline
 Hostname                                                       & hostname             & sim        & sim  & sim     & sim         \\ \hline
 \begin{tabular}[c]{@{}c@{}}Interfaces\\ de Rede\end{tabular}   & ip                   & sim        & sim  & sim     & sim         \\ \hline
 \begin{tabular}[c]{@{}c@{}}Endereços\\ de Rede\end{tabular}    & ip                   & sim        & sim  & sim     & sim         \\ \hline
@@ -175,15 +177,12 @@ Hostname                                                       & hostname       
 \end{tabular}
 \end{table}
 
-{\color{red} tabela com infos de distro, versões, pkg manager tool, e kernel do ohai}
+Por ser específico de cada distribuição linux, não é possível determinar com um
+comando qual o gerenciador de pacotes o sistema utiliza. O mesmo acontece para
+o sistema de inicialização de serviços e para o módulo de segurança utilizados.
+Dessa forma é necessário implementar a captura dessas informações em um plugin 
+para o \textit{Ohai}.
 
-{\color{red} detectar qual init system é usado verificando existência de diretórios
-e outros métodos}
-
-{\color{red} extrair qual sistema de segurança é usado verificando existência
-do apparmour, selinux ou grsecurity}
-
-{\color{red} explicar de onde veio cada dado}
 
 %TODO: a seleção de camadas e profundidade de análise serão postas dentro das
 %   especificações de cada camada.
