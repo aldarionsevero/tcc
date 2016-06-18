@@ -118,12 +118,6 @@ Mountpoints                                                              & mount
 \end{tabular}
 \end{table}
 
-{\color{red} colocar uma tabela com saida dos comandos lscpu, lshw, hwinfo, lspci
-lsscsi, lsusb, lsblk, df, mount, free, e ohai}
-
-{\color{red} explicar de onde vem cada informação, e cada comando}
-
-{\color{red} tirar o que for redundante}
 
 %TODO: adicionar as informações que serão coletadas.
 
@@ -183,6 +177,37 @@ o sistema de inicialização de serviços e para o módulo de segurança utiliza
 Dessa forma é necessário implementar a captura dessas informações em um plugin 
 para o \textit{Ohai}.
 
+\subsubsection{\textit{Application}}
+
+Essa camada trata das aplicações instaladas no sistema. Aplicações podem ter 
+sido instaladas por gerenciadores de pacotes oficiais da distribuição, por
+gerenciadores não oficiais, por gerenciadores específicos de módulos para
+linguagens e por fim podem ser instalados manualmente. Nessa camada iremos 
+suportar somente pacotes instalados por gerenciadores oficiais e por 
+gerenciadores específicos de linguagem python e ruby (Pip e RubyGem). Na camada
+\textit{Custom} a aplicação irá tentar suportar aplicações instaladas de outras
+maneiras.
+
+\begin{table}[H]
+\centering
+\caption{Atributos relacionados às Aplicações}
+\label{tab:app}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\rowcolor[HTML]{C0C0C0} 
+Atributo                                                             & Origem & Relevante? & Ohai & Viável & Selecionado? \\ \hline
+Pacotes                                                              &        &            &      &        &              \\ \hline
+\begin{tabular}[c]{@{}c@{}}Versões\\ Pacotes\end{tabular}            &        &            &      &        &              \\ \hline
+Dependências                                                         &        &            &      &        &              \\ \hline
+\begin{tabular}[c]{@{}c@{}}Arquitetura\\ Alvo\\ Pacotes\end{tabular} &        &            &      &        &              \\ \hline
+\end{tabular}
+\end{table}
+
+\subsubsection{\textit{Configuration}}
+
+\subsubsection{\textit{Service}}
+
+\subsubsection{\textit{Custom}}
 
 %TODO: a seleção de camadas e profundidade de análise serão postas dentro das
 %   especificações de cada camada.
