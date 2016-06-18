@@ -8,24 +8,30 @@ Chef. Cada qual trata a automação de uma forma diferente apresentando \textit{
 específica que provê desde da automação de configuração da rede até a configuração
 de ambientes. Dentre elas, destaca-se as mais populares: Chef, Puppet,
 SaltStack e Ansible. A tabela~\ref{tab:chef-rival} mostra a comparação entre
-as ferramentas.
-
+as ferramentas.  
 \begin{table}[H]
   \centering
   \label{tab:chef-rival}
-  \begin{tabular}{|l|l|l|l|l|}
-    \hline
-                                                                       & Chef                                                                                                                                  & Puppet                                                                                                                        & SaltStack    & Ansible                                                                                               \\ \hline
-    Licença                                                            & Apache                                                                                                                                & Apache                                                                                                                        & Apache       & GPL                                                                                                   \\ \hline
-  \begin{tabular}[c]{@{}l@{}}Linguagem de\\ Programação\end{tabular} & \begin{tabular}[c]{@{}l@{}}Ruby (cliente) e\\ Ruby/Erlang (servidor)\end{tabular}                                                     & Ruby                                                                                                                          & Python       & Python                                                                                                \\ \hline
-    Arquitetura                                                        & Master/Agent                                                                                                                          & Master/Agent                                                                                                                  & Master/Agent & Master/Agent                                                                                          \\ \hline
-  \begin{tabular}[c]{@{}l@{}}Mecanismo\\ de Push/Pull\end{tabular}   & Pull                                                                                                                                  & Pull                                                                                                                          & Push         & Push                                                                                                  \\ \hline
-  Exemplo Industrial                                                 & \begin{tabular}[c]{@{}l@{}}Facebook, Linkedin, Youtube,\\ Splunk, Rackspace, GE\\ Capital, Digital Science e\\ Bloomberg\end{tabular} & \begin{tabular}[c]{@{}l@{}}Twitter, Verizon,\\ VMware, Sony, Symantec,\\ Redhat, Salesforce, Motorola\\ e Paypal\end{tabular} & Lyft         & \begin{tabular}[c]{@{}l@{}}Apple, Juniper, Grainger,\\ WeightWatchers, SaveMart\\ e NASA\end{tabular} \\ \hline
-  \end{tabular}
+  \resizebox{\textwidth}{!}{%
+    \begin{tabular}{|l|l|l|l|l|}
+      \hline
+        & \textbf{Chef} & \textbf{Puppet} & \textbf{SaltStack} & \textbf{Ansible} \\
+      \hline
+       Linguagem & \begin{tabular}[c]{@{}l@{}}Ruby (cliente) e\\ Ruby/Erlang (servidor)\end{tabular} & Ruby & Python & Python \\
+      \hline
+        Arquitetura & Master/Agente &  Master/Agente & Master/Agente & Master/Agente \\ 
+      \hline
+        \begin{tabular}[c]{@{}l@{}}Mecanismo de\\ Push/Pull\tablefootnote{Mecanismo de \textit{network communication}.
+          \textit{Push}: o servidor realiza a requisição. \textit{Pull}: o cliente realiza a requisição por dados.\cite{cho:2007}}\end{tabular} & \textit{Pull} & \textit{Pull} & \textit{Push} & \textit{Push} \\
+      \hline
+        \textit{\begin{tabular}[c]{@{}l@{}}Cloud \\ Integration\end{tabular}} & \begin{tabular}[c]{@{}l@{}}Amazon EC2,\\ Windows Azure,\\ HP Cloud, Google\\ Computer Engine,\\ Joyent Cloud,\\ Rackspace,\\ VMWare, IBM\\ Smartcloud e\\ OpenStack\end{tabular} & \begin{tabular}[c]{@{}l@{}}Amazon AWS,\\ VMware e\\ Google Computer\\ Engine\end{tabular} & \begin{tabular}[c]{@{}l@{}}Amazon AWS,\\ Rackspace,\\ SoftLayer,\\ GoGrid, HP\\ Cloud, Google\\ Computer Engine,\\ VMware, Windows\\ Azure e Parallels\end{tabular} & \begin{tabular}[c]{@{}l@{}}Amazon AWS,\\ VMware, OpenStack,\\ CloudStack, Eucalyptus\\ Cloud e KVM.\end{tabular} \\
+      \hline
+        \begin{tabular}[c]{@{}l@{}}Empresas\\ que Utilizam\end{tabular} & \begin{tabular}[c]{@{}l@{}}Facebook,\\ Linkedin,\\ Youtube, Splunk,\\ Rackspace, GE Capital,\\ Digital Science e\\ Bloomberg\end{tabular} & \begin{tabular}[c]{@{}l@{}}Twitter, Verizon,\\ VMware, Sony,\\ Symantec, Redhat,\\ Salesforce, Motorola\\ e Paypal.\end{tabular} & Lyft               & \begin{tabular}[c]{@{}l@{}}Apple, Juniper,\\ Grainger,\\ WeightWatchers,\\ SaveMartand\\ e NASA\end{tabular} \\
+      \hline
+    \end{tabular}
+  }
   \caption{Comparativo das ferramentas de automação, adaptado de \citeonline{sharma:2015}}
 \end{table}
-
-%TODO: adicionar que vamos utilizar o Chef e linkar com as vantagens
 
 As vantagens e pontos chaves que o Chef tem em relação ao seus
 concorrentes~\cite{sharma:2015}:
@@ -41,4 +47,8 @@ concorrentes~\cite{sharma:2015}:
     Além disso, constantemente publicam conferências \textit{online} e materiais multimídia
     gratuitamente.
 \end{itemize}
+
+A ferramenta Cupper, proposta deste trabalho, é focada para auxiliar especificamente
+o Chef. Além das vantagens apresentadas, também foi considerado a experiência do grupo
+com a ferramenta e a utilização dela durante o curso.
 
