@@ -20,6 +20,7 @@ outra ferramenta da família Chef, que será necessária para fazer o perfil e d
 inicial do sistema. %TODO: melhorar
 
 \section{Ferramentas e Serviços de Suporte ao Desenvolvimento}
+\label{sec:supdev}
 
 Para o desenvolvimento do trabalho, foram escolhidas as ferramentas e serviços de suporte que serão
 utilizadas para gerência e controle das atividades do projeto e automação e coleta de dados e teste
@@ -28,12 +29,14 @@ grupo em relação a utilização da ferramenta no decorrer do curso e a identif
 padrões utilizados pelas ferramentas providas pelo Chef.
 
 \subsection{Git}
+\label{sec:supdev:git}
 
 Git é uma ferramenta de controle de versão gratuita e de código aberto criada
 em 2005 por Linus Torvalds~\cite{chacon:2014}. O Git foi utilizado para o controle das versões
 dos códigos para a produção deste documento e para a produção da ferramenta proposta Cupper.
 
 \subsection{Github}
+\label{sec:supdev:github}
 
 O Github é um serviço que provê a utilização dos comando Git em um \textit{browser}, além de
 disponibilizar um repositório remoto para colaboração de projetos e registro e rastreamento de
@@ -42,6 +45,7 @@ deste documento e da ferramenta proposta Cupper, e para o registro e controle de
 considerados os itens do \textit{Backlog}, como descrito na seção~\ref{sec:praticas_tecnicas}.
 
 \subsection{Travis}
+\label{sec:supdev:travis}
 
 O Travis é um serviço de integração contínua integrada com o serviço Github que automatiza
 a \textit{build} do código e verifica os testes~\cite{travis:2016}. O Travis será utilizado para
@@ -49,6 +53,7 @@ realizar a \textit{build} automatica da ferramenta Cupper, determinando se a fun
 será integrada ao código.
 
 \subsection{RubyGems}
+\label{sec:supdev:rubygems}
 
 O RubyGems é um \textit{framework} de empacotamento e instalação de bibliotecas e aplicações
 construidas com Ruby. As vantagens de se utilizar RubyGem~\cite{thomas:2001}:
@@ -63,6 +68,7 @@ A ferramenta Cupper, por ser construída em Ruby, seguirá os padrões adotados
 pelo RubyGems.
 
 \subsection{RSpec}
+\label{sec:supdev:rspec}
 
 O RSpec é um \textit{framework} de \textit{Behaviour-Driven Development} (BDD)
 criado por Steven Baker em 2005~\cite{chelimsky:2010}. Com o RSpec
@@ -71,12 +77,14 @@ em contexto controlados. O RSpec facilita a escrita de testes simplificando
 a sintaxe para descrever os cenários e comportamentos.
 
 \section{Ferramentas Dependentes}
+\label{sec:deps}
 
 Foram identificadas as ferramentas dependentes para a construção do Cupper.
 São ferramentas que estão dentro da família de ferramentas do Chef e são
 de código aberto disponíveis no repositório oficial do Chef.
 
 \subsection{Ohai}
+\label{sec:deps:ohai}
 
 O Ohai é uma ferramenta para detecção de atributos de um \textit{node}. Os atributos são
 informações que podem ser: detalhe de plataforma, dados de CPU, dados de redes, etc.
