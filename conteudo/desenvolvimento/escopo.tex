@@ -4,7 +4,47 @@ Nessa seção serão descritas as funcionalidades e a estrutura inicial da gem.
 
 \subsection{Funcionalidades}
 
+Já que o \textit{Cupper} é uma ferramenta de linha de comando, suas funcionalidades
+estão diretamente relacionadas aos subcomandos e suas opções. Dessa forma os
+comandos chave da aplicação irão ser listados nessa seção.
 
+\subsubsection{Mostrar Ajuda}
+
+Como diversos outras ferramentas de linha de comando, o \textit{Cupper} deve possuir
+um subcomando que imprime no terminal os principais subcomandos e algumas de 
+suas opções.
+
+\subsubsection{Gerar Cookbook}
+
+Essa é a funcionalidade mais importante do \textit{Cupper}, e é a motivação
+principal para implementá-lo e utilizá-lo. A figura~\ref{fig:cupper_geral} mostra
+o fluxo básico do funcionamento.
+
+\subsubsection{Gerar Relatório}
+
+É possível também utilizar o \textit{Cupper} para gerar um relatório mais
+completo do que o \textit{Ohai} geraria, considerando os \textit{plugins} da
+família \textit{Cupper} para o \textit{Ohai}.
+
+Esse relatório pode ser utilizado com fins de diagnóstico, ou como uma fase 
+intermediária à criação de \textit{Cookbooks}, para entender o que será finalmente 
+escrito nas \textit{Cookbooks} e também por motivos de \textit{debug}.
+
+\subsubsection{Gerar Diretório Inicial para Configuração}
+
+Essa funcionalidade é referente ao comando que irá gerar a estrutura de
+diretórios padrão para os arquivos de configuração do \textit{Cupper} e para
+a inserção de \textit{plugins}.
+
+\subsubsection{Listar \textit{Plugins} do \textit{Ohai}}
+
+Funcionalidade referente ao comando que lista os \textit{pligins} do \textit{Ohai}
+para simples conferencia.
+
+\subsubsection{Listar \textit{Plugins Custom} do \textit{Cupper}}
+
+Semelhante à funcionalidade anterior, mas lista \textit{Plugins Custom} do 
+\textit{Cupper}.
 
 \subsection{Estrutura e módulos}
 
