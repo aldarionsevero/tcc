@@ -1,18 +1,102 @@
 \section{Recursos Chef}
-
 \label{sec:lev-rec}
-\subsection{\textit{Cookbook}}
 
-\textit{Chef} utiliza os \textit{cookbooks} sendo a unidade básica de configuração do
-ambiente. Neles são definidos comandos, arquivos, e outros atributos
-para estabelecer o estado desejado para a instalação e configuração
-do ambiente alvo \cite{sharma:2015}.
+Como descrito ne seção \ref{sec:chef}, o Chef é disposto em vários
+componentes. O foco principal do Cupper é a criação de \textit{cookbooks},
+sendo assim os recursos levantados são referente a composição interna
+dos \textit{cookbooks}.
+
+Os \textit{cookbooks} contém os seguintes componentes: \textit{attributes, recipes, definitions,
+files, libraries, custom resourses, metadata, resources e providers, templates
+cookbook versions}~\cite{chefdoc:2016}.
+
+\subsection{\textit{Attributes}}
+\label{sec:lev-rec-att}
+
+Os \textit{attributes} são os detalhes das especificações do \textit{node}. Definem~\cite{chefdoc:2016}:
+
+\begin{itemize}
+  \item o estado atual do \textit{node};
+  \item em qual estado o \textit{node} estava após a última execução do \textit{chef-client};
+  \item em qual estado o \textit{node} deve alcançar ao final na execução do \textit{chef-client} atual.
+\end{itemize}
+
+Os \textit{attributes} são definidos: no proprio ambiente através do Ohai, nos \textit{cookbooks},
+nos \textit{roles} e \textit{environments}.
+
+\textbf{Cupper}:
 
 \subsection{\textit{Recipes}}
+\label{sec:lev-rec-rec}
+
+Os \textit{recipes} são as unidade fundamentais para a execução de um \textit{cookbook}. Definem
+todas as informações necessárias para configurar o sistema e segue algumas regras
+~\cite{chefdoc:2016}:
+
+\begin{itemize}
+  \item Deve ser incluido em um \textit{cookbook};
+  \item Deve ser posto em um \textit{run-list} antes de ser usado pelo \textit{chef-client};
+  \item É executado na mesma ordem disposta na \textit{run-list};
+  \item Pode ser incluído em outro \textit{recipe};
+  \item Pode ter dependência de outros \textit{recipe};
+  \item Pode marcar um \textit{node} para facilitar a criação de agrupamento.
+\end{itemize}
+
+As \textit{recipes} são escritas em Ruby e pode-se utilizar dos recursos providos
+pela linguagem. Dispoem-se de uma coleção desse recursos que são utilizados
+para definir as ações da \textit{recipes}.
+
+\begin{minipage}{.90\textwidth}
+  \label{code:recipe}
+  \lstset{style=shell}
+  \lstinputlisting[language=Bash, label=code:chef, caption="Exemplo de \textit{recipe}"]{conteudo/code/recipe_example.rb}
+\end{minipage}
+
+\textbf{Cupper}:
+
+\subsection{\textit{Definitions}}
+\label{sec:lev-rec-def}
+
+As \textit{definitions} são um novo tipo de recurso disponível apartir da versão
+12.5 do Chef e é recomentado utilizar o \textit{Custom Resource}(seção \ref{sec:lev-rec-cust})
+no lugar de \textit{definitions}~\cite{chefdoc:2016}.
+
+Os \textit{definitions} são comportamento que podem ser reutilizados por outros \textit{recipes}.
+São utilizado como recursos padrões de uma receita
+
+\textbf{Cupper}:
+
 \subsection{\textit{Files}}
+
+\textbf{Cupper}:
+
+\subsection{\textit{Libraries}}
+
+\textbf{Cupper}:
+
+\subsection{\textit{Custom Resource}}
+\label{sec:lev-rec-cust}
+
+\textbf{Cupper}:
+
+\subsection{\textit{Metadata}}
+
+\textbf{Cupper}:
+
+\subsection{\textit{Resources e Providers}}
+
+\textbf{Cupper}:
+
 \subsection{\textit{Templates}}
 
+\textbf{Cupper}:
+
+\subsection{\textit{Cookbook Version}}
+
+\textbf{Cupper}:
+
 \subsection{Seleção de Recursos}
+
 Os recursos foram selecionados considerando os critérios em~\ref{sec:defcritrecurso}
 
 \section{Relação entre Camadas e \textit{Cookbooks}}

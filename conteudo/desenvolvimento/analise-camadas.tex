@@ -7,7 +7,6 @@ estado desejado daquele ambiente. Os atributos de cada camada são variantes
 que são consideradas para o \textit{deployment} de uma aplicação. Sendo assim, as
 camadas são dependentes para o nível de compatibilidade da configuração.
 
-\subsection{Levantamento de Camadas de Ambiente}
 As seguintes camadas foram definidas para representar o estado de configuração do
 sistema:
 \begin{itemize}
@@ -26,7 +25,7 @@ sistema:
     sistema sem uma forma padrão conhecida.
 \end{itemize}
 
-\subsubsection{\textit{Hardware}}
+\subsection{\textit{Hardware}}
 \label{sec:cam-hard}
 
 A camada de \textit{Hardware} contém as definições físicas do sistema.
@@ -121,7 +120,7 @@ Mountpoints                                                              & mount
 
 %TODO: adicionar as informações que serão coletadas.
 
-\subsubsection{\textit{Operation System}}
+\subsection{\textit{Operation System}}
 \label{sec:cam-os}
 
 A segunda camada de extração de dados é a do Sistema Operacional. 
@@ -177,7 +176,7 @@ o sistema de inicialização de serviços e para o módulo de segurança utiliza
 Dessa forma é necessário implementar a captura dessas informações em um plugin 
 para o \textit{Ohai}.
 
-\subsubsection{\textit{Application}}
+\subsection{\textit{Application}}
 
 Essa camada trata das aplicações instaladas no sistema. Aplicações podem ter 
 sido instaladas por gerenciadores de pacotes oficiais da distribuição, por
@@ -220,7 +219,7 @@ Nenhum dos atributos dessa camada pode ser extraído pelo \textit{Ohai} por
 padrão. Dessa maneira toda a extração desses atributos deverá ser implementada
 num plugin para o \textit{Ohai}.
 
-\subsubsection{\textit{Configuration}}
+\subsection{\textit{Configuration}}
 
 A analise dessa camada está relacionada às configurações específicas de cada 
 aplicação, e do sistema. Dados como especificações de implantação das
@@ -264,7 +263,7 @@ Não serão analisados todos os subdiretórios, só serão analisados os que est
 sobre padrão similar ao HFS.
 
 
-\subsubsection{\textit{Service}}
+\subsection{\textit{Service}}
 
 Essa camada está relacionada ao gerenciamento de serviços do ambiente.
 O gerenciamento de Serviços depende de qual \textit{Init System} é usado pela
@@ -328,7 +327,7 @@ Falhas                                                             & \begin{tabu
 \end{tabular}
 \end{table}
 
-\subsubsection{\textit{Custom}}
+\subsection{\textit{Custom}}
 
 O trabalho referente a essa camada permeia algumas das camadas anteriores, mas
 nos pontos em que podem ter procedimentos que não estejam no padrão estabelecido.

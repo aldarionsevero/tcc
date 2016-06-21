@@ -23,7 +23,8 @@ possa executar sua função. Os principais componentes são~\cite{chefdoc:2016}:
     de rede, etc, que deva ser gerenciada pelo Chef;
   \item \textit{Chef Client}: ferramenta instalada em todos os \textit{nodes}. O
     \textit{Chef Client} é responsável por executar todas as tarefas especificadas
-    em uma \textit{run-list} (conjunto de \textit{cookbooks});
+    em uma \textit{run-list} (conjunto de \textit{cookbooks}). Esse componente é
+    executado pela aplicação CLI \textit{chef-client};
   \item \textit{Chef Server}: funciona como um \textit{hub} de informações. Todos os
     \textit{cookbooks} e as políticas são atualizadas no Chef Server pelos usuários
     dos \textit{workstations}. O Chef Client acessa o Chef Server para verificar
@@ -58,13 +59,12 @@ mínimos para a implementação do Chef~\cite{chefdoc:2016}:
 \end{figure}
 
 \subsection{\textit{Cookbooks}}
+\label{sec:chef-cookbooks}
 
-O \textit{cookbook} é um componente fundamental para a utilização do Chef.
-Neles são dispostos as configurações e políticas que definem o ambiente
-através dos componentes como \textit{attributes, recipes, metadatas, files}, etc
-~\cite{chefdoc:2016}.
-
-%TODO: adicionar a composição de uma receita mínima
+\textit{Chef} utiliza os \textit{cookbooks} sendo a unidade básica de configuração do
+ambiente. Neles são definidos comandos, arquivos, e outros atributos
+para estabelecer o estado desejado para a instalação e configuração
+do ambiente alvo \cite{sharma:2015}.
 
 \citeonline{sharma:2015} Classifica os \textit{cookbooks} em três categorias:
 \begin{itemize}
@@ -75,3 +75,13 @@ através dos componentes como \textit{attributes, recipes, metadatas, files}, et
   \item \textbf{\textit{Wrapper}}: são \textit{cookbooks} prontos construidos pela comunidade que podem
     ser alterados para que se adequem ao ambiente que será implantado.
 \end{itemize}
+
+O componente \textit{chef-client} irá executar as receitas (mais detalhes sobre receitas ou
+\textit{recipes} na seção \ref{sec:lev-rec}) disponíveis nos \textit{cookbooks}
+indicados pelo \textit{Chef Server} quando necessário, ou seja, se não houver
+nenhuma mudança quanto as configurações do ambiente o \textit{chef-client} não irá
+alterar nada, do contrário ele irá aplicar as configurações necessárias~\cite{chefdoc:2016}.
+
+
+
+
