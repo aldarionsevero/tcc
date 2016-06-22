@@ -44,12 +44,12 @@ todas as informações necessárias para configurar o sistema e segue algumas re
 
 As \textit{recipes} são escritas em Ruby e pode-se utilizar dos recursos providos
 pela linguagem. Dispoem-se de uma coleção desse recursos que são utilizados
-para definir as ações da \textit{recipes}.
+para definir as ações da \textit{recipes}. No exemplo \ref{code:recipe} utiliza-se
+três recursos: \textit{package, service} e \textit{template}.
 
 \begin{minipage}{.90\textwidth}
-  \label{code:recipe}
   \lstset{style=shell}
-  \lstinputlisting[language=Bash, label=code:chef, caption="Exemplo de \textit{recipe}"]{conteudo/code/recipe_example.rb}
+  \lstinputlisting[language=Bash, label=code:recipe, caption="Exemplo de \textit{recipe}. Define a instala{\c{c}}{\~a}o e configura{\c{c}}{\~a}o do \textit{app} Nginx"]{conteudo/code/recipe_example.rb}
 \end{minipage}
 
 \textbf{Cupper}:
@@ -62,7 +62,15 @@ As \textit{definitions} são um novo tipo de recurso disponível apartir da vers
 no lugar de \textit{definitions}~\cite{chefdoc:2016}.
 
 Os \textit{definitions} são comportamento que podem ser reutilizados por outros \textit{recipes}.
-São utilizado como recursos padrões de uma receita
+São utilizado como recursos padrões de uma receita. No exemplo \ref{code:definition}
+é definido o recurso \textit{host\_porter} com os parametros \textit{port} (valor padrão 4000)
+e \textit{hostname} (valor padrão \textit{nil}) que pode ser utilizado em outro
+\textit{recipe} com a simples chamada \textit{host\_porter}.
+
+\begin{minipage}{.90\textwidth}
+  \lstset{style=shell}
+  \lstinputlisting[language=Bash, label=code:definition, caption="Exemplo de \textit{definition}. Adiciona um recurso \textit{host\_porter}."]{conteudo/code/definition_example.rb}
+\end{minipage}
 
 \textbf{Cupper}:
 
