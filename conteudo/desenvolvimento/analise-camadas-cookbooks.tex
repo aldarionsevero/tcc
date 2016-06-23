@@ -8,7 +8,19 @@ dos \textit{cookbooks}.
 
 Os \textit{cookbooks} contém os seguintes componentes: \textit{attributes, recipes, definitions,
 files, libraries, custom resourses, metadata, resources e providers, templates
-cookbook versions}~\cite{chefdoc:2016}.
+cookbook versions}~\cite{chefdoc:2017}.
+
+Para o funcionamento de um \textit{cookbook}, com uma estrutura mínima, é necessário que tenha
+ao menos um \textit{recipe default} definido. O exemplo \ref{code:tree} mostra essa
+estrutura mínima necessária para realizar a configuração do \textit{cookbook app}.
+
+\noindent\begin{minipage}{.9\textwidth}
+  %\lstset{style=shell}
+  \lstinputlisting[language=Bash, label=code:tree, caption="Estrutura mínima de um cookbook"]{conteudo/code/minimal_tree}
+\end{minipage}\hfill
+
+As subseções seguintes explicam os componentes dos \textit{cookbooks} e quais serão gerados
+pelo Cupper.
 
 \subsection{\textit{Attributes}}
 \label{sec:lev-rec-att}
