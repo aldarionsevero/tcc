@@ -1,23 +1,19 @@
 \section{Escolha de Tecnologias}
 \label{sec:tec}
 
-Já que a aplicação proposta por este trabalho (Cupper) tem a intenção de entrar
-na família de ferramentas relacionadas ao Chef, é interessante que ela seja uma
-Gem, ou seja, que seja desenvolvida na linguagem Ruby e seja disponibilizada pelo %TODO: frase estranha
-gerenciador de pacotes RubyGems, estando no padrão das outras ferramentas da
-família Chef.
+O Cupper, aplicação proposta por este trabalho, tem a intenção de entrar
+na família de ferramentas relacionadas ao Chef. Portanto é interessante que
+as tecnologias, linguagem e padrões sejam adotados.
 
-A decisão pelo próprio Chef vem da experiência que o grupo tem com essa ferramenta.
-Por já estarem familiarizados com a estrutura, sintaxe e formas de execução do Chef,
-a escolha do Chef para a ferramenta de gerência e configuração de ambientes foi a
-mais natural. %TODO: essa afirmação é válida?
+Apesar de não ter sido identificado outra ferramenta similar, com exceção ao Blueprint,
+para as outras ferramentas de automação de infraestrutura, como o Puppet e Ansible,
+o motivo da descisão do Cupper ser direcionado para o Chef vem da experiência do
+grupo com a utilização da ferramenta que por consequência resultou na identificação
+da oportunidade de melhoria.
 
-Por mais que o Chef esteja relacionado ao desenvolvimento do Cupper, ele não é uma
-dependência para a execução do mesmo, e sim uma ferramenta que usa a saída do Cupper
-para outro fim, como será explicado no capítulo \ref{chap:desenv}, de Desenvolvimento.
-Uma dependência que foi levantada para o desenvolvimento do Cupper é o Ohai,
-outra ferramenta da família Chef, que será necessária para fazer o perfil e diagnóstico
-inicial do sistema. %TODO: melhorar
+O Chef está relacionado ao desenvolvimento do Cupper, mas ele não é uma
+dependência para a execução do mesmo, e sim uma ferramenta que usa a saída do Cupper,
+que será explicado no capítulo \ref{chap:desenv}, de Desenvolvimento.
 
 \section{Ferramentas e Serviços de Suporte ao Desenvolvimento}
 \label{sec:supdev}
@@ -26,7 +22,7 @@ Para o desenvolvimento do trabalho, foram escolhidas as ferramentas e serviços 
 utilizadas para gerência e controle das atividades do projeto e automação e coleta de dados e teste
 de desenvolvimento do Cupper. A escolha foi feita considerando a experiência do
 grupo em relação a utilização da ferramenta no decorrer do curso e a identificação dos
-padrões utilizados pelas ferramentas providas pelo Chef.
+padrões utilizados pelas outras ferramentas providas pelo Chef.
 
 \subsection{Git}
 \label{sec:supdev:git}
