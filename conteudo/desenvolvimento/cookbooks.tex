@@ -172,11 +172,23 @@ da necessidade de cada organização não sendo possível prevê-las.
 
 \subsection{\textit{Metadata}}
 
-\textbf{Cupper}:
+\textit{Metadata} é um arquivo localizado na raiz do \textit{cookbook} como foi monstrado no código
+\ref{code:fulltree}. Nele são definidos informações sobre o \textit{cookbook} como termos de \textit{copyright},
+\textit{email} do criador ou da organização, licença, descrição, dependências, etc. São 
+todas informações organizacionais e não são obrigatórias.
+
+\textbf{Cupper}: será incluso no escopo de implementação.
 
 \subsection{\textit{Resources e Providers}}
 
-\textbf{Cupper}:
+Um \textit{resource} é a definição do passo que deve ser seguido durante o processo
+de configuração. Cada \textit{resource} diz ao \textit{chef-client} qual a tarefa a ser executada
+como instalar um pacote, criar um arquivo, reiniciar um serviço, etc.
+Enquanto o \textit{resource} diz o que deve ser feito, o \textit{provider} diz como deve ser
+feito. Por exemplo, o \textit{resource} diz "instale o pacote A" e o \textit{provider} decide
+ser deve utilizar pacotes deb ou rpm.
+
+\textbf{Cupper}: 
 
 \subsection{\textit{Templates}}
 
