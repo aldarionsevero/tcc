@@ -1,6 +1,6 @@
 .
 |-- cookbooks
-    |-- app
-        |-- recipes
-            |-- default.rb
+  |-- app
+    |-- recipes
+      |-- default.rb
 

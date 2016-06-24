@@ -12,12 +12,15 @@ cookbook versions}~\cite{chefdoc:2016}.
 
 Para o funcionamento de um \textit{cookbook}, com uma estrutura mínima, é necessário que tenha
 ao menos um \textit{recipe default} definido. O exemplo \ref{code:tree} mostra essa
-estrutura mínima necessária para realizar a configuração do \textit{cookbook app}.
+estrutura mínima necessária para realizar a configuração do \textit{cookbook app} e o exemplo
+\ref{code:fulltree} mostra uma estrura completa.
 
-\noindent\begin{minipage}{.9\textwidth}
-  %\lstset{style=shell}
-  \lstinputlisting[language=Bash, label=code:tree, caption="Estrutura mínima de um cookbook"]{conteudo/code/minimal_tree}
+\noindent\begin{minipage}{.45\textwidth}
+  \lstinputlisting[language=Bash, frame=single, label=code:tree, caption="Estrutura mínima de um \textit{cookbook}"]{conteudo/code/minimal_tree}
 \end{minipage}\hfill
+\noindent\begin{minipage}{.45\textwidth}
+  \lstinputlisting[language=Bash, frame=single, label=code:fulltree, caption="Estrutura completa de um \textit{cookbook}"]{conteudo/code/full_tree}
+\end{minipage}
 
 As subseções seguintes explicam os componentes dos \textit{cookbooks} e quais serão gerados
 pelo Cupper.
@@ -36,7 +39,7 @@ Os \textit{attributes} são os detalhes das especificações do \textit{node}. D
 Os \textit{attributes} são definidos: no proprio ambiente através do Ohai, nos \textit{cookbooks},
 nos \textit{roles} e \textit{environments}.
 
-\textbf{Cupper}:
+\textbf{Cupper}: será incluido no escopo
 
 \subsection{\textit{Recipes}}
 \label{sec:lev-rec-rec}
@@ -88,16 +91,84 @@ e \textit{hostname} (valor padrão \textit{nil}) que pode ser utilizado em outro
 
 \subsection{\textit{Files}}
 
-\textbf{Cupper}:
+Os \textit{Files} é um recurso referente a manipulação de arquivos no ambiente~\cite{chefdoc:2016}.
+Pode-se utilizar os seguintes recursos:
+
+\begin{itemize}
+  \item \textit{cookbook\_file}: arquivos que são adicionados ao \textit{node} com base
+    nos arquivos presentes no diretório \textit{/files} na raíz do \textit{cookbook};
+  \item \textit{file}: manipula arquivos que estão presentes no \textit{node};
+  \item \textit{remote\_file}: arquivos são adicionado ao \textit{node} a partir de um
+    local remoto;
+\end{itemize}
+
+Cada recurso \textit{file} é utilizado para um propósito, mas os seus comportamentos
+são similares. O exemplo \ref{code:file} mostra três maneira diferente de
+inserir o arquivo \textit{eth1-conf} no ambiente.
+
+\begin{minipage}{.90\textwidth}
+  \lstset{style=shell}
+  \lstinputlisting[language=Bash, label=code:file, caption="Exemplo de \textit{file}. Três modos de inserir o arquivo \textit{eth1-conf}."]{conteudo/code/file_example.rb}
+\end{minipage}
+
+\textbf{Cupper}: será incluido no escopo os recursos \textit{file} e \textit{cookbook\_file}.
+A leitura de um arquivo de configuração ou de implantação de uma aplicação 
+é replicado para a pasta \textit{cookbooks/app/files/} de mesmo nome.
+O \textit{cookbook\_file} será gerado apartir da coleta de arquivos considerado estáticos,
+ou seja, o conteúdo não tem variação com relação a nenhum atributo do ambiente,
+por exemplo o atributo IP do ambiente.
 
 \subsection{\textit{Libraries}}
 
-\textbf{Cupper}:
+As \textit{libraries} são formas de inserir código Ruby para extender ou definir
+uma nova funcionalidade. Semelhante ao que ocorre em \textit{definitions}, entretanto a
+capacidade de extensão é maior sendo possível extender recursos já
+existentes~\cite{chefdoc:2016}. Por ser construída em Ruby, todos os
+recursos provídos pela linguagem podem ser utilizadas dentro das
+\textit{libraries}.
+
+O exemplo \ref{code:library} mostra a definição para extender um
+\textit{recipe} adicionando um método \textit{client} que pode ser utilizado
+para facilitar a inserção de dados referente a \textit{ip} e \textit{hostname} de um
+\textit{node}
+
+\begin{minipage}{.90\textwidth}
+  \lstset{style=shell}
+  \lstinputlisting[language=Bash, label=code:library, caption="Exemplo de \textit{libraries}."]{conteudo/code/librarie_example.rb}
+\end{minipage}
+
+Em geral, as \textit{libraries} são usadas para definir novas funções que
+auxiliam na descrição de rotinas que são mais frequentes durante a
+construção de um \textit{recipe} como verificação de arquivos ou serviços.
+
+\textbf{Cupper}: não será incluido no escopo, pois não é possível definir as \textit{libraries}
+necessárias para um contexto desconhecido pelo Cupper.
 
 \subsection{\textit{Custom Resource}}
 \label{sec:lev-rec-cust}
 
-\textbf{Cupper}:
+Adicionado recentemente ao Chef, o \textit{custom resource} é uma forma de criar
+novos recursos para os \textit{recipes}. É semelhante as \textit{libraries} e as \textit{definitions},
+entretanto é direcionado especificamente para a criação de novos recursos~\cite{chefdoc:2016}.
+É uma forma simples de extender o Chef e é implementado dentro de um
+\textit{cookbook}.
+
+No exemplo \ref{code:custom} tem-se a definição de um recurso criado em \textit{cookbooks/app/resources}
+com o nome \textit{httpd} e uma propriedade \textit{homepage} com um valor padrão vazio.
+Esse recurso é distribuido por todo o \textit{cookbooks} como uma simples chamada
+de um recurso Chef como demonstra o código \ref{code:custom-user}.
+
+\noindent\begin{minipage}{.45\textwidth}
+  \lstset{style=shell}
+  \lstinputlisting[language=Bash, label=code:custom, caption="Exemplo de declaração de um \textit{custom resource}."]{conteudo/code/custom_example.rb}
+\end{minipage}\hfill
+\begin{minipage}{.45\textwidth}
+  \lstset{style=shell}
+  \lstinputlisting[language=Bash, label=code:custom-user, caption="Exemplo de utilização de um \textit{custom resource}."]{conteudo/code/custom_user.rb}
+\end{minipage}
+
+\textbf{Cupper}: não será incluido no escopo, pois a definição dos \textit{custom resource} dependem
+da necessidade de cada organização não sendo possível prevê-las.
 
 \subsection{\textit{Metadata}}
 
@@ -114,7 +185,4 @@ e \textit{hostname} (valor padrão \textit{nil}) que pode ser utilizado em outro
 \subsection{\textit{Cookbook Version}}
 
 \textbf{Cupper}:
-
-\section{Relação entre Camadas e \textit{Cookbooks}}
-
 
