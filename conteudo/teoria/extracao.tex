@@ -1,6 +1,22 @@
-\section{Ferramentas de Extração de Configuração}
+\section{Extração de Configuração}
 
-%TODO: procurar ferramentas de extração de configuração de ambiente especificar o que é uma ferramenta de extração de configuração. Cabe aqui ferramentas ja existentes.
+No processo de automação de uma infraestrutura tem-se a extração das
+informações referente ao sistema. Algumas ferramentas realizam esse
+processo como o Ohai~\cite{ohaidoc:2016} e Facter~\cite{facterdoc:2016},
+direcionados para o Chef e Puppet, respectivamente. Essas informações
+são utilizadas para monitoramento do ambiente controlados pelas ferramentas
+de automação.
+
+O método de extração consiste na utilização de outras ferramentas de sistema,
+ou seja, a saída da execução de uma ferramenta contém as informações necessárias
+a serem extraídas, podendo estar filtrada ou não~\cite{ohaidoc:2016}. O Ohai,
+por exemplo, utiliza-se de \textit{plugins} que definem o método de coleta das informações,
+definindo a ferramenta de sistema a ser utilizada e o método de filtragem.
+
+Como será visto no capítulo \ref{cap:desenv}, este é o primeiro passo da propósta.
+As informações extraídas são referentes as configurações do ambiente. O passo
+seguinte é a criação dos \textit{scripts}. Nas pesquisas realizadas, apenas uma ferramenta,
+nomeada Blueprint, realiza estes passos.
 
 \subsection{Blueprint}
 
