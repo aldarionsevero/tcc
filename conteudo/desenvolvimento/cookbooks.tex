@@ -39,7 +39,10 @@ Os \textit{attributes} são os detalhes das especificações do \textit{node}. D
 Os \textit{attributes} são definidos: no proprio ambiente através do Ohai, nos \textit{cookbooks},
 nos \textit{roles} e \textit{environments}.
 
-\textbf{Cupper}: será incluido no escopo
+\textbf{Cupper}: será incluido no escopo de implementação. Os \textit{attributes} serão dispostos
+de acordo com a coleta dos atributos do ambiente definidos na seção~\ref{sec:cam-amb}.
+Apenas alguns atributos serão inserido como informativo sobre o ambiente, ou seja,
+não serão utilizados diretamente no \textit{recipe} do \textit{cookbook}.
 
 \subsection{\textit{Recipes}}
 \label{sec:lev-rec-rec}
@@ -67,7 +70,11 @@ três recursos: \textit{package, service} e \textit{template}.
   \lstinputlisting[language=Bash, label=code:recipe, caption="Exemplo de \textit{recipe}. Define a instala{\c{c}}{\~a}o e configura{\c{c}}{\~a}o do \textit{app} Nginx"]{conteudo/code/recipe_example.rb}
 \end{minipage}
 
-\textbf{Cupper}:
+\textbf{Cupper}: será incluido no escopo de implementação. Os \textit{recipes} é o componente chave a
+ser gerado pelo Cupper. Nele serão descritos os passos, em sequência lógica de execução,
+de todas as configurações coletadas. Para cada \textit{cookbook}, será gerado um arquivo de 
+\textit{recipe 'default.rb'} contendo todas as informações necessárias para a execução.
+A seção~\ref{sec:cbresource} defini todos os recursos utilizados nos \textit{recipes}.
 
 \subsection{\textit{Definitions}}
 \label{sec:lev-rec-def}
@@ -87,9 +94,12 @@ e \textit{hostname} (valor padrão \textit{nil}) que pode ser utilizado em outro
   \lstinputlisting[language=Bash, label=code:definition, caption="Exemplo de \textit{definition}. Adiciona um recurso \textit{host\_porter}."]{conteudo/code/definition_example.rb}
 \end{minipage}
 
-\textbf{Cupper}:
+\textbf{Cupper}: não será incluso no escopo de implementação. As \textit{definitions} são
+construídas de acordo com as necessidades de cada organização, não sendo
+possível prevê-las ou fazer uma \textit{definition} genêrica.
 
 \subsection{\textit{Files}}
+\label{sec:cbfiles}
 
 Os \textit{Files} é um recurso referente a manipulação de arquivos no ambiente~\cite{chefdoc:2016}.
 Pode-se utilizar os seguintes recursos:
@@ -113,7 +123,7 @@ inserir o arquivo \textit{eth1-conf} no ambiente.
 
 \textbf{Cupper}: será incluido no escopo os recursos \textit{file} e \textit{cookbook\_file}.
 A leitura de um arquivo de configuração ou de implantação de uma aplicação 
-é replicado para a pasta \textit{cookbooks/app/files/} de mesmo nome.
+é replicado para a pasta \textit{cookbooks/COOKBOOK\_NAME/files/} de mesmo nome.
 O \textit{cookbook\_file} será gerado apartir da coleta de arquivos considerado estáticos,
 ou seja, o conteúdo não tem variação com relação a nenhum atributo do ambiente,
 por exemplo o atributo IP do ambiente.
@@ -171,30 +181,72 @@ de um recurso Chef como demonstra o código \ref{code:custom-user}.
 da necessidade de cada organização não sendo possível prevê-las.
 
 \subsection{\textit{Metadata}}
+\label{sec:cbmetadata}
 
 \textit{Metadata} é um arquivo localizado na raiz do \textit{cookbook} como foi monstrado no código
 \ref{code:fulltree}. Nele são definidos informações sobre o \textit{cookbook} como termos de \textit{copyright},
 \textit{email} do criador ou da organização, licença, descrição, dependências, etc. São 
 todas informações organizacionais e não são obrigatórias.
 
-\textbf{Cupper}: será incluso no escopo de implementação.
+\textbf{Cupper}: será incluso no escopo de implementação. Será feito um arquivo padrão de
+\textit{metadata} para a representação do \textit{cookbook} gerado pelo Cupper. O usuário deverá
+modifica-lo de acordo com as suas necessidades.
 
 \subsection{\textit{Resources e Providers}}
+\label{sec:cbresource}
 
 Um \textit{resource} é a definição do passo que deve ser seguido durante o processo
 de configuração. Cada \textit{resource} diz ao \textit{chef-client} qual a tarefa a ser executada
 como instalar um pacote, criar um arquivo, reiniciar um serviço, etc.
 Enquanto o \textit{resource} diz o que deve ser feito, o \textit{provider} diz como deve ser
-feito. Por exemplo, o \textit{resource} diz "instale o pacote A" e o \textit{provider} decide
-ser deve utilizar pacotes deb ou rpm.
+feito. Por exemplo, o \textit{resource} define "instale o pacote A" e o \textit{provider} decide
+se deve utilizar pacotes deb ou rpm.
 
-\textbf{Cupper}: 
+\textbf{Cupper}: será incluso no escopo de implementação. Os \textit{resources} padrões
+providos pelo Chef serão utilizados para definir os passos nos arquivos de
+\textit{recipes}. Os principais são:
+
+\begin{itemize}
+  \item \textit{\textbf{apt\_package}}: usado para gerenciar pacotes das plataformas Debian e
+    Ubuntu;
+  \item \textit{\textbf{cookbook\_file}}: transfere o arquivo definido em \textit{COOKBOOK\_NAME/files/} para
+    uma localização definida (já descrito na seção \ref{sec:cbfiles});
+  \item \textit{\textbf{directory}}: usado para gerenciar diretórios. Pode-se criar, deletar, definir
+    permissão, grupos, etc;
+  \item \textit{\textbf{execute}}: usado para executar um comando. Por padrão, utiliza-se o \textit{bash};
+  \item \textit{\textbf{file}}:usado para gerenciar arquivos (já descrito na seção \ref{sec:cbfiles});
+  \item \textit{\textbf{gem\_package}}: usado para gerenciar pacotes RubyGem;
+  \item \textit{\textbf{link}}: usado para criar \textit{links} simbólicos ou real;
+  \item \textit{\textbf{package}}: usado para gerenciar pacotes sem a necessidade de especificar a plataforma,
+    ou seja, o \textit{provider} irá determinar qual gerenciador de pacote a plataforma utiliza;
+  \item \textit{\textbf{pacman\_package}}: usado para gerenciar pacotes da plataforma Arch Linux;
+  \item \textit{\textbf{service}}: usado para gerenciar serviços da plataforma;
+  \item \textit{\textbf{user}}: usado para criar, atualizar, remover e bloquear/desbloquear um usuário da plataforma.
+\end{itemize}
 
 \subsection{\textit{Templates}}
 
-\textbf{Cupper}:
+Os \textit{templates} são arquivos no formato Embedded Ruby (ERB) e permite gerar
+dinamicamente textos de arquivos estáticos. São muito utilizados em arquivos
+de configurações que devem ser modificador de acordo com o ambiente. Os
+\textit{templates} são inserido em \textit{COOKBOOK\_NAME/templates} e deve-se declarar o recurso
+\textit{template} nos arquivos de \textit{recipes}.
+
+\textbf{Cupper}: será incluso no escopo de implementação. A leitura de um arquivo de
+configuração ou de implantação de uma aplicação será replicado para a
+pasta \textit{cookbook/COOKBOOK\_NAME/templates/} de mesmo nome. Os \textit{templates} serão
+gerados apartir da coleta de arquivos considerados din{\^a}mico, ou seja,
+o conteúdo contem variáveis que estão relacionado ao atributo do ambiente,
+por exemplo o IP do ambiente.
 
 \subsection{\textit{Cookbook Version}}
 
-\textbf{Cupper}:
+As \textit{cookbook versions} são versionamentos dos \textit{cookbooks} usados para definir
+diferentes versões baseados nas modificações realizadas. São definidas
+  dentro do arquivo de \textit{metadata} descrito na seção \ref{sec:cbmetadata}.
+
+\textbf{Cupper}: será incluso no escopo de implementação. Será posto a versão inicial
+do \textit{cookbook} e poderá ser modificado de acordo com as necessiades do usuários,
+assim como definido para as outras informações do arquivo \textit{metadas.rb} (já definido
+na seção~\ref{sec:cbmetadata})
 
