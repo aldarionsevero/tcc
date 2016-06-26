@@ -1,33 +1,38 @@
 \section{Escopo de Implementação}
 \label{sec:escopo}
-Nessa seção serão descritas as funcionalidades e a estrutura inicial da gem.
-% TODO: remover?
+
+O \textit{Cupper} se encaixa na categoria de ferramentas \textit{CLI} (\textit{Command-line Interface})
+e como descrito na seção~\ref{sec:supdev:rubygems}, será construídas nos padrões de
+RubyGems que permite criar os comandos por meio de arquivos de \textit{script bash}
+que serão instalados, por padrão do gerenciado de pacote, no diretório de binários do sistema.
+Os comandos serão chamados pelo prefixo \textit{cupper} seguido da funcionalidade e as opções.
+
+%TODO: colocar a estrutura de init do Cupper e mostrar como será a distribuição dos arquivos e diretórios.
+
+Em resumo da seção~\ref{sec:lev-rec}, os recursos Chef com relação aos \textit{coookbooks} que serão utilizados.
 
 \subsection{Funcionalidades}
 
-Já que o \textit{Cupper} é uma ferramenta de linha de comando, suas funcionalidades
-estão diretamente relacionadas aos subcomandos e suas opções. Dessa forma os
-comandos chave da aplicação irão ser listados nessa seção.
-
 \begin{enumerate}
-  \item Mostrar Ajuda: Como diversos outras ferramentas de linha de comando, o \textit{Cupper} deve possuir
-    um subcomando que imprime no terminal os principais subcomandos e algumas de 
-    suas opções.
-  \item Gerar Cookbook: Essa é a funcionalidade mais importante do \textit{Cupper}, e é a motivação
-    principal para implementá-lo e utilizá-lo. A figura~\ref{fig:cupper_geral} mostra
-    o fluxo básico do funcionamento.
-  \item Gerar Relatório: É possível também utilizar o \textit{Cupper} para gerar um relatório mais
-    completo do que o \textit{Ohai} geraria, considerando os \textit{plugins} da família \textit{Cupper} para o \textit{Ohai}.
-    Esse relatório pode ser utilizado com fins de diagnóstico, ou como uma fase 
-    intermediária à criação de \textit{Cookbooks}, para entender o que será finalmente 
-    escrito nas \textit{Cookbooks} e também por motivos de \textit{debug};
-  \item Gerar Diretório Inicial: Essa funcionalidade é referente ao subcomando que irá
-    gerar a estrutura de diretórios padrão para os arquivos de configuração do \textit{Cupper}
-    e para a inserção de \textit{plugins};
-  \item Listar \textit{Plugins} do \textit{Ohai}: Funcionalidade referente ao subcomando que
-    lista os \textit{pligins} do \textit{Ohai} para simples conferência.
-  \item Listar \textit{Plugins Custom} do \textit{Cupper}:Semelhante à funcionalidade anterior,
-    mas lista \textit{Plugins Custom} do \textit{Cupper}.
+  \item \textbf{Mostrar Ajuda}: imprime no terminal os principais comandos e as opções válidas de
+    cada uma;
+
+  \item \textbf{Gerar Cookbook}: extrai as configurações do ambiente e cria o \textit{cookbook} correspondente.
+    Esse \textit{cookbook} será inserido no diretório \textit{cookbooks} na raíz do projeto Cupper.
+    A figura~\ref{fig:cupper_geral} mostra o fluxo básico dessa funcionalidade;
+
+  \item \textbf{Mostrar Extrações}: mostra as extrações realizadas pelo Cupper em conjunto com o Ohai,
+    ou seja, é a forma intermediária à criação dos \textit{cookbooks} onde serão mostrados os outputs do
+    sistema e o reflexo deles no \textit{cookbook} antes da criação em sí;
+
+  \item \textbf{Gerar Projeto Cupper}: gera a estrutura de diretório padrão para o projeto Cupper.
+    Um projeto Cupper contém o conjunto de \textit{plugins} do Ohai e Cupper, arquivos de configurações
+    específicos do projeto e um conjunto de diretórios onde serão dispostos as configurações
+    extraídas e os \textit{cookbooks} gerados do ambiente;
+
+  \item \textbf{Listar \textit{Plugins}}: lista os plugins disponíveis do Ohai, tanto os padrões, já inclusos
+    na instalação do Ohai, quanto os customizados pelo Cupper;
+
 \end{enumerate}
 
 \subsection{Estrutura e módulos}
@@ -42,4 +47,3 @@ Módulos do \textit{Cupper}.
   \label{fig:cupper-detail}
 \end{figure}
 
-% \subsection{Criação de \textit{Cookbooks}}
