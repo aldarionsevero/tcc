@@ -47,3 +47,29 @@ Módulos do \textit{Cupper}.
   \label{fig:cupper-detail}
 \end{figure}
 
+A imagem descreve o seguinte fluxo:
+
+\begin{itemize}
+    \item Executa-se o Cupper em um ambiente do qual deseja-se extrair configurações.
+    \item O Ohai irá extrair atributos referentes às camadas de \textit{Hardware},
+\textit{Service} e \textit{Operation System}.
+    \item \textit{Plugins do Ohai} irão adicionar a capacidade de extrair atributos da
+camada de \textit{Custom} e \textit{Application}. Também adicionam a capacidade
+de extrair outros atributos das outras camadas.
+    \item Esses atributos são retornados em formato JSON para o processamento
+do Cupper.
+    \item O Coletor processa esse JSON, extrai os dados úteis, e organiza
+por suas camadas.
+    \item \textit{Custom Plugins} podem ser adicionados para que o coletor
+processe outros tipos de atributos.
+    \item Esses dados são passados para o Manager que gera um relatório semelhante
+ao do Ohai, mas mais completo se houver presença de \textit{plugins}.
+    \item O manager então passa esses dados para os builders que constroem
+\textit{cookbooks} por suas partes (\textit{Recipes, Template e File})
+    \item \textit{Custom Plugins} podem ser adicionados, para construir
+\textit{cookbooks} de maneira diferente, considerando os \textit{custom plugins}
+adicionados também à coleta.
+    \item Por fim uma \textit{cookbook} é gerada, e poderá ser usada como 
+entrada para o Chef reproduzir essa configuração em uma máquina não
+configurada.
+\end{itemize}
