@@ -225,7 +225,7 @@ aplicações e arquivos de configuração são analisados nessa camada.
 Para os arquivos de configuração iremos considerar  o sistema de hierarquia de
 sistema de arquivos do linux. Alguns arquivos que não seguem o padrão FHS 
 (\textit{Filesystem Hierarchy Standard}, Hierarquia de sistema de arquivos) irão
-ser tratados na seção~\ref{} de configurações e instalações \textit{Custom}.
+ser tratados na seção~\ref{sec:camada-custom} de configurações e instalações \textit{Custom}.
 
 A primeira coluna das tabelas mostra o atributo em questão; a segunda mostra
 a origem do atributo, podendo ser um comando do sistema, ou caminho de um arquivo;
@@ -325,6 +325,7 @@ Falhas                                                             & \begin{tabu
 \end{table}
 
 \subsection{\textit{Custom}}
+\label{sec:camada-custom}
 
 O trabalho referente a essa camada permeia algumas das camadas anteriores, mas
 nos pontos em que podem ter procedimentos que não estejam no padrão estabelecido.
@@ -333,7 +334,7 @@ meio de Makefiles ou scripts customizados que não atualizam o histórico de
 pacotes do gerenciador de pacotes. Da mesma maneira, as configurações desses
 pacotes podem ser geradas por esses scripts, e colocadas em lugares fora do padrão.
 Mesmo considerando aplicações instaladas por gerenciadores de pacotes, vários
-arquivos de configuração podem ser instalados em diretórios fora  do padrão HFS.
+arquivos de configuração podem ser instalados em diretórios fora  do padrão FHS.
 Dessa maneira, além de \textit{plugins} para o \textit{Ohai}, \textit{plugins}
 para o \textit{Cupper} também devem ser feitos para tratar esses casos especiais.
 
