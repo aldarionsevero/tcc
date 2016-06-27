@@ -9,12 +9,12 @@ de automação.
 
 O método de extração consiste na utilização de outras ferramentas de sistema,
 ou seja, a saída da execução de uma ferramenta contém as informações necessárias
-a serem extraídas, podendo estar filtrada ou não~\cite{ohaidoc:2016}. O Ohai,
-por exemplo, utiliza-se de \textit{plugins} que definem o método de coleta das informações,
-definindo a ferramenta de sistema a ser utilizada e o método de filtragem.
+a serem extraídas, podendo estar filtradas ou não~\cite{ohaidoc:2016}. O Ohai,
+por exemplo, utiliza \textit{plugins} que definem o método de coleta das informações,
+a ferramenta de sistema a ser utilizada e o método de filtragem.
 
 Como será visto no capítulo~\ref{chap:desenv}, este é o primeiro passo da propósta.
-As informações extraídas são referentes as configurações do ambiente. O passo
+As informações extraídas referem-se as configurações do ambiente. O passo
 seguinte é a criação dos \textit{scripts}. Nas pesquisas realizadas, apenas uma ferramenta,
 nomeada Blueprint, realiza estes passos.
 
@@ -28,7 +28,7 @@ as informações de pacotes, serviços e fontes de instalação de aplicativos
 A aplicação é utilizada para criar \textit{scripts} que realizam
 a instalação dos pacotes e configurações dos serviços que foram extraidos. Há
 também a opção de realizar a conversão desses \textit{scripts} para receitas Chef e módulos
-Puppets (funcionam como receitas Chef, mas são específicos para a ferramenta Puppet).
+Puppet\footnote{Os módulos Puppet funcionam como receitas Chef, mas são específicos para a ferramenta Puppet.}.
 Por esse motivo, o Blueprint é considerado como uma ferramenta concorrente ao Cupper,
 pois a sua funcionalidade é semelhante.
 

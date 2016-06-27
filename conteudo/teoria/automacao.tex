@@ -14,9 +14,9 @@ Pode-se citar algumas das vantagens da automação~\cite{sharma:2015}:
     repetitivas;
 \end{itemize}
 
-\citeonline{sharma:2015} aborda as necessidade de se adotar automação na área
-de TI (Tecnologia da Informação) e os relaciona com conceitos métodos
-ágeis (várias implantações em um curto intervalo de tempo), entrega contínua (várias
+\citeonline{sharma:2015} abordam as necessidade de se adotar automação na área
+de TI (Tecnologia da Informação) e os relaciona com conceitos dos métodos ágeis como
+implantação contínua (várias implantações em um curto intervalo de tempo), entrega contínua (várias
 \textit{releases} entregues repidamente), computação em nuvem (tendência do mercado a
 utilizar infraestrutura em nuvem), etc. Além disso, são citados os benefícios da
 automação mapeados com as principais preocupações da industria de TI. Algumas delas:
@@ -34,7 +34,7 @@ automação mapeados com as principais preocupações da industria de TI. Alguma
     obtendo os resultados esperados.
 \end{itemize}
 
-\citeonline{hummer:2013} identifica, dentro do contexto de automação, a idempotência
+\citeonline{hummer:2013} identificam, dentro do contexto de automação, a idempotência
 como chave para uma boa implementação de automação. Uma tarefa idempotênte pode ser
 executada inúmeras vezes resultando sempre no mesmo resultado. Dentro de DevOps,
 as entregas frequentes necessitam da garantia de realizar a implantação de um
@@ -56,9 +56,10 @@ sistema de monitoramento, etc).
 Antes dos conceitos de DevOps e dos movimentos ágeis, as configurações de
 infraestrutura eram automatizadas com \textit{scripts} que geralmente eram
 difíceis de serem compreendidos por alguém que não fosse o autor~\cite{huttermann:2012}.
-Recentemente, o termo Infraestrutura como Código veem se popularizando
+Recentemente, o termo Infraestrutura como Código vem se popularizando
 seguindo a mesma lógica que era informalmente aplicada anteriormente, criando
-\textit{scripts} de automação de configuração para a infraestrutura.
+\textit{scripts} de automação de configuração para a infraestrutura, entretanto de forma
+mais simples e compreensível.
 
 A infraestrutura como código é focada em manipular a configuração da infraestrutura
 da mesma maneira que os desenvolvedores manipulam os seus códigos: escolhendo a melhor
@@ -77,11 +78,12 @@ repetível~\cite{huttermann:2012}. \\
 
 
 A ferramenta Cupper, proposta deste trabalho, é focada em auxiliar uma infraestrutura que
-utiliza ou pretende utilizar a ferramenta Chef. O Chef consiste em uma ferramenta de
-automação de configuração de infraestrutura da qual utiliza o conceito de infraestrutura
-como código para estabelecer os \textit{scripts} de configuração. Os códigos apresentados em \ref{code:shell} e
-\ref{code:chef} são exemplos de um \textit{script} escrito em \textit{shell} e outro em \textit{Ruby}, que é
-interpretada pela ferramenta Chef.
+utiliza ou pretende utilizar a ferramenta Chef. O Chef é uma ferramenta de
+automação de configuração de infraestrutura que utiliza o conceito de infraestrutura
+como código para orquestração das configurações de infraestrutura. Para exemplificar
+a simplificação entre \textit{scripts} "manuais" e os \textit{scripts} em Chef, os códigos
+~\ref{code:shell} e~\ref{code:chef} mostram um \textit{script} escrito em
+\textit{shell} e outro em \textit{Ruby}, que é interpretada pelo Chef.
 
 Na seção~\ref{sec:chef} é descrito a ferramenta Chef e em qual contexto
 ela se encaixa.
@@ -92,19 +94,18 @@ ela se encaixa.
 As ferramentas de automação, na área de TI, são utilizadas para melhorar
 a confiabilidade, eficiência e precisão~\cite{sharma:2015}. Não se restrige
 apenas a automação de infraestrutura, mas pode-se também citar \textit{framework}
-de testes unitários ou testes de comportamento, \textit{build}, qualidade de código.
+de testes unitários ou testes de comportamento, \textit{build}, qualidade de código, etc.
 Dentro do contexto de infraestrutura como código, tem-se as ferramentas
 mais populares Chef e Puppet.
 
-\citeonline{sharma:2015} lista as ferramentas de automação que são alternativas ao
+\citeonline{sharma:2015} listam as ferramentas de automação que são alternativas ao
 Chef. Cada qual trata a automação de uma forma diferente apresentando \textit{features}
-específica que provê desde da automação de configuração da rede até a configuração
+específicas que provêm desde da automação de configuração da rede até a configuração
 de ambientes. Dentre elas, destaca-se as mais populares: Chef, Puppet,
-SaltStack e Ansible. A tabela~\ref{tab:chef-rival} mostra a comparação entre
-as ferramentas.  
+SaltStack e Ansible. A tabela~\ref{tab:chef-rival} mostra a comparação elas.
+
 \begin{table}[H]
   \centering
-  \label{tab:chef-rival}
   \resizebox{\textwidth}{!}{%
     \begin{tabular}{|l|l|l|l|l|}
       \hline
@@ -115,7 +116,7 @@ as ferramentas.
         Arquitetura & Master/Agente &  Master/Agente & Master/Agente & Master/Agente \\ 
       \hline
         \begin{tabular}[c]{@{}l@{}}Mecanismo de\\ Push/Pull\tablefootnote{Mecanismo de \textit{network communication}.
-          \textit{Push}: o servidor realiza a requisição. \textit{Pull}: o cliente realiza a requisição por dados.\cite{cho:2007}}\end{tabular} & \textit{Pull} & \textit{Pull} & \textit{Push} & \textit{Push} \\
+          \textit{Push}: o servidor realiza a requisição. \textit{Pull}: o cliente realiza a requisição por dados.\cite{cho:2007}.}\end{tabular} & \textit{Pull} & \textit{Pull} & \textit{Push} & \textit{Push} \\
       \hline
         \textit{\begin{tabular}[c]{@{}l@{}}Cloud \\ Integration\end{tabular}} & \begin{tabular}[c]{@{}l@{}}Amazon EC2,\\ Windows Azure,\\ HP Cloud, Google\\ Computer Engine,\\ Joyent Cloud,\\ Rackspace,\\ VMWare, IBM\\ Smartcloud e\\ OpenStack\end{tabular} & \begin{tabular}[c]{@{}l@{}}Amazon AWS,\\ VMware e\\ Google Computer\\ Engine\end{tabular} & \begin{tabular}[c]{@{}l@{}}Amazon AWS,\\ Rackspace,\\ SoftLayer,\\ GoGrid, HP\\ Cloud, Google\\ Computer Engine,\\ VMware, Windows\\ Azure e Parallels\end{tabular} & \begin{tabular}[c]{@{}l@{}}Amazon AWS,\\ VMware, OpenStack,\\ CloudStack, Eucalyptus\\ Cloud e KVM.\end{tabular} \\
       \hline
@@ -124,6 +125,7 @@ as ferramentas.
     \end{tabular}
   }
   \caption{Comparativo das ferramentas de automação, adaptado de \citeonline{sharma:2015}}
+  \label{tab:chef-rival}
 \end{table}
 
 As vantagens e pontos chaves que o Chef tem em relação ao seus
@@ -134,7 +136,7 @@ concorrentes~\cite{sharma:2015}:
     contém notações e abstrações específicas para um domínio de problemas. O Chef
     extende a sua DSL da linguagem Ruby;
   \item O Chef contém uma consistente documentação, materias de treinamento e
-    atualizações constantes.
+    atualizações constantes;
   \item O suporte da comunidade do Chef é grande e responde rapidamente a duvidas
     e problemas de instalação, configuração e utilização da ferramenta Chef.
     Além disso, constantemente publicam conferências \textit{online} e materiais multimídia
@@ -144,7 +146,7 @@ concorrentes~\cite{sharma:2015}:
 A ferramenta Cupper, proposta deste trabalho, é focada para auxiliar especificamente
 o Chef. Além das vantagens apresentadas, também foi considerado a experiência do grupo
 com a ferramenta e a utilização dela durante o curso para determinar a sua utilização
-neste projeto.
+neste projeto. %TODO: nun sei se é necessário colocar isso
 
 \subsubsection{Chef}
 \label{sec:chef}
@@ -161,18 +163,17 @@ possa executar sua função. Os principais componentes são~\cite{chefdoc:2016}:
 
 \begin{itemize}
   \item \textit{Workstation}: qualquer máquina que possa servir como estação
-    responsável por permitir usuários criar, testar e manter \textit{cookbooks};
+    responsável por permitir aos usuários criar, testar e manter \textit{cookbooks};
   \item \textit{Cookbook}: contém as configurações desejadas para o ambiente.
     Pode ser customizados para um ambiente específico da empresa ou utilizar
     \textit{cookbooks} disponíveis pela comunidade Chef;
-  \item \textit{Ruby}: linguagem oficial utilizada para a escrita dos \textit{scripts}
-    é o Ruby;
+  \item \textit{Ruby}: linguagem oficial utilizada para a escrita dos \textit{scripts};
   \item \textit{Node}: qualquer máquina física, virtual, em núvem, dispositivo
     de rede, etc, que deva ser gerenciada pelo Chef;
   \item \textit{Chef Client}: ferramenta instalada em todos os \textit{nodes}. O
     \textit{Chef Client} é responsável por executar todas as tarefas especificadas
     em uma \textit{run-list} (conjunto de \textit{cookbooks}). Esse componente é
-    executado pela aplicação CLI \textit{chef-client};
+    executado pela aplicação \textit{chef-client};
   \item \textit{Chef Server}: funciona como um \textit{hub} de informações. Todos os
     \textit{cookbooks} e as políticas são atualizadas no Chef Server pelos usuários
     dos \textit{workstations}. O Chef Client acessa o Chef Server para verificar
@@ -186,22 +187,22 @@ possa executar sua função. Os principais componentes são~\cite{chefdoc:2016}:
     da organização.
 \end{itemize}
 
-Desse componentes, tem-se os três principais: \textbf{Chef Server, Node} e \textbf{Workstation}.
+Desses componentes, tem-se os três principais: \textbf{Chef Server, Node} e \textbf{Workstation}.
 A figura \ref{fig:chef-comp} mostra a relação entre esses três componente. Existem os requisitos
 mínimos para a implementação do Chef~\cite{chefdoc:2016}:
 
 \begin{itemize}
   \item As máquinas \textit{node} devem ter uma plataforma instalada (RedHat,
     Debian, OpenSUSE, etc);
-  \item A maquina que contenha o Chef Server deve ter os requisitos
-    mínimos de hardware especificada no site oficial do Chef;
+  \item A máquina que contenha o Chef Server deve ter os requisitos
+    mínimos de hardware especificada no site oficial do Chef\footnote{Disponível em https://docs.chef.io/chef\_system\_requirements.html.};
   \item Todas as regras de rede e de \textit{firewall} devem estar configuradas
     corretamente.
 \end{itemize}
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.8\textwidth]{figuras/chef-comp.eps}
+  \includegraphics[width=0.9\textwidth]{figuras/chef-comp.eps}
   \caption{Relação entre os componente do Chef}
   \label{fig:chef-comp}
 \end{figure}
@@ -215,7 +216,8 @@ do ambiente alvo \cite{sharma:2015}.
 \begin{itemize}
   \item \textbf{Aplicação}: contém as configurações de acordo com a instalação de
     uma aplicação. Exemplo PostgreSQL, Apache, Nginx;
-  \item \textbf{Biblioteca}: define recursos a serem utilizados por outros \textit{cookbooks}.
+  \item \textbf{Biblioteca}: define recursos a serem utilizados por outros \textit{cookbooks}
+    (mais detalhes sobre recursos na seção~\ref{sec:lev-rec} no capítulo~\ref{chap:desenv} de desenvolvimento).
     Não é recomendado utilizado diretamente em um node;
   \item \textbf{\textit{Wrapper}}: são \textit{cookbooks} prontos construidos pela comunidade que podem
     ser alterados para que se adequem ao ambiente que será implantado.
