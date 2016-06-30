@@ -65,28 +65,8 @@ A infraestrutura como código é focada em manipular a configuração da infraes
 da mesma maneira que os desenvolvedores manipulam os seus códigos: escolhendo a melhor
 linguagem e ferramenta para o desenvolvimentos da solução, transformando uma especificação
 em algo executável que possa ser aplicada em um sistema de forma eficiente e
-repetível~\cite{huttermann:2012}. \\
+repetível~\cite{huttermann:2012}.
 
-\noindent\begin{minipage}{.45\textwidth}
-  \lstset{style=shell}
-  \lstinputlisting[language=Bash, label=code:shell, caption="Código em Shell"]{conteudo/code/shell_example.sh}
-\end{minipage}\hfill
-\begin{minipage}{.45\textwidth}
-  \lstset{style=shell}
-  \lstinputlisting[language=Bash, label=code:chef, caption="Código em Chef"]{conteudo/code/chef_example.rb}
-\end{minipage}
-
-
-A ferramenta Cupper, proposta deste trabalho, é focada em auxiliar uma infraestrutura que
-utiliza ou pretende utilizar a ferramenta Chef. O Chef é uma ferramenta de
-automação de configuração de infraestrutura que utiliza o conceito de infraestrutura
-como código para orquestração das configurações de infraestrutura. Para exemplificar
-a simplificação entre \textit{scripts} "manuais" e os \textit{scripts} em Chef, os códigos
-~\ref{code:shell} e~\ref{code:chef} mostram um \textit{script} escrito em
-\textit{shell} e outro em \textit{Ruby}, que é interpretada pelo Chef.
-
-Na seção~\ref{sec:chef} é descrito a ferramenta Chef e em qual contexto
-ela se encaixa.
 
 \subsection{Ferramentas de Automação}
 \label{sec:ferramenta_automacao}
