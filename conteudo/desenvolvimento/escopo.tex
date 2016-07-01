@@ -1,7 +1,7 @@
 \section{Escopo de Implementação}
 \label{sec:escopo}
 
-O \textit{Cupper} se encaixa na categoria de ferramentas \textit{CLI} (\textit{Command-line Interface})
+O Cupper se encaixa na categoria de ferramentas \textit{CLI} (\textit{Command-line Interface})
 e como descrito na seção~\ref{sec:supdev:rubygems}, será construída nos padrões de
 RubyGems que permite criar os comandos por meio de arquivos de \textit{script bash}
 que serão instalados, por padrão do gerenciado de pacote, no diretório de binários do sistema.
@@ -35,21 +35,21 @@ Em resumo da seção~\ref{sec:lev-rec}, os recursos Chef com relação aos \text
 
 \end{enumerate}
 
-\subsection{Estrutura e módulos}
+\subsection{Estrutura e Módulos}
 
 A figura~\ref{fig:cupper-detail} mostra a Estrutura Inicial Planejada para os 
-Módulos do \textit{Cupper}.
+Módulos do Cupper.
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=1.05\textwidth]{figuras/cupper_detail.eps}
   \caption{Estrutura Inicial Planejada para os Módulos do Cupper}
   \label{fig:cupper-detail}
+  \includegraphics[width=1.05\textwidth]{figuras/cupper_detail.eps}
 \end{figure}
 
 A imagem descreve o seguinte fluxo:
 
-\begin{itemize}
+\begin{enumerate}
     \item Executa-se o Cupper em um ambiente do qual deseja-se extrair configurações.
     \item O Ohai irá extrair atributos referentes às camadas de \textit{Hardware},
 \textit{Service} e \textit{Operation System}.
@@ -72,4 +72,4 @@ adicionados também à coleta.
     \item Por fim uma \textit{cookbook} é gerada, e poderá ser usada como 
 entrada para o Chef reproduzir essa configuração em uma máquina não
 configurada.
-\end{itemize}
+\end{enumerate}

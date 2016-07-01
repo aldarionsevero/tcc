@@ -86,6 +86,8 @@ SaltStack e Ansible. A tabela~\ref{tab:chef-rival} mostra a comparação elas.
 
 \begin{table}[H]
   \centering
+  \caption{Comparativo das ferramentas de automação, adaptado de \citeonline{sharma:2015}.}
+  \label{tab:chef-rival}
   \resizebox{\textwidth}{!}{%
     \begin{tabular}{|l|l|l|l|l|}
       \hline
@@ -104,8 +106,6 @@ SaltStack e Ansible. A tabela~\ref{tab:chef-rival} mostra a comparação elas.
       \hline
     \end{tabular}
   }
-  \caption{Comparativo das ferramentas de automação, adaptado de \citeonline{sharma:2015}}
-  \label{tab:chef-rival}
 \end{table}
 
 As vantagens e pontos chaves que o Chef tem em relação ao seus
@@ -182,12 +182,12 @@ mínimos para a implementação do Chef~\cite{chefdoc:2016}:
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.9\textwidth]{figuras/chef-comp.eps}
   \caption{Relação entre os componente do Chef}
   \label{fig:chef-comp}
+  \includegraphics[width=0.9\textwidth]{figuras/chef-comp.eps}
 \end{figure}
 
-\textit{Chef} utiliza os \textit{cookbooks} sendo a unidade básica de configuração do
+Chef utiliza os \textit{cookbooks} sendo a unidade básica de configuração do
 ambiente. Neles são definidos comandos, arquivos, e outros atributos
 para estabelecer o estado desejado para a instalação e configuração
 do ambiente alvo \cite{sharma:2015}.

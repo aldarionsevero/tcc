@@ -6,10 +6,10 @@ Os itens estão diretamente relacionados com as metodologias, técnicas e
 práticas utilizadas na Engenharia de Software, tais como ciclo de
 desenvolvimento, testes, integração contínua, qualidade de código, etc.
 Todos os itens utilizados fazem parte do conhecimento adquirido durante
-o curso e poderão sofrer adaptações de acordo com as necessidades do projeto.
+o curso.
 
-Como será observado nas subseções, as práticas e técnicas são utilizadas
-nas Metodologias Ágeis. A motivação para a utilização da abordagem
+Como será observado nas subseções, as práticas e técnicas são provenientes
+das Metodologias Ágeis. A motivação para a utilização da abordagem
 ágil é a familiaridade e experiência dos desenvolvedores deste trabalho.
 
 \subsection{Métodos Base}
@@ -38,10 +38,6 @@ das outras~\cite{fadel:2010}.
 \subsection{Práticas e Técnicas}
 \label{sec:praticas_tecnicas}
 
-Diversos dos conceitos e práticas abordados nessa seção também são abordados na
-seção~\ref{sec:devops}, mas aqui são redefinidas e adaptadas para o escopo do
-trabalho.
-
 São definidas algumas práticas no método \textit{Scrum}~\cite{gutierrez:2009}. A lista a seguir
 mostra as que serão utilizadas, bem como a descrição das adaptações para o trabalho:
 
@@ -66,15 +62,15 @@ mostra as que serão utilizadas, bem como a descrição das adaptações para o 
 
 \begin{itemize}
   \item \textbf{Entregas Frequentes}: ao final de cada interação deve haver uma entrega
-    dos itens priorizados. Neste trabalho, as integrações serão as (\textit{Sprints})
-    e os itens priorizados serão aqueles dispostos no \textit{Sprint Backlog}.
+    dos itens priorizados. Neste trabalho, as estregas serão feitas ao final de
+    cada \textit{sprint};
   \item \textbf{Teste}: são divididas em duas partes: teste de aceitação, elaboradas pelo cliente,
     e testes de unidade, elaboradas pelo programador. Será utilizado apenas os testes
     de unidade com a ferramenta RSpec.
   \item \textit{\textbf{Refactoring}}: consiste em simplificar a estrutura, mudar a organização do código,
     sem que altere o comportamento~\cite{beck:2000}. Neste trabalho será utilizado
-    conforme a necessidade sendo levado em consideração a importancia, impactos na
-    arquitetura da ferramenta e se é prioritário em relação aos outros itens da \textit{Sprint};
+    conforme as necessidades, sendo levado em consideração a import{\^a}ncia, impactos na
+    arquitetura da ferramenta e a prioridade em relação aos outros itens da \textit{Sprint};
   \item \textbf{Integração Contínua}: o código deve ser integrado e testado constantemente
     após o desenvolvimento de novas características. Com o auxílio do serviço Travis CI,
     os \textit{Pull Requests} e \textit{Branchs} serão monitorados quanto a integridade dos testes. Apenas
@@ -109,7 +105,7 @@ As principais preocupações da gerência de configuração é~\cite{pressman:20
     essa alteração está ligada com as necessidades do projeto;
 \end{enumerate}
 
-Quanto as ferramentas de suporte a gerência de configuração, exitem várias alternativas.
+Quanto as ferramentas de suporte a gerência de configuração, existem várias alternativas.
 Dentre elas, como mapeado na seção \ref{sec:supdev:git}, tem-se o Git que é responsável pelo
 controle de versão do sistema. Nela é possível contornar as principais preocupações
 descritas acima.
@@ -119,11 +115,11 @@ ferramenta Git. Nele são abordados as estratégias de controle de \textit{branc
 gerenciamento de \textit{release}. Com base nesse modelo, a figura \ref{fig:ctrl_versao}
 mostra o fluxo básico de desenvolvimento do Cupper.
 
-\begin{figure}[h]
+\begin{figure}[H]
   \centering
-  \includegraphics[width=0.8\textwidth]{figuras/controle_versao}
-  \caption{Fluxo de desenvolvimento Cupper}
+  \caption{Controle de versão do Cupper}
   \label{fig:ctrl_versao}
+  \includegraphics[width=0.8\textwidth]{figuras/controle_versao}
 \end{figure}
 
 Neste modelo, as principais \textit{branchs} tem o tempo de vida infinito, ou seja,

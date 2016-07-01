@@ -28,11 +28,11 @@ seguintes critérios:
 
 \begin{enumerate}
 \item Um atributo é relevante quando ele é necessário para a geração de uma
-receita \textit{Chef} que atenda aos nossos requisitos. 
+receita Chef que atenda aos nossos requisitos. 
 
-Na seção~\ref{sec:lev-rec} e~\ref{sec:escopo} definimos os recursos \textit{Chef}
-que iremos utilizar nas criações de \textit{Cookbooks} e até que ponto 
-avançaremos nas funcionalidades do \textit{Cupper}, e dessa forma, os atributos
+Na seção~\ref{sec:lev-rec} e~\ref{sec:escopo} definimos os recursos Chef
+que iremos utilizar nas criações de \textit{cookbooks} e até que ponto 
+avançaremos nas funcionalidades do Cupper, e dessa forma, os atributos
 são relevantes se eles se enquadram nesse patamar, para alcançar esses objetivos.
 
 Um exemplo básico disso é a arquitetura da CPU, que pode alterar a instalação
@@ -40,21 +40,21 @@ e qual a versão de pacotes a serem instalados.
 
 \item Um atributo também é relevante se é necessário para criação de \textit{logs} 
 e \textit{debugs}, tanto para uso da ferramenta durante o processo de gerar 
-\textit{Cookbooks} quanto para algum retorno para o usuário, para ajudar 
+\textit{cookbooks} quanto para algum retorno para o usuário, para ajudar 
 a entender possíveis erros ao executar
-o \textit{Cupper}.
+o Cupper.
 \end{enumerate}
 
-Com relação à dificuldade de implementação e de integração ao \textit{Cupper} o
+Com relação à dificuldade de implementação e de integração ao Cupper o
 atributo deve seguir os seguinte critérios em ordem de prioridade:
 
 \begin{enumerate}
 \item O atributo tem maior prioridade de ser selecionado se é um dos dados 
-que o \textit{Ohai} lança por padrão e sem extensões.
-\item O atributo tem média prioridade se, não é um dos dados que o \textit{Ohai}
+que o Ohai lança por padrão e sem extensões.
+\item O atributo tem média prioridade se, não é um dos dados que o Ohai
 lança por padrão e sem extensões, mas existe um comando do sistema que facilita 
 sua extração, e dessa forma facilitando a criação de \textit{plugins} pro 
-\textit{Ohai}.
+Ohai.
 \item O atributo tem menor prioridade se não é lançado pelo Ohai e nem tem 
 comandos do sistema para recuperá-lo.
 \end{enumerate}
