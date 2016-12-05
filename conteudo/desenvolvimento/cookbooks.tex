@@ -1,7 +1,7 @@
 \section{\textit{Cookbook} Chef}
 \label{sec:lev-rec}
 
-Como descrito ne seção \ref{sec:chef}, o Chef é disposto em vários
+Como descrito ne Seção \ref{sec:chef}, o Chef é disposto em vários
 componentes. O foco principal do Cupper é a criação de \textit{cookbooks},
 sendo assim os recursos levantados são referentes à composição interna
 dos \textit{cookbooks}.
@@ -13,7 +13,7 @@ cookbook versions}~\cite{chefdoc:2016}.
 Para o funcionamento de um \textit{cookbook}, com uma estrutura mínima, é necessário que tenha
 ao menos um \textit{recipe default} definido. O exemplo \ref{code:tree} mostra essa
 estrutura mínima necessária para realizar a configuração do \textit{cookbook app} e o exemplo
-\ref{code:fulltree} mostra uma estrura completa.
+\ref{code:fulltree} mostra uma estrutura completa.
 
 \noindent\begin{minipage}{.45\textwidth}
   \lstinputlisting[language=Bash, frame=single, label=code:tree, caption="Estrutura mínima de um \textit{cookbook}"]{conteudo/code/minimal_tree}
@@ -40,7 +40,7 @@ Os \textit{attributes} são definidos: no proprio ambiente através do Ohai, nos
 nos \textit{roles} e \textit{environments}.
 
 \textbf{Cupper}: será incluido no escopo de implementação. Os \textit{attributes} serão dispostos
-de acordo com a coleta dos atributos do ambiente definidos na seção~\ref{sec:cam-amb}.
+de acordo com a coleta dos atributos do ambiente definidos na Seção~\ref{sec:cam-amb}.
 Apenas alguns atributos serão inserido como informativo sobre o ambiente, ou seja,
 não serão utilizados diretamente no \textit{recipe} do \textit{cookbook}.
 
@@ -74,13 +74,13 @@ três recursos: \textit{package, service} e \textit{template}.
 ser gerado pelo Cupper. Nele serão descritos os passos, em sequência lógica de execução,
 de todas as configurações. Para cada \textit{cookbook}, será gerado um arquivo de 
 \textit{recipe 'default.rb'} contendo todas as informações necessárias para a execução.
-A seção~\ref{sec:cbresource} defini todos os recursos utilizados nos \textit{recipes}.
+A Seção~\ref{sec:cbresource} defini todos os recursos utilizados nos \textit{recipes}.
 
 \subsection{\textit{Definitions}}
 \label{sec:lev-rec-def}
 
 As \textit{definitions} são um novo tipo de recurso disponível apartir da versão
-12.5 do Chef e é recomentado utilizar o \textit{Custom Resource}(seção \ref{sec:lev-rec-cust})
+12.5 do Chef e é recomentado utilizar o \textit{Custom Resource}(Seção \ref{sec:lev-rec-cust})
 no lugar de \textit{definitions}~\cite{chefdoc:2016}.
 
 Os \textit{definitions} são comportamento que podem ser reutilizados por outros \textit{recipes}.
@@ -96,7 +96,7 @@ e \textit{hostname} (valor padrão \textit{nil}) que pode ser utilizado em outro
 
 \textbf{Cupper}: não será incluso no escopo de implementação. As \textit{definitions} são
 construídas de acordo com as necessidades de cada organização, não sendo
-possível prevê-las ou fazer uma \textit{definition} genêrica.
+possível prevê-las ou fazer uma \textit{definition} genérica.
 
 \subsection{\textit{Files}}
 \label{sec:cbfiles}
@@ -106,7 +106,7 @@ Pode-se utilizar os seguintes recursos:
 
 \begin{itemize}
   \item \textit{cookbook\_file}: arquivos que são adicionados ao \textit{node} com base
-    nos arquivos presentes no diretório \textit{/files} na raíz do \textit{cookbook};
+    nos arquivos presentes no diretório \textit{/files} na raiz do \textit{cookbook};
   \item \textit{file}: manipula arquivos que estão presentes no \textit{node};
   \item \textit{remote\_file}: arquivos são adicionado ao \textit{node} a partir de um
     local remoto;
@@ -130,14 +130,14 @@ por exemplo o atributo IP do ambiente.
 
 \subsection{\textit{Libraries}}
 
-As \textit{libraries} são formas de inserir código Ruby para extender ou definir
+As \textit{libraries} são formas de inserir código Ruby para estender ou definir
 uma nova funcionalidade. Semelhante ao que ocorre em \textit{definitions}, entretanto a
-capacidade de extensão é maior, sendo possível extender recursos já
+capacidade de extensão é maior, sendo possível estender recursos já
 existentes~\cite{chefdoc:2016}. Por ser construída em Ruby, todos os
 recursos provídos pela linguagem podem ser utilizadas dentro das
 \textit{libraries}.
 
-O exemplo \ref{code:library} mostra a definição para extender um
+O exemplo \ref{code:library} mostra a definição para estender um
 \textit{recipe} adicionando um método \textit{client} que pode ser utilizado
 para facilitar a inserção de dados referente a \textit{ip} e \textit{hostname} de um
 \textit{node}
@@ -160,7 +160,7 @@ necessárias para um contexto desconhecido pelo Cupper.
 Adicionado recentemente ao Chef, o \textit{custom resource} é uma forma de criar
 novos recursos para os \textit{recipes}. É semelhante as \textit{libraries} e as \textit{definitions},
 entretanto é direcionado especificamente para a criação de novos recursos~\cite{chefdoc:2016}.
-É uma forma simples de extender o Chef e é implementado dentro de um
+É uma forma simples de estender o Chef e é implementado dentro de um
 \textit{cookbook}.
 
 No exemplo \ref{code:custom} tem-se a definição de um recurso criado em \textit{cookbooks/app/resources}
@@ -210,11 +210,11 @@ providos pelo Chef serão utilizados para definir os passos nos arquivos de
   \item \textit{\textbf{apt\_package}}: usado para gerenciar pacotes das plataformas Debian e
     Ubuntu;
   \item \textit{\textbf{cookbook\_file}}: transfere o arquivo definido em \textit{COOKBOOK\_NAME/files/} para
-    uma localização definida (já descrito na seção \ref{sec:cbfiles});
+    uma localização definida (já descrito na Seção \ref{sec:cbfiles});
   \item \textit{\textbf{directory}}: usado para gerenciar diretórios. Pode-se criar, deletar, definir
     permissão, grupos, etc;
   \item \textit{\textbf{execute}}: usado para executar um comando. Por padrão, utiliza-se o \textit{bash};
-  \item \textit{\textbf{file}}:usado para gerenciar arquivos (já descrito na seção \ref{sec:cbfiles});
+  \item \textit{\textbf{file}}:usado para gerenciar arquivos (já descrito na Seção \ref{sec:cbfiles});
   \item \textit{\textbf{gem\_package}}: usado para gerenciar pacotes RubyGem;
   \item \textit{\textbf{link}}: usado para criar \textit{links} simbólicos ou real;
   \item \textit{\textbf{package}}: usado para gerenciar pacotes sem a necessidade de especificar a plataforma,
@@ -243,10 +243,10 @@ por exemplo o IP do ambiente.
 
 As \textit{cookbook versions} são versionamentos dos \textit{cookbooks} usados para definir
 diferentes versões baseados nas modificações realizadas. São definidas
-  dentro do arquivo de \textit{metadata} descrito na seção \ref{sec:cbmetadata}.
+  dentro do arquivo de \textit{metadata} descrito na Seção \ref{sec:cbmetadata}.
 
 \textbf{Cupper}: será incluso no escopo de implementação. Será posto a versão inicial
 do \textit{cookbook} e poderá ser modificado de acordo com as necessiades do usuários,
 assim como definido para as outras informações do arquivo \textit{metadas.rb} (já definido
-na seção~\ref{sec:cbmetadata})
+na Seção~\ref{sec:cbmetadata})
 

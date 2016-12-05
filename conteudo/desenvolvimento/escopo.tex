@@ -2,14 +2,14 @@
 \label{sec:escopo}
 
 O Cupper se encaixa na categoria de ferramentas \textit{CLI} (\textit{Command-line Interface})
-e como descrito na seção~\ref{sec:supdev:rubygems}, será construída nos padrões de
+e como descrito na Seção~\ref{sec:supdev:rubygems}, será construída nos padrões de
 RubyGems que permite criar os comandos por meio de arquivos de \textit{script bash}
 que serão instalados, por padrão do gerenciado de pacote, no diretório de binários do sistema.
 Os comandos serão chamados pelo prefixo \textit{cupper} seguido da funcionalidade e as opções.
 
 %TODO: colocar a estrutura de init do Cupper e mostrar como será a distribuição dos arquivos e diretórios.
 
-Em resumo da seção~\ref{sec:lev-rec}, os recursos Chef com relação aos \textit{coookbooks} que serão utilizados.
+Em resumo da Seção~\ref{sec:lev-rec}, os recursos Chef com relação aos \textit{coookbooks} que serão utilizados.
 
 \subsection{Funcionalidades}
 
@@ -18,8 +18,8 @@ Em resumo da seção~\ref{sec:lev-rec}, os recursos Chef com relação aos \text
     cada uma;
 
   \item \textbf{Gerar Cookbook}: extrai as configurações do ambiente e cria o \textit{cookbook} correspondente.
-    Esse \textit{cookbook} será inserido no diretório \textit{cookbooks} na raíz do projeto Cupper.
-    A figura~\ref{fig:cupper_geral} mostra o fluxo básico dessa funcionalidade;
+    Esse \textit{cookbook} será inserido no diretório \textit{cookbooks} na raiz do projeto Cupper.
+    A Figura~\ref{fig:cupper_geral} mostra o fluxo básico dessa funcionalidade;
 
   \item \textbf{Mostrar Extrações}: mostra as extrações realizadas pelo Cupper em conjunto com o Ohai,
     ou seja, é a forma intermediária à criação dos \textit{cookbooks} onde serão mostrados os outputs do
@@ -37,7 +37,7 @@ Em resumo da seção~\ref{sec:lev-rec}, os recursos Chef com relação aos \text
 
 \subsection{Estrutura e Módulos}
 
-A figura~\ref{fig:cupper-detail} mostra a Estrutura Inicial Planejada para os 
+A Figura~\ref{fig:cupper-detail} mostra a Estrutura Inicial Planejada para os 
 Módulos do Cupper.
 
 \begin{figure}[H]
@@ -52,7 +52,7 @@ A imagem descreve o seguinte fluxo:
 \begin{enumerate}
     \item Executa-se o Cupper em um ambiente do qual deseja-se extrair configurações.
     \item O Ohai irá extrair atributos referentes às camadas de \textit{Hardware},
-\textit{Service} e \textit{Operation System}.
+\textit{Service} e \textit{Operating System}.
     \item \textit{Plugins do Ohai} irão adicionar a capacidade de extrair atributos da
 camada de \textit{Custom} e \textit{Application}. Também adicionam a capacidade
 de extrair outros atributos das outras camadas.

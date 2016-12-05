@@ -1,7 +1,7 @@
 \section{Automação}
 \label{sec:auto}
 
-Em DevOps, a automação é um elemento essencial para se alcaçar a maturidade
+Em DevOps, a automação é um elemento essencial para se alcançar a maturidade
 de entregas e \textit{feedback} rápidos. A automação consiste na execução
 automática de um processo com o mínimo de intervensão humana. Para a área
 de TI, a automação ocorre nos processos de controle e administração de
@@ -35,10 +35,10 @@ automação mapeados com as principais preocupações da industria de TI. Alguma
 \end{itemize}
 
 \citeonline{hummer:2013} identificam, dentro do contexto de automação, a idempotência
-como chave para uma boa implementação de automação. Uma tarefa idempotênte pode ser
+como chave para uma boa implementação de automação. Uma tarefa idempotente pode ser
 executada inúmeras vezes resultando sempre no mesmo resultado. Dentro de DevOps,
 as entregas frequentes necessitam da garantia de realizar a implantação de um
-sistema e este tenha sempre o mesmo resultado.
+sistema e de que esta tenha sempre o mesmo resultado.
 
 A automação, em conjunto com a cultura DevOps, consegue suportar rápidas mudanças,
 entrega contínua, correção de \textit{bugs}. Tudo é feito com a utilização de
@@ -57,9 +57,9 @@ Antes dos conceitos de DevOps e dos movimentos ágeis, as configurações de
 infraestrutura eram automatizadas com \textit{scripts} que geralmente eram
 difíceis de serem compreendidos por alguém que não fosse o autor~\cite{huttermann:2012}.
 Recentemente, o termo Infraestrutura como Código vem se popularizando
-seguindo a mesma lógica que era informalmente aplicada anteriormente, criando
-\textit{scripts} de automação de configuração para a infraestrutura, entretanto de forma
-mais simples e compreensível.
+seguindo a mesma lógica que era informalmente aplicada anteriormente, baseada na criação
+\textit{scripts} de automação de configuração para a infraestrutura, entretanto o fazendo
+de forma mais simples e compreensível.
 
 A infraestrutura como código é focada em manipular a configuração da infraestrutura
 da mesma maneira que os desenvolvedores manipulam os seus códigos: escolhendo a melhor
@@ -80,7 +80,7 @@ mais populares Chef e Puppet.
 
 \citeonline{sharma:2015} listam as ferramentas de automação que são alternativas ao
 Chef. Cada qual trata a automação de uma forma diferente apresentando \textit{features}
-específicas que provêm desde da automação de configuração da rede até a configuração
+específicas que provêem desde a automação de configuração da rede até a configuração
 de ambientes. Dentre elas, destaca-se as mais populares: Chef, Puppet,
 SaltStack e Ansible. A tabela~\ref{tab:chef-rival} mostra a comparação elas.
 
@@ -112,10 +112,10 @@ As vantagens e pontos chaves que o Chef tem em relação ao seus
 concorrentes~\cite{sharma:2015}:
 \begin{itemize}
   \item O Chef é puramente uma \textit{Domain Specific Language (DSL)}.~\citeonline{van:2000}
-    propões a definição de DSL como uma linguagem de programação executável que
+    propõem a definição de DSL como uma linguagem de programação executável que
     contém notações e abstrações específicas para um domínio de problemas. O Chef
     extende a sua DSL da linguagem Ruby;
-  \item O Chef contém uma consistente documentação, materias de treinamento e
+  \item O Chef contém uma consistente documentação, materiais de treinamento e
     atualizações constantes;
   \item O suporte da comunidade do Chef é grande e responde rapidamente a dúvidas
     e problemas de instalação, configuração e utilização da ferramenta Chef.
@@ -148,7 +148,7 @@ possa executar sua função. Os principais componentes são~\cite{chefdoc:2016}:
     Pode ser customizados para um ambiente específico da empresa ou utilizar
     \textit{cookbooks} disponíveis pela comunidade Chef;
   \item \textit{Ruby}: linguagem oficial utilizada para a escrita dos \textit{scripts};
-  \item \textit{Node}: qualquer máquina física, virtual, em núvem, dispositivo
+  \item \textit{Node}: qualquer máquina física, virtual, em nuvem, dispositivo
     de rede, etc, que deva ser gerenciada pelo Chef;
   \item \textit{Chef Client}: ferramenta instalada em todos os \textit{nodes}. O
     \textit{Chef Client} é responsável por executar todas as tarefas especificadas
@@ -168,7 +168,7 @@ possa executar sua função. Os principais componentes são~\cite{chefdoc:2016}:
 \end{itemize}
 
 Desses componentes, tem-se os três principais: \textbf{Chef Server, Node} e \textbf{Workstation}.
-A figura \ref{fig:chef-comp} mostra a relação entre esses três componente. Existem os requisitos
+A Figura \ref{fig:chef-comp} mostra a relação entre esses três componentes. Existem os requisitos
 mínimos para a implementação do Chef~\cite{chefdoc:2016}:
 
 \begin{itemize}
@@ -197,14 +197,14 @@ do ambiente alvo \cite{sharma:2015}.
   \item \textbf{Aplicação}: contém as configurações de acordo com a instalação de
     uma aplicação. Exemplo PostgreSQL, Apache, Nginx;
   \item \textbf{Biblioteca}: define recursos a serem utilizados por outros \textit{cookbooks}
-    (mais detalhes sobre recursos na seção~\ref{sec:lev-rec} no capítulo~\ref{chap:desenv} de desenvolvimento).
+    (mais detalhes sobre recursos na Seção~\ref{sec:lev-rec} no Capítulo~\ref{chap:desenv} de desenvolvimento).
     Não é recomendado utilizado diretamente em um node;
-  \item \textbf{\textit{Wrapper}}: são \textit{cookbooks} prontos construidos pela comunidade que podem
+  \item \textbf{\textit{Wrapper}}: são \textit{cookbooks} prontos construídos pela comunidade que podem
     ser alterados para que se adequem ao ambiente que será implantado.
 \end{itemize}
 
 O componente \textit{chef-client} irá executar as receitas (mais detalhes sobre receitas ou
-\textit{recipes} na seção \ref{sec:lev-rec}) disponíveis nos \textit{cookbooks}
+\textit{recipes} na Seção \ref{sec:lev-rec}) disponíveis nos \textit{cookbooks}
 indicados pelo \textit{Chef Server} quando necessário, ou seja, se não houver
 nenhuma mudança quanto as configurações do ambiente o \textit{chef-client} não irá
 alterar nada, do contrário ele irá aplicar as configurações necessárias~\cite{chefdoc:2016}.

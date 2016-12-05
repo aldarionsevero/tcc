@@ -12,7 +12,7 @@ sistema:
 \begin{itemize}
   \item \textit{\textbf{Hardware}}: definições físicas onde o sistema foi implantado.
     (Arquitetura, memória, espaço em disco, etc);
-  \item \textit{\textbf{Operation System}}: definições do sistema operacional
+  \item \textit{\textbf{Operating System}}: definições do sistema operacional
     implantado. Distribuição, arquitetura, versão, etc;
   \item \textit{\textbf{Application}}: definições das aplicações instaladas.
     (Aplicações instaladas, dependências, etc);
@@ -40,12 +40,12 @@ para um tipo específico de arquitetura.
 A tabela~\ref{tab:atrhard} mostra diversas informações de hardware possíveis de serem extraídas
 do sistema a partir de comandos do sistema operacional e também da ferramenta Ohai, 
 dependência prevista para a implementação do Cupper (como descrito na 
-seção~\ref{sec:tec}). Nem todas essas informações serão úteis para a 
-implementação, mas nessa seção fazemos um levantamento geral antes de fazer uma
+Seção~\ref{sec:tec}). Nem todas essas informações serão úteis para a 
+implementação, mas nessa Seção fazemos um levantamento geral antes de fazer uma
 seleção.
 
 A camada de hardware será uma das camadas a serem analisadas, e a seleção de 
-seus atributos irão seguir os critérios descritos na seção~\ref{sec:defcritcamada}.
+seus atributos irão seguir os critérios descritos na Seção~\ref{sec:defcritcamada}.
 
 A tabela~\ref{tab:atrhard} mostra atributos relacionados a CPU, Memória e 
 \textit{Moterboard}, e a tabela~\ref{tab:hdmount} mostra atributos relacionados
@@ -117,7 +117,7 @@ Mountpoints                                                              & mount
 \end{tabular}
 \end{table}
 
-\subsection{\textit{Operation System}}
+\subsection{\textit{Operating System}}
 \label{sec:cam-os}
 
 A segunda camada de extração de dados é a do Sistema Operacional. 
@@ -225,7 +225,7 @@ aplicações e arquivos de configuração são analisados nessa camada.
 Para os arquivos de configuração iremos considerar  o sistema de hierarquia de
 sistema de arquivos do linux. Alguns arquivos que não seguem o padrão FHS 
 (\textit{Filesystem Hierarchy Standard}, Hierarquia de sistema de arquivos) irão
-ser tratados na seção~\ref{sec:camada-custom} de configurações e instalações \textit{Custom}.
+ser tratados na Seção~\ref{sec:camada-custom} de configurações e instalações \textit{Custom}.
 
 A primeira coluna das tabelas mostra o atributo em questão; a segunda mostra
 a origem do atributo, podendo ser um comando do sistema, ou caminho de um arquivo;
@@ -253,12 +253,11 @@ Atributo                                                & Origem                
 \end{tabular}
 \end{table}
 
-O padrão HFS já prevê alguns sub diretórios para configurações padrão abaixo de
+O padrão FHS já prevê alguns sub diretórios para configurações padrão abaixo de
 \textit{/etc/} como \textit{/etc/opt, /etc/X11} por exemplo, mas outros diretórios
 de arquivos de configuração são importantes, e seguem praticamente o mesmo padrão.
-Não serão analisados todos os subdiretórios, só serão analisados os que estiverem
-sobre padrão similar ao HFS.
-
+Não serão analisados todos os subdiretórios, só serão analisados os que estiveremsobre padrão similar ao HFS.
+sobre padrão similar ao FHS.
 
 \subsection{\textit{Service}}
 
