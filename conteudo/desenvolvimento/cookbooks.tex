@@ -1,7 +1,7 @@
 \section{\textit{Cookbook} Chef}
 \label{sec:lev-rec}
 
-Como descrito ne Seção \ref{sec:chef}, o Chef é disposto em vários
+Como descrito ne Seção~\ref{sec:chef}, o Chef é disposto em vários
 componentes. O foco principal do Cupper é a criação de \textit{cookbooks},
 sendo assim os recursos levantados são referentes à composição interna
 dos \textit{cookbooks}.
@@ -11,9 +11,8 @@ files, libraries, custom resourses, metadata, resources e providers, templates
 cookbook versions}~\cite{chefdoc:2016}.
 
 Para o funcionamento de um \textit{cookbook}, com uma estrutura mínima, é necessário que tenha
-ao menos um \textit{recipe default} definido. O exemplo \ref{code:tree} mostra essa
-estrutura mínima necessária para realizar a configuração do \textit{cookbook app} e o exemplo
-\ref{code:fulltree} mostra uma estrutura completa.
+ao menos um \textit{recipe default} definido. O exemplo~\ref{code:tree} mostra essa
+estrutura mínima necessária para realizar a configuração do \textit{cookbook app} e o exemplo~\ref{code:fulltree} mostra uma estrutura completa.
 
 \noindent\begin{minipage}{.45\textwidth}
   \lstinputlisting[language=Bash, frame=single, label=code:tree, caption="Estrutura mínima de um \textit{cookbook}"]{conteudo/code/minimal_tree}
@@ -199,7 +198,7 @@ Um \textit{resource} é a definição do passo que deve ser seguido durante o pr
 de configuração. Cada \textit{resource} diz ao \textit{chef-client} qual a tarefa a ser executada
 como instalar um pacote, criar um arquivo, reiniciar um serviço, etc.
 Enquanto o \textit{resource} diz o que deve ser feito, o \textit{provider} diz como deve ser
-feito. Por exemplo, o \textit{resource} define "instale o pacote A" e o \textit{provider} decide
+feito. Por exemplo, o \textit{resource} define \lq\lq instale o pacote A\rq\rq e o \textit{provider} decide
 se deve utilizar pacotes deb ou rpm.
 
 \textbf{Cupper}: será incluso no escopo de implementação. Os \textit{resources} padrões

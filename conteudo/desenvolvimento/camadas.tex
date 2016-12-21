@@ -25,6 +25,9 @@ sistema:
     sistema sem uma forma padrão conhecida.
 \end{itemize}
 
+As tabelas referentes aos atributos relacionados a cada uma dessas camadas se
+encontram na Seção~\ref{apc:tabelas} dos apêndices.
+
 \subsection{\textit{Hardware}}
 \label{sec:cam-hard}
 
@@ -58,64 +61,6 @@ esse atributo pode ser conseguido por meio do \textit{Ohai}; a quinta coluna
 diz se é viável implementar o acesso a esse atributo e a ultima coluna
 diz se o atributo foi selecionado para ser usado pelo Cupper.
 
-\begin{table}[H]
-\centering
-\caption{Atributos Relacionados a CPU, Memória e \textit{Motherboard}}
-\label{tab:atrhard}
-\begin{tabular}{|c|c|c|c|c|c|}
-\hline
-\rowcolor[HTML]{C0C0C0} 
-Atributo                                                        & Origem    & Relevante? & Ohai & Viável? & Selecionado? \\ \hline
-Modelo CPU                                                      & lscpu     & não        & sim  & sim     & não          \\ \hline
-\begin{tabular}[c]{@{}c@{}}Modo de \\ Operação CPU\end{tabular} & lscpu     & sim        & sim  & sim     & sim          \\ \hline
-Arquitetura CPU                                                 & lscpu     & sim        & sim  & sim     & sim          \\ \hline
-Cores                                                           & lscpu     & sim        & sim  & sim     & sim          \\ \hline
-Stepping CPU                                                    & lscpu     & não        & sim  & sim     & não          \\ \hline
-Frequência CPU                                                  & lscpu     & sim        & sim  & sim     & sim          \\ \hline
-Cache CPU                                                       & lscpu     & sim        & sim  & sim     & sim          \\ \hline
-Flags CPU                                                       & lscpu     & sim        & sim  & sim     & sim          \\ \hline
-\begin{tabular}[c]{@{}c@{}}Modelo \\ Motherboard\end{tabular}   & dmidecode & não        & não  & não     & não          \\ \hline
-Versão BIOS                                                     & dmidecode & não        & não  & não     & não          \\ \hline
-Flags BIOS                                                      & dmidecode & não        & não  & não     & não          \\ \hline
-Slots Memória                                                   & dmidecode & não        & sim  & sim     & não          \\ \hline
-Marca Memória                                                   & dmidecode & não        & não  & não     & não          \\ \hline
-Tamanho Memória                                                 & free      & sim        & sim  & sim     & sim          \\ \hline
-Clock Memória                                                   & dmidecode & não        & não  & não     & não          \\ \hline
-Total Swap                                                      & free      & sim        & sim  & sim     & sim          \\ \hline
-Livre Swap                                                      & free      & sim        & sim  & sim     & sim          \\ \hline
-Total Memória                                                   & free      & sim        & sim  & sim     & sim          \\ \hline
-Livre Memória                                                   & free      & sim        & sim  & sim     & sim          \\ \hline
-Buffers Memóra                                                  & free      & sim        & sim  & sim     & sim          \\ \hline
-Cached Memória                                                  & free      & não        & sim  & sim     & não          \\ \hline
-Ativo Memória                                                   & free      & sim        & sim  & sim     & sim          \\ \hline
-Inativo Memória                                                 & free      & sim        & sim  & sim     & sim          \\ \hline
-Sujo Memória                                                    & pmap      & sim        & sim  & sim     & sim          \\ \hline
-\begin{tabular}[c]{@{}c@{}}Pag. Anon\\ Memória\end{tabular}     & pmap      & não        & sim  & sim     & não          \\ \hline
-\end{tabular}
-\end{table}
-
-\begin{table}[H]
-\centering
-\caption{Atributos relacionados a Partições, Armazenamento, USB, PCI, e Rede}
-\label{tab:hdmount}
-\begin{tabular}{|c|c|c|c|c|l|}
-\hline
-\rowcolor[HTML]{C0C0C0} 
-Atributo                                                                 & Origem                                                                & Relevante? & Ohai    & Viável & Selecionado? \\ \hline
-\begin{tabular}[c]{@{}c@{}}Nome\\ dos\\ Dispositivos\end{tabular}        & lsblk                                                                 & sim        & sim     & sim    & sim         \\ \hline
-\begin{tabular}[c]{@{}c@{}}Major/Minor\\ Dispositivos\end{tabular}       & lsblk                                                                 & sim        & não     & sim    & sim         \\ \hline
-Removíveis                                                               & lsblk                                                                 & não        & não     & não    & não         \\ \hline
-\begin{tabular}[c]{@{}c@{}}Somente\\ Leitura\end{tabular}                & lsblk                                                                 & não        & não     & não    & não         \\ \hline
-Partições                                                                & lsblk                                                                 & sim        & sim     & sim    & sim         \\ \hline
-\begin{tabular}[c]{@{}c@{}}Tamanho\\ Partições/\\ Discos\end{tabular}    & \begin{tabular}[c]{@{}c@{}}lsblk/\\ df\end{tabular}                   & sim        & sim     & sim    & sim         \\ \hline
-\begin{tabular}[c]{@{}c@{}}Tipo\\ Filesystem\\ Dispositivos\end{tabular} & lsblk                                                                 & sim        & sim     & sim    & sim         \\ \hline
-\begin{tabular}[c]{@{}c@{}}UUID\\ Dispositivos\end{tabular}              & lsblk                                                                 & sim        & sim     & sim    & sim         \\ \hline
-Mountpoints                                                              & mount                                                                 & sim        & sim     & sim    & sim         \\ \hline
-\begin{tabular}[c]{@{}c@{}}Dsipositivos\\ USB\end{tabular}               & lsusb                                                                 & não        & não     & não    & não         \\ \hline
-\begin{tabular}[c]{@{}c@{}}Dsipositivos\\ PCI\end{tabular}               & lspci                                                                 & sim        & não     & sim    & sim         \\ \hline
-\begin{tabular}[c]{@{}c@{}}Dispositivos \\ de Rede\end{tabular}          & \begin{tabular}[c]{@{}c@{}}lspci/\\ ifconfig/\\ dmidecode\end{tabular} & sim        & sim     & sim    & não         \\ \hline
-\end{tabular}
-\end{table}
 
 \subsection{\textit{Operating System}}
 \label{sec:cam-os}
@@ -141,32 +86,6 @@ esse atributo pode ser conseguido por meio do \textit{Ohai}; a quinta coluna
 diz se é viável implementar o acesso a esse atributo e a ultima coluna
 diz se o atributo foi selecionado para ser usado pelo Cupper.
 
-\begin{table}[H]
-\centering
-\caption{Atributos relacionados ao Sistema Operacional, Kernel e configs gerais do sistema}
-\label{tab:so}
-\begin{tabular}{|c|c|c|c|l|c|}
-\hline
-\rowcolor[HTML]{C0C0C0} 
-Atributo                                                       & Origem               & Relevante? & Ohai & Viável? & Selecionado? \\ \hline
-OS                                                             & /etc/distro-release  & sim        & sim  & sim     & sim         \\ \hline
-Kernel                                                         & uname                & sim        & sim  & sim     & sim         \\ \hline
-\begin{tabular}[c]{@{}c@{}}Versão\\ Kernel\end{tabular}        & uname                & sim        & sim  & sim     & sim         \\ \hline
-\begin{tabular}[c]{@{}c@{}}Machine\\ Kernel\end{tabular}       & uname                & sim        & sim  & sim     & sim         \\ \hline
-\begin{tabular}[c]{@{}c@{}}Módulos\\ Kernel\end{tabular}       & lsmod                & sim        & sim  & sim     & sim         \\ \hline
-Distribuição                                                   & lsb\_release         & sim        & sim  & sim     & sim         \\ \hline
-\begin{tabular}[c]{@{}c@{}}Release\\ Distribuição\end{tabular} & lsb\_release         & sim        & sim  & sim     & sim         \\ \hline
-\begin{tabular}[c]{@{}c@{}}Família\\ Distribuição\end{tabular} & lsb\_release         & sim        & sim  & sim     & sim         \\ \hline
-\begin{tabular}[c]{@{}c@{}}Geren.\\ de Pacotes\end{tabular}    & N/A                  & sim        & não  & sim     & sim         \\ \hline
-\begin{tabular}[c]{@{}c@{}}Init \\ System\end{tabular}         & N/A                  & sim        & não  & sim     & sim         \\ \hline
-\begin{tabular}[c]{@{}c@{}}Módulo \\ de Segurança\end{tabular} & N/A                  & sim        & não  & sim     & sim         \\ \hline
-Hostname                                                       & hostname             & sim        & sim  & sim     & sim         \\ \hline
-\begin{tabular}[c]{@{}c@{}}Interfaces\\ de Rede\end{tabular}   & ip                   & sim        & sim  & sim     & sim         \\ \hline
-\begin{tabular}[c]{@{}c@{}}Endereços\\ de Rede\end{tabular}    & ip                   & sim        & sim  & sim     & sim         \\ \hline
-\begin{tabular}[c]{@{}c@{}}Endereços\\ MAC\end{tabular}        & ip                   & sim        & sim  & sim     & sim         \\ \hline
-\end{tabular}
-\end{table}
-
 Por ser específico de cada distribuição linux, não é possível determinar com um
 comando qual o gerenciador de pacotes o sistema utiliza. O mesmo acontece para
 o sistema de inicialização de serviços e para o módulo de segurança utilizados.
@@ -184,33 +103,13 @@ gerenciadores específicos de linguagem python e ruby (Pip e RubyGem). Na camada
 \textit{Custom} a aplicação irá tentar suportar aplicações instaladas de outras
 maneiras.
 
-A primeira coluna das tabelas mostra o atributo em questão; a segunda mostra
+A primeira coluna da tabela~\ref{tab:app} mostra o atributo em questão; a segunda mostra
 a origem do atributo, podendo ser um comando do sistema, ou caminho de um arquivo;
 a terceira coluna mostra se o atributo é relevante para a aplicação; a quarta mostra se
 esse atributo pode ser conseguido por meio do \textit{Ohai}; a quinta coluna 
 diz se é viável implementar o acesso a esse atributo e a ultima coluna
 diz se o atributo foi selecionado para ser usado pelo Cupper.
 
-\begin{table}[H]
-\centering
-\caption{Atributos relacionados às Aplicações}
-\label{tab:app}
-\begin{tabular}{|c|c|c|c|c|c|}
-    \hline
-    \rowcolor[HTML]{C0C0C0} 
-    Atributo                                                         & Origem                                                 & Relevante? & Ohai & Viável & Selecionado? \\ \hline
-Pacotes                                                              & \begin{tabular}[c]{@{}c@{}}pacman/\\ dpkg\end{tabular} & sim        & não  & sim    & sim          \\ \hline
-\begin{tabular}[c]{@{}c@{}}Versões\\ Pacotes\end{tabular}            & \begin{tabular}[c]{@{}c@{}}pacman/\\ dpkg\end{tabular} & sim        & não  & sim    & sim          \\ \hline
-Dependências                                                         & \begin{tabular}[c]{@{}c@{}}pacman/\\ dpkg\end{tabular} & sim        & não  & sim    & sim          \\ \hline
-Arch                                                                 & \begin{tabular}[c]{@{}c@{}}pacman/\\ dpkg\end{tabular} & sim        & não  & sim    & sim          \\ \hline
-    Pacotes Pip                                                      & pip                                                    & sim        & não  & sim    & sim          \\ \hline
-\begin{tabular}[c]{@{}c@{}}Versões\\ Pacotes Pip\end{tabular}        & pip                                                    & sim        & não  & sim    & sim          \\ \hline
-    Pacotes Ruby                                                     & gem                                                    & sim        & não  & sim    & sim          \\ \hline
-\begin{tabular}[c]{@{}c@{}}Versões\\ Pacotes Ruby\end{tabular}       & gem                                                    & sim        & não  & sim    & sim          \\ \hline
-\begin{tabular}[c]{@{}c@{}}Pacotes por\\ outro Ger.\end{tabular}     & N/A                                                    & não        & não  & não    & não          \\ \hline
-\begin{tabular}[c]{@{}c@{}}Instalação\\ Manual\end{tabular}          & N/A                                                    & não        & não  & não    & não          \\ \hline
-\end{tabular}
-\end{table}
 
 Nenhum dos atributos dessa camada pode ser extraído pelo \textit{Ohai} por
 padrão. Dessa maneira toda a extração desses atributos deverá ser implementada
@@ -227,31 +126,13 @@ sistema de arquivos do linux. Alguns arquivos que não seguem o padrão FHS
 (\textit{Filesystem Hierarchy Standard}, Hierarquia de sistema de arquivos) irão
 ser tratados na Seção~\ref{sec:camada-custom} de configurações e instalações \textit{Custom}.
 
-A primeira coluna das tabelas mostra o atributo em questão; a segunda mostra
+A primeira coluna da tabela~\ref{tab:config} mostra o atributo em questão; a segunda mostra
 a origem do atributo, podendo ser um comando do sistema, ou caminho de um arquivo;
 a terceira coluna mostra se o atributo é relevante para a aplicação; a quarta mostra se
 esse atributo pode ser conseguido por meio do \textit{Ohai}; a quinta coluna 
 diz se é viável implementar o acesso a esse atributo e a ultima coluna
 diz se o atributo foi selecionado para ser usado pelo Cupper.
 
-\begin{table}[]
-\centering
-\caption{Atributos relacionados às Configurações de Aplicações}
-\label{tab:config}
-\begin{tabular}{|c|c|c|c|c|c|}
-\hline
-\rowcolor[HTML]{C0C0C0} 
-Atributo                                                & Origem                                                          & Relevante? & Ohai & Viável & Selecionado? \\ \hline
-\begin{tabular}[c]{@{}c@{}}Host\\ Config\end{tabular}   & /etc                                                            & sim        & não  & sim    & sim          \\ \hline
-\begin{tabular}[c]{@{}c@{}}Add-on\\ Config\end{tabular} & /etc/opt                                                        & sim        & não  & sim    & sim          \\ \hline
-\begin{tabular}[c]{@{}c@{}}Sgml\\ Config\end{tabular}   & /etc/sgml                                                       & sim        & não  & sim    & sim          \\ \hline
-\begin{tabular}[c]{@{}c@{}}X11\\ Config\end{tabular}    & /etc/X11                                                        & sim        & não  & sim    & sim          \\ \hline
-\begin{tabular}[c]{@{}c@{}}Xml\\ Config\end{tabular}    & /etc/xml                                                        & sim        & não  & sim    & sim          \\ \hline
-\begin{tabular}[c]{@{}c@{}}User\\ Config\end{tabular}   & \begin{tabular}[c]{@{}c@{}}/home/user/\\ .config\end{tabular}   & sim        & não  & sim    & sim          \\ \hline
-\begin{tabular}[c]{@{}c@{}}User\\ Custom\end{tabular}   & \begin{tabular}[c]{@{}c@{}}/home/user/\\ .some-app\end{tabular} & não        & não  & não    & não          \\ \hline
-\begin{tabular}[c]{@{}c@{}}Root\\ config\end{tabular}   & /root/*                                                         & não        & não  & não    & não          \\ \hline
-\end{tabular}
-\end{table}
 
 O padrão FHS já prevê alguns sub diretórios para configurações padrão abaixo de
 \textit{/etc/} como \textit{/etc/opt, /etc/X11} por exemplo, mas outros diretórios
@@ -281,21 +162,6 @@ A tabela~\ref{tab:inits-distro} mostra a relação de \textit{Init System} padr�
 Distribuição. De qualquer maneira o escopo inicial do projeto prevê
 implementação somente para \textit{Archlinux} e \textit{Debian}.
 
-\begin{table}[H]
-\centering
-\caption{Relação entre Distribuições e \textit{Init Systems}}
-\label{tab:inits-distro}
-\begin{tabular}{|c|cccccl}
-\hline
-\rowcolor[HTML]{C0C0C0} 
-Upstart & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Systemd} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}SMF} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}SysV} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}OpenRC} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}RC} & \multicolumn{1}{l|}{\cellcolor[HTML]{C0C0C0}Launchd} \\ \hline
-Ubuntu  & \multicolumn{1}{c|}{Fedora15}                        & \multicolumn{1}{c|}{Solaris}                     & \multicolumn{1}{c|}{RHEL5}                        & \multicolumn{1}{c|}{Gentoo}                         & \multicolumn{1}{c|}{BSDs}                       & \multicolumn{1}{l|}{OSX}                             \\ \hline
-Fedora9 & \multicolumn{1}{c|}{Archlinux}                       & \multicolumn{1}{c|}{OpenSolaris}                 & \multicolumn{1}{c|}{Debian}                       &                                                     &                                                 &                                                      \\ \cline{1-4}
-RHEL6   & \multicolumn{1}{c|}{RHEL7}                           & \multicolumn{1}{c|}{illuminos}                   & \multicolumn{1}{c|}{Suse}                         &                                                     &                                                 &                                                      \\ \cline{1-4}
-Centos  & \multicolumn{1}{c|}{openSUSE12}                      & \multicolumn{1}{c|}{smartos}                     &                                                   &                                                     &                                                 &                                                      \\ \cline{1-3}
-Debian  &                                                      &                                                  &                                                   &                                                     &                                                 &                                                      \\ \cline{1-1}
-\end{tabular}
-\end{table}
 
 Na tabela~\ref{tab:service} são listados os atributos relacionados a camada 
 \textit{Service}. A primeira coluna das tabelas mostra o atributo em questão; a segunda mostra
@@ -306,22 +172,6 @@ diz se é viável implementar o acesso a esse atributo e a ultima coluna
 diz se o atributo foi selecionado para ser usado pelo Cupper.
 
 
-\begin{table}[H]
-\centering
-\caption{Atributos relacionados a Serviços e daemon}
-\label{tab:service}
-\begin{tabular}{|c|c|c|c|c|c|}
-\hline
-\rowcolor[HTML]{C0C0C0} 
-Atributo                                                           & Origem                                                       & Relevante? & Ohai & Viável & Selecionado? \\ \hline
-Status                                                             & \begin{tabular}[c]{@{}c@{}}systemctl/\\ service\end{tabular} & sim        & sim  & sim    & sim          \\ \hline
-\begin{tabular}[c]{@{}c@{}}Unidades\\ Rodando\end{tabular}         & \begin{tabular}[c]{@{}c@{}}systemctl/\\ service\end{tabular} & sim        & sim  & sim    & sim          \\ \hline
-Falhas                                                             & \begin{tabular}[c]{@{}c@{}}systemctl/\\ service\end{tabular} & sim        & sim  & sim    & sim          \\ \hline
-\begin{tabular}[c]{@{}c@{}}Unidades\\ Instaladas\end{tabular}      & \begin{tabular}[c]{@{}c@{}}systemctl/\\ service\end{tabular} & sim        & sim  & sim    & sim          \\ \hline
-\begin{tabular}[c]{@{}c@{}}Unidades\\ Status\end{tabular}          & \begin{tabular}[c]{@{}c@{}}systemctl/\\ service\end{tabular} & sim        & sim  & sim    & sim          \\ \hline
-\begin{tabular}[c]{@{}c@{}}Relação\\ Unidade\\ Pacote\end{tabular} & \begin{tabular}[c]{@{}c@{}}pacman/\\ dpkg/\\ apt-file/\\ pkgfile\end{tabular} & sim        & não  & sim    & sim          \\ \hline
-\end{tabular}
-\end{table}
 
 \subsection{\textit{Custom}}
 \label{sec:camada-custom}
@@ -336,4 +186,3 @@ Mesmo considerando aplicações instaladas por gerenciadores de pacotes, vários
 arquivos de configuração podem ser instalados em diretórios fora  do padrão FHS.
 Dessa maneira, além de \textit{plugins} para o \textit{Ohai}, \textit{plugins}
 para o Cupper também devem ser feitos para tratar esses casos especiais.
-
