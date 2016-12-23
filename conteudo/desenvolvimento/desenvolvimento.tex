@@ -1,40 +1,18 @@
 \newpage\null\thispagestyle{empty}\newpage
 \chapter{Desenvolvimento}
-\label{chap:desenv}
+\label{chap:dev}
 
-No contexto de DevOps, automação e infraestrutura como código, a ferramenta
-proposta por este trabalho, Cupper, propõe auxiliar na extração de configuração
-de um ambiente incluso em uma infraestrutura. As configurações extraídas são
-transformadas em código em padrões da receita Chef~\ref{fig:cupper_geral}. A
-receita gerada é utilizada para qualquer infraestrutura que suporta a
-utilização do Chef, como descrito na Seção~\ref{sec:chef}.
+{\color{red} explicar que esse capitulo vai descrever o desenvolvimento por 
+sprints/features}
 
-\begin{figure}[H]
-  \centering
-  \caption{Cupper - Visão geral.}
-  \label{fig:cupper_geral}
-  \includegraphics[width=0.8\textwidth]{figuras/cupper_geral.eps}
-\end{figure}
-
-Além das dependências de desenvolvimento e de \textit{runtime} por ser uma Gem,
-o Cupper tem uma dependência muito
-importante que é o Ohai. É requisito desse projeto também implementar
-\textit{plugins} para que o Ohai lance informações que por padrão 
-não lança.
-
-As subções seguintes, são mostrados o levantamento dos itens necessários para
-a implementação do Cupper, estando organizados em camadas e seus atributos:
 
 \begin{enumerate}
-  \item \textbf{Camadas de Ambiente}: levantamento e seleção das camadas de ambiente
-    e seus atributos necessários a serem coletados;
-  \item \textbf{\textit{Cookbook} Chef}: levantamento dos recursos providos pelo \textit{Cookbook} Chef e quais os
-    itens necessários para a criação de uma receita mínima;
-  \item \textbf{Escopo de Implementação}: especificação dos itens a serem implementados
-    da ferramenta, abordando até qual ponto a ferramenta Cupper pretende alcançar
-    no TCC 2.
+  \item \textbf{Primeiras semanas}: 
+  \item \textbf{sprint 0}:{\color{red} explicar sprints com resultados parciais}
+  \item \textbf{sprint 1}:{\color{red} explicar sprints com resultados parciais}
+  \item \textbf{sprint 2}:{\color{red} explicar sprints com resultados parciais}
+  {\color{red} ...}
+  \item \textbf{features ...}:{\color{red} explicar sprints com resultados parciais}
 \end{enumerate}
 
-\input{conteudo/desenvolvimento/camadas}
-\input{conteudo/desenvolvimento/cookbooks}
-\input{conteudo/desenvolvimento/escopo}
+%\input{conteudo/desenvolvimento/algo}
