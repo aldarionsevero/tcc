@@ -1,3 +1,48 @@
 \section{Funcionalidade de extrair serviçoes}
 \label{sec:services}
 
+\subsection{Atributos}
+
+O recurso de serviços do Chef prevê os seguintes atributos, alguns obrigatórios, outros não:
+
+\begin{itemize}
+{\itshape\item init\underline{ }command}
+{\itshape\item pattern}
+{\itshape\item priority}
+{\itshape\item provider}
+{\itshape\item reload\underline{ }command}
+{\itshape\item restart\underline{ }command}
+{\itshape\item service\underline{ }name}
+{\itshape\item start\underline{ }command}
+{\itshape\item stop\underline{ }command}
+{\itshape\item subscribes}
+{\itshape\item supports}
+{\itshape\item timeout}
+{\itshape\item action}
+\end{itemize}
+
+Para a ter a funcionalidade mínima esperada desse recurso, definimos que iríamos precisar
+extrair os seguintes atributos:
+
+
+\begin{itemize}
+    {\itshape\item provider}: Identificar qual \textit{initSystem} está gerenciando
+esse serviço;
+    {\itshape\item service\underline{ }name}: Identificar o nome do serviço a
+ser levantado;
+    {\itshape\item action}: Identificar ação, padrão é restart;
+\end{itemize}
+
+\subsection{Plugin de Extração}
+
+\subsection{Geração de bloco de receita}
+
+\subsection{Problemas encontrados}
+
+issues
+
+\subsubsection{Resultados com problemas}
+
+\subsection{Mudanças e Justificativas}
+
+\subsection{Resultados da funcionalidade de extrair serviçoes}
