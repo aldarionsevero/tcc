@@ -6,15 +6,15 @@
 O recurso de serviços do Chef prevê os seguintes atributos, alguns obrigatórios, outros não:
 
 \begin{itemize}
-{\itshape\item init\underline{ }command}
+{\itshape\item init\_command}
 {\itshape\item pattern}
 {\itshape\item priority}
 {\itshape\item provider}
-{\itshape\item reload\underline{ }command}
-{\itshape\item restart\underline{ }command}
-{\itshape\item service\underline{ }name}
-{\itshape\item start\underline{ }command}
-{\itshape\item stop\underline{ }command}
+{\itshape\item reload\_command}
+{\itshape\item restart\_command}
+{\itshape\item service\_name}
+{\itshape\item start\_command}
+{\itshape\item stop\_command}
 {\itshape\item subscribes}
 {\itshape\item supports}
 {\itshape\item timeout}
@@ -28,7 +28,7 @@ extrair os seguintes atributos:
 \begin{itemize}
     {\itshape\item provider}: Identificar qual \textit{Init System} está gerenciando
 esse serviço;
-    {\itshape\item service\underline{ }name}: Identificar o nome do serviço a
+    {\itshape\item service\_name}: Identificar o nome do serviço a
 ser levantado;
     {\itshape\item action}: Identificar ação, padrão é restart;
 \end{itemize}
@@ -36,7 +36,7 @@ ser levantado;
 \subsection{\textit{Plugin} de Extração}
 Para a extração desses atributos referentes aos serviços, foi criado um \textit{plugin} do
 Ohai que, a partir do comando \textit{systemctl} lista todos os serviços do ambiente
-e extrai os atributos de \textit{service\underline{ }name}, \textit{provider}
+e extrai os atributos de \textit{service\_name}, \textit{provider}
 e \textit{action}.
 
 Esses atributos são coletados e para cada serviços extraído um objeto de serviço
@@ -46,6 +46,7 @@ Esses atributos são coletados e para cada serviços extraído um objeto de serv
 Para a geração da receita que levanta esses serviços em outro ambiente, foi 
 definido como seria o template dos blocos de recurso de serviços na sintaxe 
 \textit{Ruby like} própria das receitas Chef. Um exemplo de bloco de recurso de serviço pode ser visto no código~\ref{code:serviceresource}.
+% TODO muito repetitivo... dar uma limpada
 
 \noindent\begin{minipage}{\textwidth}
   \lstset{style=shell}
@@ -71,7 +72,7 @@ No código~\ref{code:servicerecipe} é possível ver a chamada para a inicializa
 bloco de receita de serviços. Todos os parâmetros necessários são passados para
 o construtor da classe e então o método create que escreve a receita é chamado.
 O parâmetro \textit{collector} passa um coletor genérico que carregará todos os
-atributos desse e de outros recursos, o parâmetro \textit{`\underline{ }services'} é uma
+atributos desse e de outros recursos, o parâmetro \textit{`\_services'} é uma
 string com o nome do template a ser usado para escrever a receita, e o ultimo
 parâmetro é uma string que indica qual \textit{plugin} o coletor deverá utilizar.
 
