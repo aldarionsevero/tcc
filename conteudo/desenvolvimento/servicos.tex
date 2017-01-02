@@ -1,4 +1,4 @@
-\section{Funcionalidade de extrair serviçoes}
+\section{Funcionalidade de extrair serviços}
 \label{sec:services}
 
 \subsection{Atributos}
@@ -33,8 +33,8 @@ ser levantado;
     {\itshape\item action}: Identificar ação, padrão é restart;
 \end{itemize}
 
-\subsection{Plugin de Extração}
-Para a extração desses atributos referentes aos serviços, foi criado um plugin do
+\subsection{\textit{Plugin} de Extração}
+Para a extração desses atributos referentes aos serviços, foi criado um \textit{plugin} do
 Ohai que, a partir do comando \textit{systemctl} lista todos os serviços do ambiente
 e extrai os atributos de \textit{service\underline{ }name}, \textit{provider}
 e \textit{action}.
@@ -45,11 +45,10 @@ Esses atributos são coletados e para cada serviços extraído um objeto de serv
 \subsection{Geração de bloco de receita}
 Para a geração da receita que levanta esses serviços em outro ambiente, foi 
 definido como seria o template dos blocos de recurso de serviços na sintaxe 
-\textit{Ruby like} própria das receitas Chef.
-
-Um exemplo de bloco de recurso de serviço pode ser visto no código~\ref{code:serviceresource}.
+\textit{Ruby like} própria das receitas Chef. Um exemplo de bloco de recurso de serviço pode ser visto no código~\ref{code:serviceresource}.
 
 \noindent\begin{minipage}{\textwidth}
+  \lstset{style=shell}
   \lstinputlisting[language=Ruby, frame=single, label=code:serviceresource, caption="Bloco de recurso de serviço Chef"]{conteudo/code/serviceresource.rb}
 \end{minipage}\hfill
 
@@ -60,6 +59,7 @@ Dessa forma, para gerar diversos desses blocos na receita final, temos o templat
 do código~\ref{code:servicetemplate}.
 
 \noindent\begin{minipage}{\textwidth}
+  \lstset{style=shell}
   \lstinputlisting[language=Ruby, frame=single, label=code:servicetemplate, caption="Template para os blocos de recursos de serviço Chef"]{conteudo/code/servicetemplate.rb}
 \end{minipage}\hfill
 
@@ -76,6 +76,7 @@ string com o nome do template a ser usado para escrever a receita, e o ultimo
 parâmetro é uma string que indica qual \textit{plugin} o coletor deverá utilizar.
 
 \noindent\begin{minipage}{\textwidth}
+  \lstset{style=shell}
   \lstinputlisting[language=Ruby, frame=single, label=code:servicerecipe, caption="Chamada para inicialização e escrita de um bloco de receita"]{conteudo/code/servicerecipe.rb}
 \end{minipage}\hfill
 

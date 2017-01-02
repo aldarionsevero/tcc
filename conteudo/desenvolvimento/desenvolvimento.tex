@@ -13,8 +13,6 @@ um dos tipos de extração e reprodução de recursos Chef.
 As funcionalidades previstas para o Cupper são as seguintes:
 
 \begin{enumerate}
-  \item \textbf{Help}: Imprime no terminal os principais comandos e as opções
-válidas de cada uma;
   \item \textbf{Extract Packages}: Extrair atributos referentes aos pacotes
 instalados e gerar receita Chef que instale os mesmos pacotes em um novo ambiente;
   \item \textbf{Extract Links}: Extrair atributos referentes a links simbólicos
@@ -29,23 +27,25 @@ e gerar receita Chef que crie e associe os usuários certos a esses grupos em um
 ambiente novo;
   \item \textbf{Extract Services}: Extrair atributos referentes aos serviços carregados
 e ativos e gerar uma receita Chef que suba os mesmos serviços;
-  \item \textbf{Relatório Intermediário}: Gerar relatório intermediário antes
-da receita Chef em si, para diagnóstico do sistema sendo extraído e para debug
-do cupper;
   \item \textbf{Gerar Projeto cupper}: Gerar a estrutura de diretório padrão 
 para o projeto Cupper.
   \item \textbf{Listar Plugins}: Listar os plugins disponíveis do Ohai, tanto 
 os padrões, já inclusos na instalação do Ohai, quanto os customizados pelo Cupper;
+  \item \textbf{Help}: Imprime no terminal os principais comandos e as opções
+válidas de cada uma;
+  \item \textbf{Relatório Intermediário}: Gerar relatório intermediário antes
+da receita Chef em si, para diagnóstico do sistema sendo extraído e para debug
+do cupper;
 
 \end{enumerate}
 
-\input{conteudo/desenvolvimento/ajuda}
 \input{conteudo/desenvolvimento/pacotes}
 \input{conteudo/desenvolvimento/links}
 \input{conteudo/desenvolvimento/usuarios}
 \input{conteudo/desenvolvimento/arquivos}
 \input{conteudo/desenvolvimento/grupos}
 \input{conteudo/desenvolvimento/servicos}
-\input{conteudo/desenvolvimento/rel}
 \input{conteudo/desenvolvimento/proj}
 \input{conteudo/desenvolvimento/listar}
+\input{conteudo/desenvolvimento/ajuda}
+\input{conteudo/desenvolvimento/rel}
