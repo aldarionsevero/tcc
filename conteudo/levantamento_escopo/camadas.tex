@@ -25,7 +25,7 @@ sistema:
     sistema sem uma forma padrão conhecida.
 \end{itemize}
 
-As tabelas referentes aos atributos relacionados a cada uma dessas camadas se
+As Tabelas referentes aos atributos relacionados a cada uma dessas camadas se
 encontram na Seção~\ref{apc:tabelas} dos apêndices.
 
 \subsection{\textit{Hardware}}
@@ -40,7 +40,7 @@ configurações de hardware e/ou apresentar comportamentos inesperados no sistem
 Além das aplicações terem seus requisitos mínimos, algumas são desenhadas
 para um tipo específico de arquitetura.
 
-A tabela~\ref{tab:atrhard} mostra diversas informações de hardware possíveis de serem extraídas
+A Tabela~\ref{tab:atrhard} mostra diversas informações de hardware possíveis de serem extraídas
 do sistema a partir de comandos do sistema operacional e também da ferramenta Ohai, 
 dependência prevista para a implementação do Cupper (como descrito na 
 Seção~\ref{sec:tec}). Nem todas essas informações serão úteis para a 
@@ -50,17 +50,16 @@ seleção.
 A camada de hardware será uma das camadas a serem analisadas, e a seleção de 
 seus atributos irão seguir os critérios descritos na Seção~\ref{sec:defcritcamada}.
 
-A tabela~\ref{tab:atrhard} mostra atributos relacionados a CPU, Memória e 
-\textit{Moterboard}, e a tabela~\ref{tab:hdmount} mostra atributos relacionados
+A Tabela~\ref{tab:atrhard} mostra atributos relacionados a CPU, Memória e 
+\textit{Moterboard}, e a Tabela~\ref{tab:hdmount} mostra atributos relacionados
 a partições, armazenamento, dispositivos PCI, USB e dispositivos de rede.
 
-A primeira coluna das tabelas mostra o atributo em questão; a segunda mostra
+A primeira coluna das Tabelas mostra o atributo em questão; a segunda mostra
 a origem do atributo, podendo ser um comando do sistema, ou caminho de um arquivo;
 a terceira coluna mostra se o atributo é relevante para a aplicação; a quarta mostra se
 esse atributo pode ser conseguido por meio do \textit{Ohai}; a quinta coluna 
 diz se é viável implementar o acesso a esse atributo e a ultima coluna
-diz se o atributo foi selecionado para ser usado pelo Cupper. {\color{red} isso ta repetindo... em vez disso pode virar legenda das tabelas}
-
+diz se o atributo foi selecionado para ser usado pelo Cupper. 
 
 \subsection{\textit{Operating System}}
 \label{sec:cam-os}
@@ -75,17 +74,9 @@ da ferramenta para mais Sistemas Operacionais.
 Inicialmente a ferramenta Cupper irá abordar dois sistemas operacionais, 
 ambos baseados em GNU/Linux: Archlinux e Debian.
 
-A tabela~\ref{tab:so} mostra informações a respeito do Kernel e da distribuição
+A Tabela~\ref{tab:so} mostra informações a respeito do Kernel e da distribuição
 analisada. Também mostra algumas configurações gerais do sistema, como
 configurações de rede.
-
-A primeira coluna das tabelas mostra o atributo em questão; a segunda mostra
-a origem do atributo, podendo ser um comando do sistema, ou caminho de um arquivo;
-a terceira coluna mostra se o atributo é relevante para a aplicação; a quarta mostra se
-esse atributo pode ser conseguido por meio do \textit{Ohai}; a quinta coluna 
-diz se é viável implementar o acesso a esse atributo e a ultima coluna
-diz se o atributo foi selecionado para ser usado pelo Cupper. {\color{red} isso ta repetindo... em vez disso pode virar legenda das tabelas}
-
 
 Por ser específico de cada distribuição linux, não é possível determinar com um
 comando qual o gerenciador de pacotes o sistema utiliza. O mesmo acontece para
@@ -104,14 +95,6 @@ gerenciadores específicos de linguagem python e ruby (Pip e RubyGem). Na camada
 \textit{Custom} a aplicação irá tentar suportar aplicações instaladas de outras
 maneiras.
 
-A primeira coluna da tabela~\ref{tab:app} mostra o atributo em questão; a segunda mostra
-a origem do atributo, podendo ser um comando do sistema, ou caminho de um arquivo;
-a terceira coluna mostra se o atributo é relevante para a aplicação; a quarta mostra se
-esse atributo pode ser conseguido por meio do \textit{Ohai}; a quinta coluna 
-diz se é viável implementar o acesso a esse atributo e a ultima coluna
-diz se o atributo foi selecionado para ser usado pelo Cupper. {\color{red} isso ta repetindo... em vez disso pode virar legenda das tabelas}
-
-
 
 Nenhum dos atributos dessa camada pode ser extraído pelo \textit{Ohai} por
 padrão. Dessa maneira toda a extração desses atributos deverá ser implementada
@@ -127,15 +110,6 @@ Para os arquivos de configuração iremos considerar  o sistema de hierarquia de
 sistema de arquivos do linux. Alguns arquivos que não seguem o padrão FHS 
 (\textit{Filesystem Hierarchy Standard}, Hierarquia de sistema de arquivos) irão
 ser tratados na Seção~\ref{sec:camada-custom} de configurações e instalações \textit{Custom}.
-
-A primeira coluna da tabela~\ref{tab:config} mostra o atributo em questão; a segunda mostra
-a origem do atributo, podendo ser um comando do sistema, ou caminho de um arquivo;
-a terceira coluna mostra se o atributo é relevante para a aplicação; a quarta mostra se
-esse atributo pode ser conseguido por meio do \textit{Ohai}; a quinta coluna 
-diz se é viável implementar o acesso a esse atributo e a ultima coluna
-diz se o atributo foi selecionado para ser usado pelo Cupper. {\color{red} isso ta repetindo... em vez disso pode virar legenda das tabelas}
-
-
 
 O padrão FHS já prevê alguns sub diretórios para configurações padrão abaixo de
 \textit{/etc/} como \textit{/etc/opt, /etc/X11} por exemplo, mas outros diretórios
@@ -161,21 +135,9 @@ release justamente por sua cultura de não formatar e somente atualizar.
 
 Dessa forma, iremos relacionar os \textit{Init Systems} às distribuições
 diretamente levando em conta o \textit{Init System} padrão da distribuição.
-A tabela~\ref{tab:inits-distro} mostra a relação de \textit{Init System} padrão de cada 
+A Tabela~\ref{tab:inits-distro} mostra a relação de \textit{Init System} padrão de cada 
 Distribuição. De qualquer maneira o escopo inicial do projeto prevê
 implementação somente para \textit{Archlinux} e \textit{Debian}.
-
-
-Na tabela~\ref{tab:service} são listados os atributos relacionados a camada 
-\textit{Service}. A primeira coluna das tabelas mostra o atributo em questão; a segunda mostra
-a origem do atributo, podendo ser um comando do sistema, ou caminho de um arquivo;
-a terceira coluna mostra se o atributo é relevante para a aplicação; a quarta mostra se
-esse atributo pode ser conseguido por meio do \textit{Ohai}; a quinta coluna 
-diz se é viável implementar o acesso a esse atributo e a ultima coluna
-diz se o atributo foi selecionado para ser usado pelo Cupper. {\color{red} isso ta repetindo... em vez disso pode virar legenda das tabelas}
-
-
-
 
 \subsection{\textit{Custom}}
 \label{sec:camada-custom}

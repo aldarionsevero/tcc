@@ -44,8 +44,8 @@ Esses atributos são coletados e para cada serviços extraído um objeto de serv
 
 \subsection{Geração de bloco de receita}
 Para a geração da receita que levanta esses serviços em outro ambiente, foi 
-definido como seria o template dos blocos de recurso de serviços na sintaxe 
-\textit{Ruby like} própria das receitas Chef. Um exemplo de bloco de recurso de serviço pode ser visto no código~\ref{code:serviceresource}.
+definido como seria o template dos blocos de recurso de serviço na sintaxe 
+\textit{Ruby like} própria das receitas Chef. Um exemplo pode ser visto no Código~\ref{code:serviceresource}.
 % TODO muito repetitivo... dar uma limpada
 
 \noindent\begin{minipage}{\textwidth}
@@ -53,11 +53,11 @@ definido como seria o template dos blocos de recurso de serviços na sintaxe
   \lstinputlisting[language=Ruby, frame=single, label=code:serviceresource, caption="Bloco de recurso de serviço Chef"]{conteudo/code/serviceresource.rb}
 \end{minipage}\hfill
 
-Esse exemplo de bloco de recurso de serviço Chef, se executado em um ambiente, diz para o
+Esse exemplo, se executado em um ambiente, diz para o
 gerenciador de serviços (\textit{Init System}) dar um start no serviço do tomcat.
 
 Dessa forma, para gerar diversos desses blocos na receita final, temos o template
-do código~\ref{code:servicetemplate}.
+do Código~\ref{code:servicetemplate}.
 
 \noindent\begin{minipage}{\textwidth}
   \lstset{style=shell}
@@ -68,7 +68,7 @@ Então para gerar um bloco de receita de recursos de serviço Chef é necessári
 saber como vai ser o template da escrita desse bloco e qual \textit{plugin} o
 coletor vai utilizar para a extração.
 
-No código~\ref{code:servicerecipe} é possível ver a chamada para a inicialização e escrita de um
+No Código~\ref{code:servicerecipe} é possível ver a chamada para a inicialização e escrita de um
 bloco de receita de serviços. Todos os parâmetros necessários são passados para
 o construtor da classe e então o método create que escreve a receita é chamado.
 O parâmetro \textit{collector} passa um coletor genérico que carregará todos os
