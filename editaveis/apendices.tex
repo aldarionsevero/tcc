@@ -164,3 +164,68 @@ Falhas                                                             & \begin{tabu
 \begin{tabular}[c]{@{}c@{}}Relação\\ Unidade\\ Pacote\end{tabular} & \begin{tabular}[c]{@{}c@{}}pacman/\\ dpkg/\\ apt-file/\\ pkgfile\end{tabular} & sim        & não  & sim    & sim          \\ \hline
 \end{tabular}
 \end{table}
+
+\chapter{Manipulação de arquivos de configuração em Ruby}
+\label{apc:conf-file}
+
+\section{Abordagem do Vagrant}
+O Vagrant e o Cupper possuem diversas similaridades, como por exemplo serem ambos
+ferramentas de contexto DevOps, possuírem o conceito de ambiente em que estão operando
+e dependerem de configurações definidas em um arquivo. Todavia, o Vagrant tem
+outro propósito, e prevê configurações de vários ambientes e múltiplas definições e sobrescritas
+de configurações para um mesmo ambiente.
+
+A classe mais importante com relação a carregamento de configurações do Vagrantfile
+é a classe \textit{Loader} do vagrant.
+(\url{https://github.com/mitchellh/vagrant/blob/master/lib/vagrant/config/loader.rb})
+Ela possui dois métodos que fazem toda a definição e carregamento das configurações, 
+o método \textit{set} e o método \textit{load}. 
+
+Com o método set é possível definir nomes e diversas fontes para o 
+carregamento de configurações, sendo que uma instancia de \textit{Loader} 
+pode ter configurações já carregadas, e suas fontes cacheadas.
+
+O método \textit{load} carrega as configurações em si, para os diversos ambientes,
+e trata da mesclagem de configurações já existentes para ambiente que já foram
+configurados. O Vagrant faz uso de \textit{procs} que são objetos que guardam
+blocos de código em variáveis locais para fazer o tratamento do código carregado
+do Vagrantfile e dos que já foram cacheados.
+
+Uma instancia da classe \textit{Environment} 
+(\url{https://github.com/mitchellh/vagrant/blob/master/lib/vagrant/environment.rb})
+define os diretórios, acha e instancia o Vagrantfile
+(\url{https://github.com/mitchellh/vagrant/blob/master/lib/vagrant/vagrantfile.rb})
+, define o \textit{Loader} e passa esses diretórios juntamente com a instancia de \textit{Loader} para o construtor do Cupperfile.
+
+Outra diferença do Cupper e do Vagrant é a de que o vagrant possui a necessidade
+de separar as configurações entre as máquinas que ele controla (por ser uma
+ferramenta de de gerenciar virtualizações). O Cupper, nas versões recentes, só precisa de
+configurações globais referentes a como será a sua extração. Dessa forma para
+acessar configurações do ambiente, usando a abordagem do vagrant, é necessário
+usar uma instancia de \textit{Environment}, checar pelos Vagrantfiles desse ambiente
+e carregar configuração de uma máquina específica definida por esse Vagrantfile.
+
+\section{Abordagem utilizando a Gem \textit{configuration}}
+A gem \textit{configuration} possibilita a criação e leitura de arquivos de 
+configuração. Sua documentação, e casos de uso podem ser encontrados no link
+\url{https://github.com/ahoward/configuration/blob/master/README.rdoc}.
+
+\section{Abordagem mais simples utilizando Ruby puro}
+Para desenvolver essa abordagem o artigo \cite{config-file:2011} foi utilizado. Ele
+explica tanto como desenvolver com Ruby puro quanto com YAML.
+
+Foi criado um módulo \textit{Config} que segue a abordagem de preparação de
+parâmetros explicada no artigo, e o Cupperfile segue a abordagem de atribuição
+também explicada no artigo. O módulo \textit{Config} e um exmplo de Cupperfile
+podem ser vistos nos Códigos~\ref{code:config} e~\ref{code:cuperfile}
+
+
+\noindent\begin{minipage}{\textwidth}
+  \lstset{style=shell}
+  \lstinputlisting[language=Ruby, frame=single, label=code:config, caption="Módulo que carrega as configurações"]{conteudo/code/config.rb}
+\end{minipage}\hfill
+
+\noindent\begin{minipage}{\textwidth}
+  \lstset{style=shell}
+  \lstinputlisting[language=Ruby, frame=single, label=code:cuperfile, caption="Exemplo de Cupperfile"]{conteudo/code/cupperfile.rb}
+\end{minipage}\hfill

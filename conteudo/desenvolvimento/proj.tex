@@ -77,7 +77,32 @@ código~\ref{code:sensiblefiles}
   \lstinputlisting[language=Ruby, label=code:sensiblefiles, caption="Definição do atributo de \textit{sensible files}"]{conteudo/code/sensiblefiles.rb}
 \end{minipage}\hfill
 
- 
+\subsubsection{Outras abordagens de leitura do Cupperfile}
+Para a leitura e carregamento das configurações definidas no Cupperfile diversas
+abordagens foram consideradas e testadas. A primeira abordagem foi espelhar a
+leitura do Cupperfile ao que o Vagrant faz com o Vagrantfile. O Vagrant é outra
+ferramenta dentro do contexto de DevOps que inspirou algumas das decisões arquiteturais
+do Cupper. Assim como o Vagrant, essa abordagem iria carregar as configurações
+do Cupperfile que seria escrito em Ruby. O código do Cupperfile seria carregado
+utilizando o \textit{Kernel.load}, que carrega e executa códigos externos.
+Essa abordagem foi abandonada pois previa diversas instancias do \textit{loader}
+e de objetos que possuiriam informações de vários ambientes (como é necessário
+no Vagrant), e isso se mostrou desnecessário e muito complexo para o Cupper.
+
+A segunda abordagem para o carregamento das configurações do Cupperfile foi a de
+utilizar uma Gem externa (\textit{onfiguration}) que define um padrão de escrita de 
+arquivos de configuração (semelhante a um JSON), e permite o carregamento 
+simples deles. Essa também foi abandonada por adicionar mais dependencias para o Cupper.
+
+A terceira e quarta abordagens voltaram a tentar utilizar Ruby puro para resolver
+esse processo de carregamento de arquivos de configuração, dessa vez tentando 
+fazer um módulo mais simples que prevesse somente um ambiente em que o Cupper
+iria operar. A quarta abordagem consistiu de somente tornar isso global e
+pertencente do módulo \textit{Cupper::Config} acessível em todo o código.
+
+\textit{Links} úteis para carregamento de arquivos de configuração de todas essas
+abordagens podem ser encontrados no Apêndice na seção~\ref{apc:conf-file}.
+
 \subsection{Mudanças e Justificativas}
 O escopo tinha sido alterado, e o carregamento de configurações do Cupperfile
 tinha sido removido do backlog. Mas esse carregamento se mostrou necessário
