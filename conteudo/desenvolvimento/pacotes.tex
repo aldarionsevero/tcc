@@ -69,3 +69,39 @@ Sendo assim, os pacotes que são dependências de outros não são inclusos na r
 \textbf{A} contém as dependências \textbf{B} e \textbf{C} elas não serão inclusas na receita, pois o pacote \textbf{A} irá realizar a instalação.
 
 \subsection{Problemas Encontrados}
+
+\subsubsection{Pacotes com repositório fora do \textit{source list} para o 
+gerenciador de pacotes}
+Esse problema surgia quando um pacote que foi instalado manualmente, ou que
+teve seu reposotório removido do \textit{source list} era extraído usando o Cupper,
+mas ao executar a receita em um novo ambiente, a instalação falhava, já que 
+o gerenciador de pacotes não encontrava a fonte do pacote.
+
+Já que isso não é o comportamento esperado, mas pode ser uma escolha do usuário
+ter pacotes de outras fontes, foi criado um atributo para que o usuário defina no
+Cupperfile e decida se quer que se extraia pacotes que tem fonte em repositórios
+fora do \textit{source list}. O exemplo de Cupperfile que é criado pelo comando
+\textit{cupper create project} tem exemplos desses atributos e explicação, como
+no Código~\ref{code:sourcelesspackages.rb}.
+
+\noindent\begin{minipage}{0.7\textwidth}
+  \lstset{style=shell}
+  \lstinputlisting[language=Ruby, label=code:sourcelesspackages.rb, caption="Definição do atributo de \textit{sourceless packages}"]{conteudo/code/sourcelesspackages.rb}
+\end{minipage}\hfill
+
+\subsubsection{Pacotes já instalados no ambiete novo com versões menores}
+Os pacotes já instlados no ambiente novo em que a receita vai rodar podem ter versões
+maiores do que a dos pacotes extraídos do ambiente original. Se a receita for
+montada sem nenhum tipo de tratamento, a sua execução vai quebrar no momento
+em que ela tentar fazer esse \textit{downgrade}.
+
+Foi criado então um atributo para o Cupperfile que deixa o usuário definir
+se o Cupper vai forçar os \textit{downgrades} ou se vai ignorar os recursos
+Cheff de pacotes que caírem nessa situação, passando \textit{action :nothing}
+para esses. O exemplo vindo do Cupperfile com sua explicação pode ser visto no
+Código~\ref{code:allowdowngrade}
+
+\noindent\begin{minipage}{0.7\textwidth}
+  \lstset{style=shell}
+  \lstinputlisting[language=Ruby, label=code:allowdowngrade, caption="Definição do atributo de \textit{allow downgrade}"]{conteudo/code/allowdowngrade.rb}
+\end{minipage}\hfill
