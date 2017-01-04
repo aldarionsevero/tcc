@@ -1,3 +1,71 @@
 \section{Funcionalidade de extrair pacotes}
 \label{sec:pacotes}
 
+\subsection{Atributos}
+Para a ter a funcionalidade mínima esperada desse recurso, definimos que iríamos
+precisar extrair os seguintes atributos:
+
+\begin{itemize}
+  \item \textit{version}: especifica a versão do pacote;
+  \item \textit{action}: define a ação que deve ser tomada
+    (instalar, remover, reconfigurar, etc);
+\end{itemize}
+
+\subsection{\textit{Plugin} de Extração}
+
+O Ohai provê um plugin nativo que coleta todos os pacotes instalados. O suporte
+das plataformas são: Debian, Redhat, Fedora e OpenSUSE. Os dados coletados pelo
+plugin de cada pacote são: nome do pacote e versão.
+
+Para a plataforma Debian, o plugin utiliza a ferramenta \texttt{dpkg-query} disponível
+por padrão nas distro Debian \textit{based}. O \texttt{dpkg-query} retorna uma lista de todos os pacotes
+instalados no ambiente que é interpretada pelo plugin e transformada em um JSON
+construído com a estrutura \texttt{"package\_name" => \{ "version" => "version\_number" \}}
+como mostrada no Código~\ref{code:json_pkg}.
+
+\noindent\begin{minipage}{\textwidth}
+  \lstset{style=shell}
+  \lstinputlisting[frame=single,
+    label=code:json_pkg,
+    caption="Saída JSON do plugin Ohai \textit{packages}"]{conteudo/code/json_pkg.json}
+\end{minipage}\hfill
+
+Para as plataformas Redhat, Fedora e OpenSUSE, o plugin utiliza a ferramenta \texttt{rpm}
+disponível por padrão nas distros Redhat \textit{based}. O Cupper ainda não oferece suporte
+para distros Redhat \textit{based}, portanto não foram feitos testes para esse tipo de ambiente.
+
+Não há suporte para a plataforma Arch Linux, portanto um plugin foi desenvolvido
+para extrair as mesmas informações. A extração utiliza a ferramenta \texttt{pacman} disponível
+nas distros Arch Linux. O \texttt{pacman} retorna uma lista de pacotes instalados no ambiente
+que é interpretada pelo plugin e transformada em um JSON construído com a estrutura
+\texttt{"package\_name" => \{ "version" => "version\_number" \}} como mostrada no
+Código~\ref{code:json_pkg_pacman}.
+
+\noindent\begin{minipage}{\textwidth}
+  \lstset{style=shell}
+  \lstinputlisting[frame=single,
+    label=code:json_pkg_pacman,
+    caption="Saída JSON do plugin Ohai \textit(pacman)"]{conteudo/code/json_pkg_pacman.json}
+\end{minipage}\hfill
+
+\subsection{Bloco de Receita Gerado}
+
+O JSON gerado pela extração é utilizado para construir a receita responsável pela instalação dos
+pacotes. É utilizado o recurso Chef \textit{package} para instalação com os dois atributos
+\textit{version} e \textit{action} (Código~\ref{code:pkg_recipe}). \textit{Version}
+é extraído de cada pacote e \textit{action} é colocado \textit{\textit{:install}} como padrão para todos os pacotes.
+
+\noindent\begin{minipage}{\textwidth}
+  \lstset{style=shell}
+  \lstinputlisting[
+    language=Ruby,
+    frame=single,
+    label=code:pkg_recipe,
+    caption="Exemplo de receita gerada pela extração de pacotes."]{conteudo/code/pkg_recipe.rb}
+\end{minipage}\hfill
+
+Considera-se que o pacote irá cuidar da suas próprias dependências quanto a instalação.
+Sendo assim, os pacotes que são dependências de outros não são inclusos na receita. Exemplo, se o pacote
+\textbf{A} contém as dependências \textbf{B} e \textbf{C} elas não serão inclusas na receita, pois o pacote \textbf{A} irá realizar a instalação.
+
+\subsection{Problemas Encontrados}
