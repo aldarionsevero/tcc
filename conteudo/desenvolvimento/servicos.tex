@@ -3,24 +3,6 @@
 
 \subsection{Atributos}
 
-O recurso de serviços do Chef prevê os seguintes atributos, alguns obrigatórios, outros não:
-
-\begin{itemize}
-{\itshape\item init\_command}
-{\itshape\item pattern}
-{\itshape\item priority}
-{\itshape\item provider}
-{\itshape\item reload\_command}
-{\itshape\item restart\_command}
-{\itshape\item service\_name}
-{\itshape\item start\_command}
-{\itshape\item stop\_command}
-{\itshape\item subscribes}
-{\itshape\item supports}
-{\itshape\item timeout}
-{\itshape\item action}
-\end{itemize}
-
 Para a ter a funcionalidade mínima esperada desse recurso, definimos que iríamos precisar
 extrair os seguintes atributos:
 
@@ -43,10 +25,9 @@ Esses atributos são coletados e para cada serviços extraído um objeto de serv
 é criado para ser iterado no template posteriormente.
 
 \subsection{Geração de bloco de receita}
-Para a geração da receita que levanta esses serviços em outro ambiente, foi 
-definido como seria o template dos blocos de recurso de serviço na sintaxe 
-\textit{Ruby like} própria das receitas Chef. Um exemplo pode ser visto no Código~\ref{code:serviceresource}.
-% TODO muito repetitivo... dar uma limpada
+Para a criação da receita que cria e executa esses serviços em outro ambiente, foi 
+definido como seria o template dos blocos de recurso de serviço na sintaxe das 
+receitas Chef. Um exemplo pode ser visto no Código~\ref{code:serviceresource}.
 
 \noindent\begin{minipage}{\textwidth}
   \lstset{style=shell}
@@ -67,21 +48,6 @@ do Código~\ref{code:servicetemplate}.
 Então para gerar um bloco de receita de recursos de serviço Chef é necessário
 saber como vai ser o template da escrita desse bloco e qual \textit{plugin} o
 coletor vai utilizar para a extração.
-
-No Código~\ref{code:servicerecipe} é possível ver a chamada para a inicialização e escrita de um
-bloco de receita de serviços. Todos os parâmetros necessários são passados para
-o construtor da classe e então o método create que escreve a receita é chamado.
-O parâmetro \textit{collector} passa um coletor genérico que carregará todos os
-atributos desse e de outros recursos, o parâmetro \textit{`\_services'} é uma
-string com o nome do template a ser usado para escrever a receita, e o ultimo
-parâmetro é uma string que indica qual \textit{plugin} o coletor deverá utilizar.
-
-\noindent\begin{minipage}{\textwidth}
-  \lstset{style=shell}
-  \lstinputlisting[language=Ruby, frame=single, label=code:servicerecipe, caption="Chamada para inicialização e escrita de um bloco de receita"]{conteudo/code/servicerecipe.rb}
-\end{minipage}\hfill
-
-
 
 \subsection{Problemas encontrados}
 
@@ -115,9 +81,3 @@ tanto por gerar falhas quanto por não fazer parte do escopo interagir com esses
 outros tipos de \textit{systemd units}.
 
 O \textit{plugin} passou então a parsear as unidades e só pegar os que são serviços.
-
-\subsection{Mudanças e Justificativas}
-Nenhuma mudança com relação ao que era previsto para a funcionalidade de extrair
-atributos relacionados a serviços foi feita. As mudanças que foram feitas com relação
-às abordagens de desenvolvimento se devem somente ao fato de fazer a
-funcionalidade ter o comportamento esperado.
