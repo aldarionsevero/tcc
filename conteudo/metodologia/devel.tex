@@ -37,24 +37,16 @@ mostra as que serão utilizadas, bem como a descrição das adaptações para o 
     são intervalos de 2-4 semanas. Ao final de cada \textit{Sprint} é entregue uma porção 
     executável do \textit{software}. Neste trabalho será utilizado \textit{Sprints} com período
     de 2 semanas;
-  \item \textbf{Planejamento da Sprint}: a cada início de \textit{Sprint} é feito uma reunião
-    na qual são priorizados os itens a serem desenvolvidos durante a \textit{Sprint}.
-    Com o auxílio da ferramenta Github, os itens priorizados para a \textit{Sprint} serão
-    postos como \textit{issues} identificadas com a \textit{label} \lq\lq priority\rq\rq;
-  \item \textbf{\textit{Sprint e Product Backlog}}: o \textit{Product Backlog} contém dos os itens a serem
+  \item \textbf{\textit{Product Backlog}}: o \textit{Product Backlog} contém dos os itens a serem
     desenvolvidos no projeto, sendo uma visão macro de tudo a ser feito.
-    O \textit{Sprint Backlog} contém os itens a serem desenvolvidos na \textit{Sprint} corrente.
-  Com o auxilio da ferramenta Github, ambos os itens dos \textit{backlogs} serão dispostos
-  como \textit{issues};
+    Com o auxilio da ferramenta Github, os itens dos \textit{backlogs} serão dispostos
+    como \textit{issues};
 \end{itemize}
 
 O XP traz doze práticas essenciais~\cite{gutierrez:2009}. A lista a seguir
 mostra as que serão utilizadas, bem como a descrição das adaptações para o trabalho:
 
 \begin{itemize}
-  \item \textbf{Entregas Frequentes}: ao final de cada interação deve haver uma entrega
-    dos itens priorizados. Neste trabalho, as estregas serão feitas ao final de
-    cada \textit{sprint};
   \item \textbf{Teste}: são divididas em duas partes: teste de aceitação, elaboradas pelo cliente,
     e testes de unidade, elaboradas pelo programador. Será utilizado apenas os testes
     de unidade com a ferramenta RSpec.
@@ -65,16 +57,12 @@ mostra as que serão utilizadas, bem como a descrição das adaptações para o 
   \item \textbf{Integração Contínua}: o código deve ser integrado e testado constantemente
     após o desenvolvimento de novas características. Com o auxílio do serviço Travis CI,
     os \textit{Pull Requests} e \textit{Branchs} serão monitorados quanto a integridade dos testes. Apenas
-    será integrado os códigos com teste e que não tenham falhado durante a
-    inspeção do serviço de integração contínua;
-  \item \textbf{Padrões de Código}: padronização de todo o código para que se apresente
-    de forma familiar a toda a equipe, assim facilitando o entendimento. A ferramenta
-    Rubocop realiza a análise do código com os padrões da comunidade Ruby, este será
-    o padrão adotado neste trabalho. Além disso, todo o repositório e itens desenvolvidos
-    serão feitos em inglês.
+    será integrado os códigos que não tenham falhado durante a inspeção do serviço
+    de integração contínua;
   \item \textbf{Programação em Pares}: dois programadores utilizam o mesmo equipamento para
     o desenvolvimento, sendo assim o código está sempre sendo supervisionado por
-    outro programador.
+    outro programador. Técnica utilizada apenas quando necessário, como em uma grande
+    alteração da estrutura ou no funcionamento de algum módulo ou classe.
 \end{itemize}
 
 \subsection{Controle de Versão}
@@ -108,9 +96,9 @@ mostra o fluxo básico de desenvolvimento do Cupper.
 
 \begin{figure}[H]
   \centering
-  \label{fig:ctrl_versao}
   \includegraphics[width=0.8\textwidth]{figuras/controle_versao}
   \caption{Controle de versão do Cupper}
+  \label{fig:ctrl_versao}
 \end{figure}
 
 Neste modelo, as principais \textit{branchs} tem o tempo de vida infinito, ou seja,

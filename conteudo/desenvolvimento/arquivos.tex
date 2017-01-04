@@ -1,2 +1,21 @@
 \section{Funcionalidade de extrair arquivos de configuração}
 \label{sec:files}
+\subsection{Atributos}
+\subsection{\textit{Plugin} de Extração}
+\subsection{Bloco de Receita Gerado}
+\subsection{Problemas Encontrados}
+
+\subsubsection{Arquivos de configurações sensíveis com potencial de qubrar o sistema}
+Todos os arquivos de configuração do \textit{/etc} estavam sendo copiados para
+o novo sistema via receita. Isso incluia arquivo de \textit{sudoers}, \textit{/etc/group}
+entre outros que tem potencial de quebrar o acesso ao sistema caso ocorra algum erro.
+
+Para evitar esse problema, mas deixar também como opção para o usuário, mais um
+atributo para o Cupperfile foi criado, definindo se arquivos sensíveis vão ser
+copiados ou não. O exemplo vindo do Cupperfile com sua explicação pode ser visto no
+Código~\ref{code:sensiblefiles}
+
+\noindent\begin{minipage}{0.7\textwidth}
+  \lstset{style=shell}
+  \lstinputlisting[language=Ruby, label=code:sensiblefiles, caption="Definição do atributo de \textit{sensible files}"]{conteudo/code/sensiblefiles.rb}
+\end{minipage}\hfill
