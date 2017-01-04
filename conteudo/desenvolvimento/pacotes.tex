@@ -14,13 +14,13 @@ precisar extrair os seguintes atributos:
 \subsection{\textit{Plugin} de Extração}
 
 O Ohai provê um plugin nativo que coleta todos os pacotes instalados. O suporte
-das plataformas são: Debian, Redhat, Fedora e OpenSUSE. Os dados coletados pelo
+das plataformas são: Debian, Redhat, Fedora e OpenSUSE\@. Os dados coletados pelo
 plugin de cada pacote são: nome do pacote e versão.
 
 Para a plataforma Debian, o plugin utiliza a ferramenta \texttt{dpkg-query} disponível
 por padrão nas distro Debian \textit{based}. O \texttt{dpkg-query} retorna uma lista de todos os pacotes
 instalados no ambiente que é interpretada pelo plugin e transformada em um JSON
-construído com a estrutura \texttt{"package\_name" => \{ "version" => "version\_number" \}}
+construído com a estrutura \texttt{``package\_name'' => \{ ``version'' => ``version\_number'' \}}
 como mostrada no Código~\ref{code:json_pkg}.
 
 \noindent\begin{minipage}{\textwidth}
@@ -52,7 +52,7 @@ Código~\ref{code:json_pkg_pacman}.
 
 O JSON gerado pela extração é utilizado para construir a receita responsável pela instalação dos
 pacotes. É utilizado o recurso Chef \textit{package} para instalação com os dois atributos
-\textit{version} e \textit{action} (Código~\ref{code:pkg_recipe}). \textit{Version}
+\textit{version} e em \textit{action} (Código~\ref{code:pkg_recipe}). \textit{Version}
 é extraído de cada pacote e \textit{action} é colocado \textit{\textit{:install}} como padrão para todos os pacotes.
 
 \noindent\begin{minipage}{\textwidth}
