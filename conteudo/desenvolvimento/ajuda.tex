@@ -10,7 +10,7 @@ Para montar a estrutura de comandos foi utilizado o Thor, uma gem para criação
 de CLIs. Ele facilita o parseamento de entradas e a documentação de cada comando criado.
 O próprio thor facilita a criação dos comandos de ajuda pra cada um dos comandos
 criados. Basta documentar cada método que será um comando com templates de cada
-comando e suas descrições como na primeira linha do exemplo do código~\ref{code:thor}
+comando e suas descrições como na primeira linha do exemplo do Código~\ref{code:thor}
 
 \noindent\begin{minipage}{\textwidth}
   \lstinputlisting[language=Ruby, frame=single, label=code:thor, caption="Exemplo de descrição para documentação e ajuda"]{conteudo/code/thor.rb}
@@ -21,7 +21,7 @@ Utilizando das funcionalidades do Thor, a ajuda geral imprime a lista de todos
 os comandos base, como utilizálos e suas descrições. O que o Thor faz é basicamente
 imprimir todos os \textit{desc}`s presentes nós métodos de comando.
 
-Um exemplo de saída pode ser visto no saída~\ref{code:thorsaida}.
+Um exemplo de saída pode ser visto no Código~\ref{code:thorsaida}.
 
 \noindent\begin{minipage}{\textwidth}
   \lstinputlisting[language=Bash, frame=single, label=code:thorsaida, caption="Exemplo de saída de ajuda geral do Thor"]{conteudo/code/thorsaida.sh}
@@ -30,8 +30,7 @@ Um exemplo de saída pode ser visto no saída~\ref{code:thorsaida}.
 
 \subsection{Ajuda específica}
 Semelhante a ajuda geral, mas para um comando específico. O Thor somente imprime
-na tela o \textit{desc} de um comando específico como pode ser visto no 
-saída~\ref{code:thorsaida2}.
+na tela o \textit{desc} de um comando específico como pode ser visto no Código~\ref{code:thorsaida2}.
 
 \noindent\begin{minipage}{\textwidth}
   \lstinputlisting[language=Bash, frame=single, label=code:thorsaida2, caption="Exemplo de saída de ajuda específica do Thor"]{conteudo/code/thorsaida2.sh}

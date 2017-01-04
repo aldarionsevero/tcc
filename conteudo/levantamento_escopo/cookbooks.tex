@@ -11,8 +11,8 @@ files, libraries, custom resourses, metadata, resources e providers, templates
 cookbook versions}~\cite{chefdoc:2016}.
 
 Para o funcionamento de um \textit{cookbook}, com uma estrutura mínima, é necessário que tenha
-ao menos um \textit{recipe default} definido. O exemplo~\ref{code:tree} mostra essa
-estrutura mínima necessária para realizar a configuração do \textit{cookbook app} e o exemplo~\ref{code:fulltree} mostra uma estrutura completa.
+ao menos um \textit{recipe default} definido. O Código~\ref{code:tree} mostra essa
+estrutura mínima necessária para realizar a configuração do \textit{cookbook app} e o Código~\ref{code:fulltree} mostra uma estrutura completa.
 
 \noindent\begin{minipage}{.45\textwidth}
   \lstinputlisting[language=Bash, frame=single, label=code:tree, caption="Estrutura mínima de um \textit{cookbook}"]{conteudo/code/minimal_tree}
@@ -61,7 +61,7 @@ todas as informações necessárias para configurar o sistema e segue algumas re
 
 As \textit{recipes} são escritas em Ruby e pode-se utilizar dos recursos providos
 pela linguagem. Dispoem-se de uma coleção desse recursos que são utilizados
-para definir as ações da \textit{recipes}. No exemplo \ref{code:recipe} utiliza-se
+para definir as ações da \textit{recipes}. No Código \ref{code:recipe} utiliza-se
 três recursos: \textit{package, service} e \textit{template}.
 
 \begin{minipage}{.90\textwidth}
@@ -83,7 +83,7 @@ As \textit{definitions} são um novo tipo de recurso disponível apartir da vers
 no lugar de \textit{definitions}~\cite{chefdoc:2016}.
 
 Os \textit{definitions} são comportamento que podem ser reutilizados por outros \textit{recipes}.
-São utilizado como recursos padrões de uma receita. No exemplo \ref{code:definition}
+São utilizado como recursos padrões de uma receita. No Código \ref{code:definition}
 é definido o recurso \textit{host\_porter} com os parametros \textit{port} (valor padrão 4000)
 e \textit{hostname} (valor padrão \textit{nil}) que pode ser utilizado em outro
 \textit{recipe} com a simples chamada \textit{host\_porter}.
@@ -112,7 +112,7 @@ Pode-se utilizar os seguintes recursos:
 \end{itemize}
 
 Cada recurso \textit{file} é utilizado para um propósito, mas os seus comportamentos
-são similares. O exemplo \ref{code:file} mostra três maneira diferente de
+são similares. O Código \ref{code:file} mostra três maneira diferente de
 inserir o arquivo \textit{eth1-conf} no ambiente.
 
 \begin{minipage}{.90\textwidth}
@@ -136,7 +136,7 @@ existentes~\cite{chefdoc:2016}. Por ser construída em Ruby, todos os
 recursos provídos pela linguagem podem ser utilizadas dentro das
 \textit{libraries}.
 
-O exemplo \ref{code:library} mostra a definição para estender um
+O Código \ref{code:library} mostra a definição para estender um
 \textit{recipe} adicionando um método \textit{client} que pode ser utilizado
 para facilitar a inserção de dados referente a \textit{ip} e \textit{hostname} de um
 \textit{node}
@@ -162,10 +162,10 @@ entretanto é direcionado especificamente para a criação de novos recursos~\ci
 É uma forma simples de estender o Chef e é implementado dentro de um
 \textit{cookbook}.
 
-No exemplo \ref{code:custom} tem-se a definição de um recurso criado em \textit{cookbooks/app/resources}
+No Código \ref{code:custom} tem-se a definição de um recurso criado em \textit{cookbooks/app/resources}
 com o nome \textit{httpd} e uma propriedade \textit{homepage} com um valor padrão vazio.
 Esse recurso é distribuido por todo o \textit{cookbooks} como uma simples chamada
-de um recurso Chef como demonstra o código \ref{code:custom-user}.
+de um recurso Chef como demonstra o Código \ref{code:custom-user}.
 
 \noindent\begin{minipage}{.45\textwidth}
   \lstset{style=shell}
@@ -182,7 +182,7 @@ da necessidade de cada organização não sendo possível prevê-las.
 \subsection{\textit{Metadata}}
 \label{sec:cbmetadata}
 
-\textit{Metadata} é um arquivo localizado na raiz do \textit{cookbook} como foi monstrado no código
+\textit{Metadata} é um arquivo localizado na raiz do \textit{cookbook} como foi monstrado no Código
 \ref{code:fulltree}. Nele são definidos informações sobre o \textit{cookbook} como termos de \textit{copyright},
 \textit{email} do criador ou da organização, licença, descrição, dependências, etc. São 
 todas informações organizacionais e não são obrigatórias.

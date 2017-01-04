@@ -4,7 +4,7 @@
 Essa funcionalidade cria a estrutura de diretório para que o Cupper gere as 
 receitas Chef e leia o seu arquivo de configuração, o Cupperfile.
 
-Como exibido na saída~\ref{code:thorsaida2}, o básico dessa funcionalidade é, bem
+Como exibido no Código~\ref{code:thorsaida2}, o básico dessa funcionalidade é, bem
 simples. Um diretório com o nome escolhido vai ser criado, dentro dele um diretório
 para as cookbooks, um arquivo oculto para listar arquivos sensíveis, e um 
 Cupperfile para as definições que o usuário define para a extração.
@@ -38,7 +38,7 @@ ter pacotes de outras fontes, foi criado um atributo para que o usuário defina 
 Cupperfile e decida se quer que se extraia pacotes que tem fonte em repositórios
 fora do \textit{source list}. O exemplo de Cupperfile que é criado pelo comando
 \textit{cupper create project} tem exemplos desses atributos e explicação, como
-no código~\ref{code:sourcelesspackages.rb}.
+no Código~\ref{code:sourcelesspackages.rb}.
 
 \noindent\begin{minipage}{0.7\textwidth}
   \lstset{style=shell}
@@ -55,7 +55,7 @@ Foi criado então um atributo para o Cupperfile que deixa o usuário definir
 se o Cupper vai forçar os \textit{downgrades} ou se vai ignorar os recursos
 Cheff de pacotes que caírem nessa situação, passando \textit{action :nothing}
 para esses. O exemplo vindo do Cupperfile com sua explicação pode ser visto no
-código~\ref{code:allowdowngrade}
+Código~\ref{code:allowdowngrade}
 
 \noindent\begin{minipage}{0.7\textwidth}
   \lstset{style=shell}
@@ -70,7 +70,7 @@ entre outros que tem potencial de quebrar o acesso ao sistema caso ocorra algum 
 Para evitar esse problema, mas deixar também como opção para o usuário, mais um
 atributo para o Cupperfile foi criado, definindo se arquivos sensíveis vão ser
 copiados ou não. O exemplo vindo do Cupperfile com sua explicação pode ser visto no
-código~\ref{code:sensiblefiles}
+Código~\ref{code:sensiblefiles}
 
 \noindent\begin{minipage}{0.7\textwidth}
   \lstset{style=shell}
