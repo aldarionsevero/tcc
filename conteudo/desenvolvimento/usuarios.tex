@@ -36,3 +36,25 @@ como mostrada no Código~\ref{code:json_user}
 
 \subsection{Bloco de Receita Gerado}
 
+O JSON do Código~\ref{code:json_user} é usado para construir a receita responsável pela
+criação dos usuários. O recurso Chef \textit{user} é usado para essa criação com
+os atributos \textit{name}, \textit{uid}, \textit{home}, \textit{shell} e 
+\textit{manage\_home}, como pode ser observado no Código~\ref{code:user_recipe}.
+
+\noindent\begin{minipage}{\textwidth}
+  \lstset{style=shell}
+  \lstinputlisting[
+    language=Ruby,
+    frame=single,
+    label=code:user_recipe,
+    caption="Exemplo de receita gerada pela extração de usuários."]{conteudo/code/user_recipe.rb}
+\end{minipage}\hfill
+
+\subsection{Problemas Encontrados}
+A receita não conseguida ser executada em um novo ambiente, ou quando conseguia
+ser executada, perdia as referencias entre os grupos e os usuários. Isso fazia
+com que alguns usuários perdessem privilégios de super usuário, ou que não
+conseguissem executar nenhum comando.
+
+Para solucionar esse problema uma funcionalidade de extração de grupos, não prevista
+pro escopo inicial, teve que ser implementada. Sua descrição está na Seção~\ref{sec:groups}.
