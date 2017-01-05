@@ -1,34 +1,14 @@
 \newpage\null\thispagestyle{empty}\newpage
-\chapter{Considerações Finais}
-\label{chap:result-parc}
+\chapter{Resultados}
+\label{chap:result}
 
-{\color{red} mostrar resultados finais sumarizando os experimentos anteriores}
+Overview
 
-Dividem-se as considerações em duas partes: conclusões
-sobre a primeira parte do trabalho e expectativas para
-a segunda parte do trabalho.
+\section{Ambientes Controlados}
+\input{conteudo/metodologia/cups}
 
-\textbf{Primeira parte}: nesta primeira parte do trabalho, que
-incluem as pesquisa e revisões bibliográficas com relação
-as ferramentas de extração e construção de \textit{coookbooks},
-conclue-se que é possível realizar a engenharia reversa do
-ambiente para a construção de uma receita Chef, visto a
-ferramenta Blueprint.
+\section{Ambientes Reais}
+\input{conteudo/metodologia/mysql}
+\input{conteudo/metodologia/moodle}
+\input{conteudo/metodologia/portal}
 
-A extração de atributos do ambiente podem ser realizados
-com auxílio das ferramentas de sistema e o Ohai que permite
-estender com a adição de plugins customizados. Com isto,
-aumentar a flexibilidade de extração e filtragem dos dados
-de um ambiente.
-
-\textbf{Segunda parte}: espera-se que com a utilização do Cupper,
-seja possível replicar um ambiente apenas com a utilização
-do Cupper e Chef. O foco principal para a implementação
-está na extração dos pacotes, configurações e serviços
-de um ambiente.
-
-Não se espera chegar no caso ideal de
-recuperação de configurações customizadas, ou seja, fora
-dos padrões de disposições dos arquivos de uma aplicação,
-mas possivelmente amenizar alguns pontos com o auxilio do
-usuário indicando possíveis alterações manuais do ambiente.
