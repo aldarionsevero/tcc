@@ -14,13 +14,13 @@ precisar extrair os seguintes atributos:
 \subsection{\textit{Plugin} de Extração}
 
 O Ohai provê um plugin nativo que coleta todos os pacotes instalados. O suporte
-das plataformas são: Debian, Redhat, Fedora e OpenSUSE. Os dados coletados pelo
+das plataformas são: Debian, Redhat, Fedora e OpenSUSE\@. Os dados coletados pelo
 plugin de cada pacote são: nome do pacote e versão.
 
 Para a plataforma Debian, o plugin utiliza a ferramenta \texttt{dpkg-query} disponível
 por padrão nas distro Debian \textit{based}. O \texttt{dpkg-query} retorna uma lista de todos os pacotes
 instalados no ambiente que é interpretada pelo plugin e transformada em um JSON
-construído com a estrutura \texttt{"package\_name" => \{ "version" => "version\_number" \}}
+construído com a estrutura \texttt{``package\_name'' => \{ ``version'' => ``version\_number'' \}}
 como mostrada no Código~\ref{code:json_pkg}.
 
 \noindent\begin{minipage}{\textwidth}

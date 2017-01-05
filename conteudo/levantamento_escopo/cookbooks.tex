@@ -35,10 +35,10 @@ Os \textit{attributes} são os detalhes das especificações do \textit{node}. D
   \item em qual estado o \textit{node} deve alcançar ao final na execução do \textit{chef-client} atual.
 \end{itemize}
 
-Os \textit{attributes} são definidos: no proprio ambiente através do Ohai, nos \textit{cookbooks},
+Os \textit{attributes} são definidos no próprio ambiente através do Ohai, nos \textit{cookbooks},
 nos \textit{roles} e \textit{environments}.
 
-\textbf{Cupper}: será incluido no escopo de implementação. Os \textit{attributes} serão dispostos
+Esse atributo será incluido no escopo de implementação. Os \textit{attributes} serão dispostos
 de acordo com a coleta dos atributos do ambiente definidos na Seção~\ref{sec:cam-amb}.
 Apenas alguns atributos serão inserido como informativo sobre o ambiente, ou seja,
 não serão utilizados diretamente no \textit{recipe} do \textit{cookbook}.
@@ -69,7 +69,7 @@ três recursos: \textit{package, service} e \textit{template}.
   \lstinputlisting[language=Bash, label=code:recipe, caption="Exemplo de \textit{recipe}. Define a instala{\c{c}}{\~a}o e configura{\c{c}}{\~a}o do \textit{app} Nginx"]{conteudo/code/recipe_example.rb}
 \end{minipage}
 
-\textbf{Cupper}: será incluido no escopo de implementação. Os \textit{recipes} é o componente chave a
+Esse atributo será incluido no escopo de implementação. Os \textit{recipes} é o componente chave a
 ser gerado pelo Cupper. Nele serão descritos os passos, em sequência lógica de execução,
 de todas as configurações. Para cada \textit{cookbook}, será gerado um arquivo de 
 \textit{recipe 'default.rb'} contendo todas as informações necessárias para a execução.
@@ -93,7 +93,7 @@ e \textit{hostname} (valor padrão \textit{nil}) que pode ser utilizado em outro
   \lstinputlisting[language=Bash, label=code:definition, caption="Exemplo de \textit{definition}. Adiciona um recurso \textit{host\_porter}."]{conteudo/code/definition_example.rb}
 \end{minipage}
 
-\textbf{Cupper}: não será incluso no escopo de implementação. As \textit{definitions} são
+Esse atributo não será incluso no escopo de implementação. As \textit{definitions} são
 construídas de acordo com as necessidades de cada organização, não sendo
 possível prevê-las ou fazer uma \textit{definition} genérica.
 
@@ -120,7 +120,7 @@ inserir o arquivo \textit{eth1-conf} no ambiente.
   \lstinputlisting[language=Bash, label=code:file, caption="Exemplo de \textit{file}. Três modos de inserir o arquivo \textit{eth1-conf}."]{conteudo/code/file_example.rb}
 \end{minipage}
 
-\textbf{Cupper}: será incluido no escopo os recursos \textit{file} e \textit{cookbook\_file}.
+Esse atributo será incluido no escopo os recursos \textit{file} e \textit{cookbook\_file}.
 A leitura de um arquivo de configuração ou de implantação de uma aplicação 
 é replicado para a pasta \textit{cookbooks/COOKBOOK\_NAME/files/} de mesmo nome.
 O \textit{cookbook\_file} será gerado apartir da coleta de arquivos considerado estáticos,
@@ -150,7 +150,7 @@ Em geral, as \textit{libraries} são usadas para definir novas funções que
 auxiliam na descrição de rotinas que são mais frequentes durante a
 construção de um \textit{recipe} como verificação de arquivos ou serviços.
 
-\textbf{Cupper}: não será incluido no escopo, pois não é possível definir as \textit{libraries}
+Esse atributo não será incluido no escopo, pois não é possível definir as \textit{libraries}
 necessárias para um contexto desconhecido pelo Cupper.
 
 \subsection{\textit{Custom Resource}}
@@ -176,7 +176,7 @@ de um recurso Chef como demonstra o Código \ref{code:custom-user}.
   \lstinputlisting[language=Bash, label=code:custom-user, caption="Exemplo de utilização de um \textit{custom resource}."]{conteudo/code/custom_user.rb}
 \end{minipage}
 
-\textbf{Cupper}: não será incluido no escopo, pois a definição dos \textit{custom resource} dependem
+Esse atributo não será incluido no escopo, pois a definição dos \textit{custom resource} dependem
 da necessidade de cada organização não sendo possível prevê-las.
 
 \subsection{\textit{Metadata}}
@@ -187,7 +187,7 @@ da necessidade de cada organização não sendo possível prevê-las.
 \textit{email} do criador ou da organização, licença, descrição, dependências, etc. São 
 todas informações organizacionais e não são obrigatórias.
 
-\textbf{Cupper}: será incluso no escopo de implementação. Será feito um arquivo padrão de
+Esse atributo será incluso no escopo de implementação. Será feito um arquivo padrão de
 \textit{metadata} para a representação do \textit{cookbook} gerado pelo Cupper. O usuário deverá
 modifica-lo de acordo com as suas necessidades.
 
@@ -201,7 +201,7 @@ Enquanto o \textit{resource} diz o que deve ser feito, o \textit{provider} diz c
 feito. Por exemplo, o \textit{resource} define \lq\lq instale o pacote A\rq\rq e o \textit{provider} decide
 se deve utilizar pacotes deb ou rpm.
 
-\textbf{Cupper}: será incluso no escopo de implementação. Os \textit{resources} padrões
+Esse atributo será incluso no escopo de implementação. Os \textit{resources} padrões
 providos pelo Chef serão utilizados para definir os passos nos arquivos de
 \textit{recipes}. Os principais são:
 
@@ -231,7 +231,7 @@ de configuração que devem ser modificados de acordo com o ambiente. Os
 \textit{templates} são inseridos em \textit{COOKBOOK\_NAME/templates} e deve-se declarar o recurso
 \textit{template} nos arquivos de \textit{recipes}.
 
-\textbf{Cupper}: será incluso no escopo de implementação. A leitura de um arquivo de
+Esse atributo será incluso no escopo de implementação. A leitura de um arquivo de
 configuração ou de implantação de uma aplicação será replicado para a
 pasta \textit{cookbook/COOKBOOK\_NAME/templates/} de mesmo nome. Os \textit{templates} serão
 gerados apartir da coleta de arquivos considerados din{\^a}mico, ou seja,
@@ -244,7 +244,7 @@ As \textit{cookbook versions} são versionamentos dos \textit{cookbooks} usados 
 diferentes versões baseados nas modificações realizadas. São definidas
   dentro do arquivo de \textit{metadata} descrito na Seção \ref{sec:cbmetadata}.
 
-\textbf{Cupper}: será incluso no escopo de implementação. Será posto a versão inicial
+Esse atributo será incluso no escopo de implementação. Será posto a versão inicial
 do \textit{cookbook} e poderá ser modificado de acordo com as necessiades do usuários,
 assim como definido para as outras informações do arquivo \textit{metadas.rb} (já definido
 na Seção~\ref{sec:cbmetadata})

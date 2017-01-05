@@ -13,6 +13,7 @@ criados. Basta documentar cada método que será um comando com templates de cad
 comando e suas descrições como na primeira linha do exemplo do Código~\ref{code:thor}
 
 \noindent\begin{minipage}{\textwidth}
+  \lstset{style=shell}
   \lstinputlisting[language=Ruby, frame=single, label=code:thor, caption="Exemplo de descrição para documentação e ajuda"]{conteudo/code/thor.rb}
 \end{minipage}\hfill
 
@@ -24,6 +25,7 @@ imprimir todos os \textit{desc}`s presentes nós métodos de comando.
 Um exemplo de saída pode ser visto no Código~\ref{code:thorsaida}.
 
 \noindent\begin{minipage}{\textwidth}
+  \lstset{style=shell}
   \lstinputlisting[language=Bash, frame=single, label=code:thorsaida, caption="Exemplo de saída de ajuda geral do Thor"]{conteudo/code/thorsaida.sh}
 \end{minipage}\hfill
 
@@ -33,5 +35,6 @@ Semelhante a ajuda geral, mas para um comando específico. O Thor somente imprim
 na tela o \textit{desc} de um comando específico como pode ser visto no Código~\ref{code:thorsaida2}.
 
 \noindent\begin{minipage}{\textwidth}
+  \lstset{style=shell}
   \lstinputlisting[language=Bash, frame=single, label=code:thorsaida2, caption="Exemplo de saída de ajuda específica do Thor"]{conteudo/code/thorsaida2.sh}
 \end{minipage}\hfill
