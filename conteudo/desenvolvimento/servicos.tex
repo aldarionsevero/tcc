@@ -1,4 +1,4 @@
-\section{Funcionalidade de extrair serviços}
+\section{Funcionalidade de Extrair Serviços}
 \label{sec:services}
 
 \subsection{Atributos}
@@ -49,9 +49,8 @@ Então para gerar um bloco de receita de recursos de serviço Chef é necessári
 saber como vai ser o template da escrita desse bloco e qual \textit{plugin} o
 coletor vai utilizar para a extração.
 
-\subsection{Problemas encontrados}
+\subsection{Problemas Encontrados}
 
-\subsubsection{Distinção entre serviços instalados e serviços rodando}
 A primeira abordagem utilizada para a extração dos atributos referentes a esse
 recurso não previa a distinção entre serviços instalados e serviços que estão
 ativos ou estão rodando. A extração ocorria sem nenhum problema, e todos os serviços
@@ -65,7 +64,6 @@ também iriam falhar no ambiente novo a ser gerado, e isso teve que ser tratado.
 Para solucionar esse problema só serviços que tem status \textit{loaded, active e running}
 passaram a ser extraídos.\
 
-\subsubsection{Distinção entre diferentes \textit{Init Systems}}
 Outro problema similar foi o de não verificar qual Init System gerenciava cada
 serviço. Já que o recurso de serviço do Chef considera por padrão que os serviços
 são \textit{systemd}, quando algum serviço não era, falhas aconteciam.
@@ -73,7 +71,6 @@ são \textit{systemd}, quando algum serviço não era, falhas aconteciam.
 A extração passou então a extrair o atributo \textit{provider} que ao ser passado
 para o recurso de serviço do Chef, solucionava esse problema.
 
-\subsubsection{Distinção entre \textit{systemd units}}
 O comando utilizado para que o \textit{plugin} do Ohai extraia os serviços não
 lista somente serviços em si, já que ele lista todo tipo de \textit{systemd units}
 como \textit{mounts, devices, targets, paths}. Esse comportamento não é ideal
