@@ -24,7 +24,7 @@ e \textit{action}.
 Esses atributos são coletados e para cada serviços extraído um objeto de serviço
 é criado para ser iterado no template posteriormente.
 
-\subsection{Geração de bloco de receita}
+\subsection{Bloco de Receita Gerado}
 Para a criação da receita que cria e executa esses serviços em outro ambiente, foi 
 definido como seria o template dos blocos de recurso de serviço na sintaxe das 
 receitas Chef. Um exemplo pode ser visto no Código~\ref{code:serviceresource}.
@@ -78,6 +78,5 @@ O comando utilizado para que o \textit{plugin} do Ohai extraia os serviços não
 lista somente serviços em si, já que ele lista todo tipo de \textit{systemd units}
 como \textit{mounts, devices, targets, paths}. Esse comportamento não é ideal
 tanto por gerar falhas quanto por não fazer parte do escopo interagir com esses
-outros tipos de \textit{systemd units}.
-
-O \textit{plugin} passou então a parsear as unidades e só pegar os que são serviços.
+outros tipos de \textit{systemd units}. O \textit{plugin} passou a filtrar as
+unidades e só pegar os que são serviços.
