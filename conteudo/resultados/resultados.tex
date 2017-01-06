@@ -27,17 +27,17 @@ para os testes, e utilização correta do Cupper, algumas premissas
 e pré-requisitos.
 
 No primeiro momento, para a execução do Cupper, o ambiente alvo deve
-ser uma distribuição Debian \textit{based}, o ambiente deve conter Ruby na versão
-2.1.0 ou superior, o ambiente deve conter as depencências para instalação
+ser uma distribuição Debian \textit{based}, deve conter Ruby na versão
+2.1.0 ou superior, deve ter as depencências para instalação
 de Ruby \textit{gems} e o usuário deve ter permissão de execução do Cupper, assim como
 permissão de criar pastas e arquivos.
 
 No segundo momento, para execução da receita gerada pelo Cupper, o novo
 ambiente deve ser uma distribuição Debian \textit{based} na mesma versão do ambiente
-alvo, o novo ambiente deve ter acesso aos mesmos repositórios de pacotes que
-o ambiente alvo, o novo ambiente deve ter acesso a Internet, o usuário deve
-ter permissão de instalação de pacotes, criação e alteração de arquivos no
-diretório \texttt{/etc}, o novo ambiente deve estar configurado com o Chef Client.
+alvo, deve ter acesso aos mesmos repositórios de pacotes que
+o ambiente alvo, deve ter acesso a Internet, deve estar configurado com o Chef Client e
+o usuário deve ter permissão de instalação de pacotes, criação e alteração de arquivos no
+diretório \texttt{/etc}.
 
 Utilizou-se a ferramenta Chake para os testes no segundo momento. O Chake
 permite a execução do Chef em um ambiente remoto sem a necessidade de um
