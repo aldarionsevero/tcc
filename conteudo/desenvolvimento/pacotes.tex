@@ -34,9 +34,9 @@ Para as plataformas Redhat, Fedora e OpenSUSE, o plugin utiliza a ferramenta \te
 disponível por padrão nas distros Redhat \textit{based}. O Cupper ainda não oferece suporte
 para distros Redhat \textit{based}, portanto não foram feitos testes para esse tipo de ambiente.
 
-Não há suporte para a plataforma Arch Linux, portanto um plugin foi desenvolvido
+Não há suporte para a plataforma Archlinux, portanto um plugin foi desenvolvido
 para extrair as mesmas informações. A extração utiliza a ferramenta \texttt{pacman} disponível
-nas distros Arch Linux. O \texttt{pacman} retorna uma lista de pacotes instalados no ambiente
+nas distros Archlinux. O \texttt{pacman} retorna uma lista de pacotes instalados no ambiente
 que é interpretada pelo plugin e transformada em um JSON construído com a estrutura
 \texttt{"package\_name" => \{ "version" => "version\_number" \}} como mostrada no
 Código~\ref{code:json_pkg_pacman}.
@@ -64,7 +64,7 @@ como padrão para todos os pacotes.
     caption="Exemplo de receita gerada pela extração de pacotes."]{conteudo/code/pkg_recipe.rb}
 \end{minipage}\hfill
 
-Considera-se que o pacote irá cuidar da suas próprias dependências quanto a instalação.
+Considera-se que o pacote irá cuidar da suas próprias dependências quanto à instalação.
 Sendo assim, os pacotes que são dependências de outros não são inclusos na receita. Exemplo, se o pacote
 \textbf{A} contém as dependências \textbf{B} e \textbf{C} elas não serão inclusas na receita, pois o pacote \textbf{A} irá realizar a instalação.
 
@@ -75,7 +75,7 @@ saber se o pacote continua disponível no repositório de pacotes remotos ou
 se ao menos tem um repositório remoto associado. Isso causou falha na realização
 dos testes. Tanto os pacotes instalados manualmente, por meio de download do
 \textit{source}, quanto os pacotes que não estão mais disponíveis no repositório remoto ou
-mesmo repositórios inseridos manualmente, não eram identificado durante a
+mesmo repositórios inseridos manualmente, não eram identificados durante a
 configuração do novo ambiente.
 
 Esse comportamento não é esperado, portanto algumas medidas foram tomadas para
@@ -104,8 +104,8 @@ que todos os repositórios não oficiais do ambiente alvo sejam aplicados ao nov
 Outro problema encontrado está relacionado a versão dos pacotes.
 A receita especifica para todos os pacotes a versão que foi extraída do ambiente.
 Ao realizar a configuração do novo ambiente, é possível que o pacote já esteja instalado,
-mas a sua versão esta à frente da definida na receita. Quando isso ocorre, dois comportamentos
-podem ocorrer: não há error e é feito o \textit{downgrade} do pacote ou ocorre erro no \textit{downgrade} das
+mas a sua versão esteja à frente da definida na receita. Quando isso ocorre, dois comportamentos
+podem ocorrer: não há erro e é feito o \textit{downgrade} do pacote ou ocorre erro no \textit{downgrade} das
 dependências do pacote. Isso ocorre porque o gerenciador de pacotes não realiza o \textit{downgrade}
 das dependências, e as versões antigas dos pacotes podem exigir as versões antigas das suas
 dependências.
