@@ -1,3 +1,37 @@
+\subsection{Serviço Portal}
 
-1 Checklist serviços => importantes
-Checklist nova maquina
+A máquina que contem o Portal FGA foi montada com a distro Debian 8 Jessie
+e está em operação desde Novembro de 2016. O principal serviço, o site Portal FGA,
+é provido pela plataforma Noosfero. A extração com o Cupper foi completa,
+sem erros de sintaxe.
+
+O novo ambiente foi montado com a mesma imagem que foi utilizada na máquina
+Portal em homologação. Com isso, a distribuição, versão de Kernel e repositórios
+de pacotes são as mesmas do ambiente de homologação. Esse novo ambiente, não
+continha nenhum serviço ou pacotes instalados que não fossem os padrões
+disponível na distribuição.
+
+A Tabela~\ref{tab:result_portal} mostra os principais serviços e pacotes instalados
+na máquina em homologação do Portal.
+
+O Cupper foi executado com a opção de versionamento de pacotes desativada. O motivo para
+a abordagem é a indisponibilidade dos pacotes nas versões instaladas no ambiente
+Portal em homologação. Entretanto o problema persistiu durante a configuração
+do novo ambiente, por conta de alguns pacotes não seguirem o padrão de versionamento.
+Em geral, os pacotes são instalados especificando a versão: pacote A, versão 1, mas os
+pacotes instalados seguia outro padrão: pacote A1, versão 1. Neste caso,
+para fazer o \textit{upgrade} do pacote A, é necessário instalar outro pacote: pacote A2,
+versão 2. Sendo assim, a receita tentava instalar alguns pacotes em duas versões
+diferentes, uma disponível no repositório (atualizada), e outra que não estava mais
+no repositório.
+
+Ainda com relação aos pacotes, outro problema foi encontrado. Para instalar pacotes
+de um repositório, é necessário uma chave de autenticação para garantir que o repositório
+é seguro. O novo ambiente não tem tais chaves, o que causa erro na instalação desses
+pacotes.
+
+Tendo em vista esses dois problemas, duas alterações na receita foram necessárias:
+remoção dos pacotes sem repositório associado e adição da flag \texttt{allow-unauthenticated}
+na instalação dos pacotes não autenticados.
+
+

@@ -74,23 +74,32 @@ O método de extração dos pacotes instalados não realiza nenhuma checagem par
 saber se o pacote continua disponível no repositório de pacotes remotos ou
 se ao menos tem um repositório remoto associado. Isso causou falha na realização
 dos testes. Tanto os pacotes instalados manualmente, por meio de download do
-\textit{source}, quanto os pacotes que não estão mais disponíveis no repositório remoto
-não eram identificado durante a configuração do novo ambiente.
+\textit{source}, quanto os pacotes que não estão mais disponíveis no repositório remoto ou
+mesmo repositórios inseridos manualmente, não eram identificado durante a
+configuração do novo ambiente.
 
-Já que isso não é o comportamento esperado, mas pode ser uma escolha do usuário
-ter pacotes de outras fontes, foi criado um atributo para que o usuário defina no
-Cupperfile e decida se quer extrair pacotes que tem fonte em repositórios
-fora do \textit{source list}. O exemplo de Cupperfile que é criado pelo comando
-\textit{cupper create project} tem exemplos desses atributos e explicação, como
-no Código~\ref{code:sourcelesspackages.rb}.
+Esse comportamento não é esperado, portanto algumas medidas foram tomadas para
+que o problema fosse parcialmente corrigido. Para o caso de repositórios que
+tenha outro \textit{source} além do padrão Debian, a receita de package gerada adiciona
+o atributo \textit{cookbook\_file} contendo o arquivo \texttt{source.list} e outros disponíveis
+no diretório \texttt{/etc/apt/source.list.d/} extraído do ambiente. Isso permite
+que todos os repositórios não oficiais do ambiente alvo sejam aplicados ao novo ambiente.
 
-\noindent\begin{minipage}{\textwidth}
-  \lstset{style=shell}
-  \lstinputlisting[
-    language=Ruby,
-    label=code:sourcelesspackages.rb,
-  caption="Definição do atributo de \textit{sourceless packages}"]{conteudo/code/sourcelesspackages.rb}
-\end{minipage}\hfill
+% TODO: isso será trabalhos futuros
+%Já que isso não é o comportamento esperado, mas pode ser uma escolha do usuário
+%ter pacotes de outras fontes, foi criado um atributo para que o usuário defina no
+%Cupperfile e decida se quer extrair pacotes que tem fonte em repositórios
+%fora do \textit{source list}. O exemplo de Cupperfile que é criado pelo comando
+%\textit{cupper create project} tem exemplos desses atributos e explicação, como
+%no Código~\ref{code:sourcelesspackages.rb}.
+%
+%\noindent\begin{minipage}{\textwidth}
+%  \lstset{style=shell}
+%  \lstinputlisting[
+%    language=Ruby,
+%    label=code:sourcelesspackages.rb,
+%  caption="Definição do atributo de \textit{sourceless packages}"]{conteudo/code/sourcelesspackages.rb}
+%\end{minipage}\hfill
 
 Outro problema encontrado está relacionado a versão dos pacotes.
 A receita especifica para todos os pacotes a versão que foi extraída do ambiente.
@@ -101,19 +110,19 @@ dependências do pacote. Isso ocorre porque o gerenciador de pacotes não realiz
 das dependências, e as versões antigas dos pacotes podem exigir as versões antigas das suas
 dependências.
 
-Portanto foi criado o atributo \texttt{allow\_downgrade} para o Cupperfile que possibilita
-o usuário definir se a receita gerada irá conter atributos que force instalar
-a versão antiga (Código~\ref{code:allowdowngrade}). O método de realizar isso
-é por meio da desinstalação completa do pacote, que inclui as dependências,
-e a instalação do pacote antigo.
-
-\noindent\begin{minipage}{\textwidth}
-  \lstset{style=shell}
-  \lstinputlisting[
-    language=Ruby,
-    label=code:allowdowngrade,
-    caption="Definição do atributo de \textit{allow downgrade}"]{conteudo/code/allowdowngrade.rb}
-\end{minipage}\hfill
+%Portanto foi criado o atributo \texttt{allow\_downgrade} para o Cupperfile que possibilita
+%o usuário definir se a receita gerada irá conter atributos que force instalar
+%a versão antiga (Código~\ref{code:allowdowngrade}). O método de realizar isso
+%é por meio da desinstalação completa do pacote, que inclui as dependências,
+%e a instalação do pacote antigo.
+%
+%\noindent\begin{minipage}{\textwidth}
+%  \lstset{style=shell}
+%  \lstinputlisting[
+%    language=Ruby,
+%    label=code:allowdowngrade,
+%    caption="Definição do atributo de \textit{allow downgrade}"]{conteudo/code/allowdowngrade.rb}
+%\end{minipage}\hfill
 
 Ainda com relação a versão do pacote, outro caso de erro foi encontrado.
 Por conta do sistema estar desatualizado, ou seja, não houve atualização dos pacotes

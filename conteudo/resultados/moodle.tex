@@ -13,10 +13,6 @@ de pacotes são as mesmas do ambiente de produção. Esse novo ambiente, não
 continha nenhum serviço ou pacotes instalados que não fossem os padrões
 disponível na distribuição.
 
-O Cupper foi executado com a opção de versionamento de pacote desativada,
-ou seja, os pacotes que iriam ser instalados no novo ambiente seriam os
-mais recentes disponíveis. O motivo para a abordagem é a indisponibilidade
-dos pacotes nas versões instaladas no ambiente Moodle em produção.
 A Tabela~\ref{tab:result_moodle} mostra os principais serviços e pacotes instalados
 na máquina em produção e os resultados dos mesmos no ambiente replicado.
 
@@ -38,6 +34,11 @@ na máquina em produção e os resultados dos mesmos no ambiente replicado.
   \multirow{-2}{*}{Serviços}             & \begin{tabular}[c]{@{}c@{}}Serviço Mysql\\ Executando\end{tabular}             & \begin{tabular}[c]{@{}c@{}}Serviço Mysql\\ Executando\end{tabular}             & X                                         \\ \hline
   \end{tabular}
 \end{table}
+
+O Cupper foi executado com a opção de versionamento de pacotes desativada,
+ou seja, os pacotes que iriam ser instalados no novo ambiente seriam os
+mais recentes disponíveis. O motivo para a abordagem é a indisponibilidade
+dos pacotes nas versões instaladas no ambiente Moodle em produção.
 
 A aplicação Moodle não foi replicada no novo ambiente, isso ocorreu porque,
 no ambiente de produção, a instalação foi manual, ou seja, foi feito o download dos
