@@ -99,7 +99,9 @@ dependências do pacote. Isso ocorre porque o gerenciador de pacotes não realiz
 das dependências, e as versões antigas dos pacotes podem exigir as versões antigas das suas
 dependências.
 
-Uma forma de resolver este problema é colocar um atributo de configuração de extração no
+Foi criado o Cupperfile, que é um arquivo de configuração de extração que define atributos
+que são usados para restringir ou permitir mais atributos ou recursos na receita gerada.
+Então para a resolução do problema acima, é colocar um atributo de configuração de extração no
 Cupperfile que possibilita o usuário definir se a receita gerada force a intalação de uma
 versão antiga. A forma de realizar esse \textit{downgrade} é eliminando o pacote e suas dependências
 e instalando a versão mais antiga.
