@@ -85,21 +85,10 @@ o atributo \textit{cookbook\_file} contendo o arquivo \texttt{source.list} e out
 no diretório \texttt{/etc/apt/source.list.d/} extraído do ambiente. Isso permite
 que todos os repositórios não oficiais do ambiente alvo sejam aplicados ao novo ambiente.
 
-% TODO: isso será trabalhos futuros
-%Já que isso não é o comportamento esperado, mas pode ser uma escolha do usuário
-%ter pacotes de outras fontes, foi criado um atributo para que o usuário defina no
-%Cupperfile e decida se quer extrair pacotes que tem fonte em repositórios
-%fora do \textit{source list}. O exemplo de Cupperfile que é criado pelo comando
-%\textit{cupper create project} tem exemplos desses atributos e explicação, como
-%no Código~\ref{code:sourcelesspackages.rb}.
-%
-%\noindent\begin{minipage}{\textwidth}
-%  \lstset{style=shell}
-%  \lstinputlisting[
-%    language=Ruby,
-%    label=code:sourcelesspackages.rb,
-%  caption="Definição do atributo de \textit{sourceless packages}"]{conteudo/code/sourcelesspackages.rb}
-%\end{minipage}\hfill
+Uma possível forma de contornar problema de pacotes sem repositório é
+a criação de um atributo para que o usuário defina no Cupperfile se
+será extraído pacotes que tem fonte em repositórios fora do \textit{source list} padrão ou
+nenhum repositório vinculado.
 
 Outro problema encontrado está relacionado a versão dos pacotes.
 A receita especifica para todos os pacotes a versão que foi extraída do ambiente.
@@ -110,22 +99,17 @@ dependências do pacote. Isso ocorre porque o gerenciador de pacotes não realiz
 das dependências, e as versões antigas dos pacotes podem exigir as versões antigas das suas
 dependências.
 
-%Portanto foi criado o atributo \texttt{allow\_downgrade} para o Cupperfile que possibilita
-%o usuário definir se a receita gerada irá conter atributos que force instalar
-%a versão antiga (Código~\ref{code:allowdowngrade}). O método de realizar isso
-%é por meio da desinstalação completa do pacote, que inclui as dependências,
-%e a instalação do pacote antigo.
-%
-%\noindent\begin{minipage}{\textwidth}
-%  \lstset{style=shell}
-%  \lstinputlisting[
-%    language=Ruby,
-%    label=code:allowdowngrade,
-%    caption="Definição do atributo de \textit{allow downgrade}"]{conteudo/code/allowdowngrade.rb}
-%\end{minipage}\hfill
+Uma forma de resolver este problema é colocar um atributo de configuração de extração no
+Cupperfile que possibilita o usuário definir se a receita gerada force a intalação de uma
+versão antiga. A forma de realizar esse \textit{downgrade} é eliminando o pacote e suas dependências
+e instalando a versão mais antiga.
 
 Ainda com relação a versão do pacote, outro caso de erro foi encontrado.
 Por conta do sistema estar desatualizado, ou seja, não houve atualização dos pacotes
 instalados, a versão instalada pode não estar mais disponível no repositório principal.
 Neste caso o gerenciado de pacotes não encontrará a fonte e acusará erro.
 
+Uma solução parcial usada para o problema de versão foi a criação de atributo no
+Cupperfile que define se será extraído as informações de versão ou não do pacote.
+Com esse atributo definido como falso, a receita gerada não especifica a versão
+do pacote, instalando a última versão disponível no repositório.
